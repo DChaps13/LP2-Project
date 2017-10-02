@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CilixSolutions", "CilixSolutions\CilixSolutions.csproj", "{8DC508AA-0E76-4FF4-B7F6-E0A6794D7EB9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDatos", "AccesoDatos\AccesoDatos.csproj", "{1D4E7444-49F9-479D-A94A-DC8B6A12D40D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controlador", "Controlador\Controlador.csproj", "{0B352377-AE92-4FD9-9079-2E8E996680C1}"
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8DC508AA-0E76-4FF4-B7F6-E0A6794D7EB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8DC508AA-0E76-4FF4-B7F6-E0A6794D7EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8DC508AA-0E76-4FF4-B7F6-E0A6794D7EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8DC508AA-0E76-4FF4-B7F6-E0A6794D7EB9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1D4E7444-49F9-479D-A94A-DC8B6A12D40D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1D4E7444-49F9-479D-A94A-DC8B6A12D40D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D4E7444-49F9-479D-A94A-DC8B6A12D40D}.Release|Any CPU.ActiveCfg = Release|Any CPU
