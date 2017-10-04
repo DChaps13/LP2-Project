@@ -1,0 +1,8 @@
+Venta
++
+Compra
+-
+Prestamo
+-
+Devolución de Prestamo
++
