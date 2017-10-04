@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class Transacciones : Form
+    public partial class NuevaTransaccion : Form
     {
-        public Transacciones()
+        public NuevaTransaccion()
         {
             InitializeComponent();
             //por ejemplo. Luego pasarlo a Data Access y Control

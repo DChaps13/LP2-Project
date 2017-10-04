@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class Transacciones
+    partial class NuevaTransaccion
     {
         /// <summary>
         /// Required designer variable.
@@ -42,13 +42,13 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btNuevoContacto = new System.Windows.Forms.Button();
             this.btBuscarContacto = new System.Windows.Forms.Button();
             this.txtNombContacto = new System.Windows.Forms.TextBox();
             this.btAceptar = new System.Windows.Forms.Button();
             this.btBuscaProducto = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -183,6 +183,16 @@
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label1.Location = new System.Drawing.Point(17, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 17);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Cantidad";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -240,16 +250,6 @@
             this.btBuscaProducto.UseVisualStyleBackColor = true;
             this.btBuscaProducto.Click += new System.EventHandler(this.btBuscaProducto_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label1.Location = new System.Drawing.Point(17, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 17);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Cantidad";
-            // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
@@ -258,7 +258,7 @@
             this.textBox1.Size = new System.Drawing.Size(97, 22);
             this.textBox1.TabIndex = 19;
             // 
-            // Transacciones
+            // NuevaTransaccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -277,8 +277,8 @@
             this.Controls.Add(this.txtNombUsuario);
             this.Controls.Add(this.lblNombUsuario);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Transacciones";
-            this.Text = "Transacciones";
+            this.Name = "NuevaTransaccion";
+            this.Text = "Nueva Transaccion";
             ((System.ComponentModel.ISupportInitialize)(this.numCantidad)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
