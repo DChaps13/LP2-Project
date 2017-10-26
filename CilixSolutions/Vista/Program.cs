@@ -16,7 +16,7 @@ namespace Vista
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Logueo());
+            Application.Run(new principal());
         }
     }
 }

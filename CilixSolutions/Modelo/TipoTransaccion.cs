@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    public class Tipo
+    public class TipoTransaccion
     {
         private string descriptor; /*nombre del tipo: Prestamo, venta, ajuste (+), ajuste (-)*/
-        private string signo; /*Se agrega o se quita del stock*/
+        private int signo; /*Se agrega o se quita del stock*/
 
-        public Tipo()
+        public TipoTransaccion()
         {
 
         }
 
         public string Descriptor { get => descriptor; set => descriptor = value; }
-        public string Signo { get => signo; set => signo = value; }
+        public int Signo { get => signo; set => signo = value; }
 
         public override string ToString()
         {

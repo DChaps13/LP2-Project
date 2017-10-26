@@ -16,5 +16,10 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        private void btnEmpezar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
