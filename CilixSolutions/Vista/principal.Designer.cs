@@ -43,6 +43,7 @@
             this.jurídicoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.jurídicoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.productoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logueoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.transaccionesToolStripMenuItem,
-            this.buscarToolStripMenuItem});
+            this.buscarToolStripMenuItem,
+            this.logueoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1109, 28);
@@ -101,7 +103,7 @@
             // jurídicoToolStripMenuItem
             // 
             this.jurídicoToolStripMenuItem.Name = "jurídicoToolStripMenuItem";
-            this.jurídicoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.jurídicoToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.jurídicoToolStripMenuItem.Text = "Jurídico...";
             this.jurídicoToolStripMenuItem.Click += new System.EventHandler(this.jurídicoToolStripMenuItem_Click);
             // 
@@ -126,14 +128,14 @@
             // transacciónToolStripMenuItem1
             // 
             this.transacciónToolStripMenuItem1.Name = "transacciónToolStripMenuItem1";
-            this.transacciónToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
+            this.transacciónToolStripMenuItem1.Size = new System.Drawing.Size(171, 26);
             this.transacciónToolStripMenuItem1.Text = "Transacción...";
             this.transacciónToolStripMenuItem1.Click += new System.EventHandler(this.transacciónToolStripMenuItem1_Click);
             // 
             // usuarioToolStripMenuItem1
             // 
             this.usuarioToolStripMenuItem1.Name = "usuarioToolStripMenuItem1";
-            this.usuarioToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
+            this.usuarioToolStripMenuItem1.Size = new System.Drawing.Size(171, 26);
             this.usuarioToolStripMenuItem1.Text = "Usuario...";
             this.usuarioToolStripMenuItem1.Click += new System.EventHandler(this.usuarioToolStripMenuItem1_Click);
             // 
@@ -143,7 +145,7 @@
             this.jurídicoToolStripMenuItem1,
             this.jurídicoToolStripMenuItem2});
             this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
-            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(171, 26);
             this.clientesToolStripMenuItem1.Text = "Clientes";
             // 
             // jurídicoToolStripMenuItem1
@@ -155,16 +157,23 @@
             // jurídicoToolStripMenuItem2
             // 
             this.jurídicoToolStripMenuItem2.Name = "jurídicoToolStripMenuItem2";
-            this.jurídicoToolStripMenuItem2.Size = new System.Drawing.Size(181, 26);
+            this.jurídicoToolStripMenuItem2.Size = new System.Drawing.Size(144, 26);
             this.jurídicoToolStripMenuItem2.Text = "Jurídico...";
             this.jurídicoToolStripMenuItem2.Click += new System.EventHandler(this.jurídicoToolStripMenuItem2_Click);
             // 
             // productoToolStripMenuItem
             // 
             this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
-            this.productoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.productoToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
             this.productoToolStripMenuItem.Text = "Producto";
             this.productoToolStripMenuItem.Click += new System.EventHandler(this.productoToolStripMenuItem_Click);
+            // 
+            // logueoToolStripMenuItem
+            // 
+            this.logueoToolStripMenuItem.Name = "logueoToolStripMenuItem";
+            this.logueoToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.logueoToolStripMenuItem.Text = "Logueo...";
+            this.logueoToolStripMenuItem.Click += new System.EventHandler(this.logueoToolStripMenuItem_Click);
             // 
             // principal
             // 
@@ -200,5 +209,6 @@
         private System.Windows.Forms.ToolStripMenuItem productoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem jurídicoToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem productoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logueoToolStripMenuItem;
     }
 }

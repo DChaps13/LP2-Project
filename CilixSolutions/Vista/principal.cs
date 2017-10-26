@@ -82,5 +82,13 @@ namespace Vista
             childForm.Text = "Buscar Productos";
             childForm.Show();            
         }
+
+        private void logueoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Logueo childForm = new Logueo();
+            childForm.MdiParent = this;
+            childForm.Text = "Logueo";
+            childForm.Show();
+        }
     }
 }
