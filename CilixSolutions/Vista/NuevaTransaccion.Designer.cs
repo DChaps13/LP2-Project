@@ -106,7 +106,7 @@
             this.cboTipo.FormattingEnabled = true;
             this.cboTipo.Location = new System.Drawing.Point(161, 26);
             this.cboTipo.Name = "cboTipo";
-            this.cboTipo.Size = new System.Drawing.Size(143, 24);
+            this.cboTipo.Size = new System.Drawing.Size(308, 24);
             this.cboTipo.TabIndex = 5;
             // 
             // numCantidad

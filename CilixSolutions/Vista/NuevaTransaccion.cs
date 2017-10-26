@@ -19,9 +19,9 @@ namespace Vista
             {
                 string linea = lectorTipos.ReadLine();
                 if (linea == null) break;
-                Tipo t = new Tipo();
+                TipoTransaccion t = new TipoTransaccion();
                 t.Descriptor = linea;
-                t.Signo = lectorTipos.ReadLine();
+                t.Signo =Int32.Parse(lectorTipos.ReadLine());
                 cboTipo.Items.Add(t);
             }
         }       
