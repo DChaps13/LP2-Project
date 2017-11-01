@@ -20,6 +20,6 @@ namespace Modelo
         public DateTime FechaCreacion { get => fechaCreacion; set => fechaCreacion = value; }
         public DateTime FechaModificacion { get => fechaModificacion; set => fechaModificacion = value; }
         public string Estado { get => estado; set => estado = value; }
-        internal RolUsuario Rol { get => rol; set => rol = value; }
+        public RolUsuario Rol { get => rol; set => rol = value; }
     }
 }
