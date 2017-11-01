@@ -90,5 +90,20 @@ namespace Vista
             childForm.Text = "Logueo";
             childForm.Show();
         }
+
+        private void transaccionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void naturalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
