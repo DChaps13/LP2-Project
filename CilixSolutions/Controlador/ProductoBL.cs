@@ -18,12 +18,12 @@ namespace Controlador
             prodDA = new ProductoDA();
         }
 
-        public bool registrarRol(Producto p)
+        public bool registrarProducto(Producto p)
         {
             return prodDA.registrarProducto(p);
         }
 
-        public BindingList<Producto> listaRoles()
+        public BindingList<Producto> listaProductos()
         {
             return prodDA.devolverLista();
         }
