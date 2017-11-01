@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBoxBuscarUsuario = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.Buscar = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.nuevoUsuario = new System.Windows.Forms.Button();
             this.groupBoxBuscarUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataUsuarios)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +48,7 @@
             // 
             this.groupBoxBuscarUsuario.Controls.Add(this.comboBox2);
             this.groupBoxBuscarUsuario.Controls.Add(this.label3);
-            this.groupBoxBuscarUsuario.Controls.Add(this.button2);
+            this.groupBoxBuscarUsuario.Controls.Add(this.Buscar);
             this.groupBoxBuscarUsuario.Controls.Add(this.comboBox1);
             this.groupBoxBuscarUsuario.Controls.Add(this.label2);
             this.groupBoxBuscarUsuario.Controls.Add(this.textBox1);
@@ -61,58 +61,6 @@
             this.groupBoxBuscarUsuario.Text = "Buscar Usuario";
             this.groupBoxBuscarUsuario.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ID Usuario";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(97, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(169, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Rol";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(97, 65);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 21);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(310, 65);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 229);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(401, 137);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
@@ -120,6 +68,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(169, 21);
             this.comboBox2.TabIndex = 9;
+            this.comboBox2.Text = "Todos";
             // 
             // label3
             // 
@@ -130,9 +79,64 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Estado";
             // 
+            // Buscar
+            // 
+            this.Buscar.Location = new System.Drawing.Point(310, 65);
+            this.Buscar.Name = "Buscar";
+            this.Buscar.Size = new System.Drawing.Size(75, 23);
+            this.Buscar.TabIndex = 7;
+            this.Buscar.Text = "Buscar";
+            this.Buscar.UseVisualStyleBackColor = true;
+            this.Buscar.Click += new System.EventHandler(this.Buscar_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(97, 65);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(169, 21);
+            this.comboBox1.TabIndex = 6;
+            this.comboBox1.Text = "Todos";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Rol";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(97, 26);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(169, 20);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "Todos";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ID Usuario";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // dataUsuarios
+            // 
+            this.dataUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataUsuarios.Location = new System.Drawing.Point(11, 229);
+            this.dataUsuarios.Name = "dataUsuarios";
+            this.dataUsuarios.Size = new System.Drawing.Size(401, 137);
+            this.dataUsuarios.TabIndex = 1;
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.nuevoUsuario);
             this.groupBox2.Location = new System.Drawing.Point(13, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(401, 58);
@@ -140,27 +144,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nuevo Usuario";
             // 
-            // button3
+            // nuevoUsuario
             // 
-            this.button3.Location = new System.Drawing.Point(114, 19);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(170, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Nuevo Usuario";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.nuevoUsuario.Location = new System.Drawing.Point(114, 19);
+            this.nuevoUsuario.Name = "nuevoUsuario";
+            this.nuevoUsuario.Size = new System.Drawing.Size(170, 23);
+            this.nuevoUsuario.TabIndex = 10;
+            this.nuevoUsuario.Text = "Nuevo Usuario";
+            this.nuevoUsuario.UseVisualStyleBackColor = true;
+            this.nuevoUsuario.Click += new System.EventHandler(this.nuevoUsuario_Click);
             // 
             // Usuarios
             // 
             this.ClientSize = new System.Drawing.Size(426, 379);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataUsuarios);
             this.Controls.Add(this.groupBoxBuscarUsuario);
             this.Name = "Usuarios";
             this.Text = "Usuarios";
             this.groupBoxBuscarUsuario.ResumeLayout(false);
             this.groupBoxBuscarUsuario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataUsuarios)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -177,9 +181,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button Buscar;
+        private System.Windows.Forms.DataGridView dataUsuarios;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button nuevoUsuario;
     }
 }

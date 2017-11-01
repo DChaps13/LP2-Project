@@ -32,7 +32,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.verifyID = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.verifyID);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
@@ -87,14 +87,15 @@
             this.comboBox1.Size = new System.Drawing.Size(174, 21);
             this.comboBox1.TabIndex = 3;
             // 
-            // button1
+            // verifyID
             // 
-            this.button1.Location = new System.Drawing.Point(296, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Verificar Disponibilidad";
-            this.button1.UseVisualStyleBackColor = true;
+            this.verifyID.Location = new System.Drawing.Point(296, 22);
+            this.verifyID.Name = "verifyID";
+            this.verifyID.Size = new System.Drawing.Size(136, 23);
+            this.verifyID.TabIndex = 2;
+            this.verifyID.Text = "Verificar Disponibilidad";
+            this.verifyID.UseVisualStyleBackColor = true;
+            this.verifyID.Click += new System.EventHandler(this.verifyID_Click);
             // 
             // label3
             // 
@@ -159,7 +160,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button verifyID;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
