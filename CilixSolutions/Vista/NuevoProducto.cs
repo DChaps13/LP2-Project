@@ -15,19 +15,19 @@ namespace Vista
     public partial class NuevoProducto : Form
     {
         ProductoBL logNegProd;
-        //PerJuridicaBL logNegPJ;
-        //CategoriaBL logNegCat;
+        PerJuridicaBL logNegPJ;
+        CategoriaBL logNegCat;
         public NuevoProducto()
         {
             InitializeComponent();
             logNegProd = new ProductoBL();
-            //logNegCat = new CategoriaBL();
+            logNegCat = new CategoriaBL();
 
-            //logNegPJ = new PerJuridicaBL();
+            logNegPJ = new PerJuridicaBL();
             BindingList<PersonaJuridica> listaPJ = new BindingList<PersonaJuridica>();
             BindingList<CategoriaProd> listaCat = new BindingList<CategoriaProd>();
-            //listaCat = logNegCat.listaCategorias();
-           // listaPJ = logNegPJ.listaPJs();
+            listaCat = logNegCat.listaCategorias();
+            listaPJ = logNegPJ.listaPJs();
 
 
             comboBox1.ValueMember = "RazonSocial";
