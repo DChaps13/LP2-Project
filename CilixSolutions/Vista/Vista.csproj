@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="inf282g4DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inf282g4DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Logueo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +152,17 @@
     <EmbeddedResource Include="Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="inf282g4DataSet.xsc">
+      <DependentUpon>inf282g4DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="inf282g4DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>inf282g4DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="inf282g4DataSet.xss">
+      <DependentUpon>inf282g4DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
