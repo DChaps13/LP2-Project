@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="CategoriaProd.cs" />
     <Compile Include="Contacto.cs" />
+    <Compile Include="Estado.cs" />
     <Compile Include="PersonaJuridica.cs" />
     <Compile Include="PersonaNatural.cs" />
     <Compile Include="Producto.cs" />

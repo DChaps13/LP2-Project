@@ -84,7 +84,7 @@ namespace Vista
             {
                 for (int i = 0; i < usuariosSel.Count; i++)
                 {
-                    if (usuariosSel[i].Estado != comboBox2.Text)
+                    if (usuariosSel[i].Estado.ToString() != comboBox2.Text)
                     {
                         usuariosAux.Remove(usuariosSel[i]);
                     }

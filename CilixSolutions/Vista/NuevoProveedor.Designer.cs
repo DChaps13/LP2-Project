@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbNo = new System.Windows.Forms.RadioButton();
+            this.rbSi = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -39,9 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.rbNo = new System.Windows.Forms.RadioButton();
-            this.rbSi = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,39 +60,73 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(465, 334);
+            this.groupBox1.Size = new System.Drawing.Size(349, 271);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Proveedor";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // rbNo
+            // 
+            this.rbNo.AutoSize = true;
+            this.rbNo.Location = new System.Drawing.Point(212, 177);
+            this.rbNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbNo.Name = "rbNo";
+            this.rbNo.Size = new System.Drawing.Size(39, 17);
+            this.rbNo.TabIndex = 15;
+            this.rbNo.TabStop = true;
+            this.rbNo.Text = "No";
+            this.rbNo.UseVisualStyleBackColor = true;
+            this.rbNo.CheckedChanged += new System.EventHandler(this.rbNo_CheckedChanged);
+            // 
+            // rbSi
+            // 
+            this.rbSi.AutoSize = true;
+            this.rbSi.Location = new System.Drawing.Point(124, 177);
+            this.rbSi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbSi.Name = "rbSi";
+            this.rbSi.Size = new System.Drawing.Size(34, 17);
+            this.rbSi.TabIndex = 14;
+            this.rbSi.TabStop = true;
+            this.rbSi.Text = "Si";
+            this.rbSi.UseVisualStyleBackColor = true;
+            this.rbSi.CheckedChanged += new System.EventHandler(this.rbSi_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(48, 177);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Es Cliente";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 162);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(48, 132);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 17);
+            this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Correo";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(167, 159);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Location = new System.Drawing.Point(125, 129);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(231, 22);
+            this.textBox4.Size = new System.Drawing.Size(174, 20);
             this.textBox4.TabIndex = 7;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(260, 273);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Location = new System.Drawing.Point(195, 222);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(181, 28);
+            this.button5.Size = new System.Drawing.Size(136, 23);
             this.button5.TabIndex = 5;
             this.button5.Text = "Cancelar";
             this.button5.UseVisualStyleBackColor = true;
@@ -100,109 +134,77 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(28, 273);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Location = new System.Drawing.Point(21, 222);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(181, 28);
+            this.button4.Size = new System.Drawing.Size(136, 23);
             this.button4.TabIndex = 4;
             this.button4.Text = "Crear";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 119);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(48, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 17);
+            this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Teléfono";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(167, 116);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Location = new System.Drawing.Point(125, 94);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(231, 22);
+            this.textBox3.Size = new System.Drawing.Size(174, 20);
             this.textBox3.TabIndex = 1;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(167, 73);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Location = new System.Drawing.Point(125, 59);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(231, 22);
+            this.textBox2.Size = new System.Drawing.Size(174, 20);
             this.textBox2.TabIndex = 1;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 76);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(48, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 17);
+            this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "RUC";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(167, 31);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(125, 25);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(231, 22);
+            this.textBox1.Size = new System.Drawing.Size(174, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 34);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(48, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 17);
+            this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Razón Social";
-            // 
-            // rbNo
-            // 
-            this.rbNo.AutoSize = true;
-            this.rbNo.Location = new System.Drawing.Point(282, 218);
-            this.rbNo.Name = "rbNo";
-            this.rbNo.Size = new System.Drawing.Size(47, 21);
-            this.rbNo.TabIndex = 15;
-            this.rbNo.TabStop = true;
-            this.rbNo.Text = "No";
-            this.rbNo.UseVisualStyleBackColor = true;
-            // 
-            // rbSi
-            // 
-            this.rbSi.AutoSize = true;
-            this.rbSi.Location = new System.Drawing.Point(166, 218);
-            this.rbSi.Name = "rbSi";
-            this.rbSi.Size = new System.Drawing.Size(41, 21);
-            this.rbSi.TabIndex = 14;
-            this.rbSi.TabStop = true;
-            this.rbSi.Text = "Si";
-            this.rbSi.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(64, 218);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 17);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Es Cliente";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // NuevoProveedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 362);
+            this.ClientSize = new System.Drawing.Size(369, 294);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NuevoProveedor";
             this.Text = "Nuevo Proveedor";
+            this.Load += new System.EventHandler(this.NuevoProveedor_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

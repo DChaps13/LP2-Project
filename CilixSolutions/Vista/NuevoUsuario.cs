@@ -57,7 +57,6 @@ namespace Vista
             logNegUsu.registrarUsuario(u);
 
 
-
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
