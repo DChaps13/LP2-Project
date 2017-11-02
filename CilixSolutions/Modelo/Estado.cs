@@ -11,6 +11,11 @@ namespace Modelo
         private int _id;
         private string _nombre;
 
+        public Estado()
+        {
+
+        }
+
         public Estado(int id, string nombre)
         {
             _id = id;

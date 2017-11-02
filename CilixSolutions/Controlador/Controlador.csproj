@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoriaBL.cs" />
+    <Compile Include="EstadoBL.cs" />
     <Compile Include="PerJuridicaBL.cs" />
     <Compile Include="ProductoBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

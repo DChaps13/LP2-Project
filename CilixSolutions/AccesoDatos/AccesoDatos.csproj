@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CategoriaDA.cs" />
     <Compile Include="ConexionBD.cs" />
+    <Compile Include="EstadoDA.cs" />
     <Compile Include="PerJuridicaDA.cs" />
     <Compile Include="ProductoDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

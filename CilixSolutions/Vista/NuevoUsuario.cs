@@ -54,8 +54,22 @@ namespace Vista
             }
             u.Rol = (RolUsuario)comboBox1.SelectedItem;
 
-            logNegUsu.registrarUsuario(u);
+            u.FechaCreacion = DateTime.Now;
+            u.FechaModificacion = DateTime.Now;
+            Estado est = new Estado();
+            est.Id = 1;
 
+            u.Estado = est;
+            try
+            {
+                logNegUsu.registrarUsuario(u);
+                MessageBox.Show("El registro del usuario fue exitoso", "Mensaje de éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+            catch(Exception ex)
+            {
+                MessageBox.Show("No se pudo crear el usuario", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -76,7 +90,7 @@ namespace Vista
                 if(usuarios[i].Id == textBox1.Text)
                 {
                     MessageBox.Show("Este Id no esta disponible", "Mensaje de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    noEncontrado = true;
+                    noEncontrado = false;
                     break;
                 }
                 

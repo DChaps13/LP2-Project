@@ -43,5 +43,24 @@ namespace AccesoDatos
 
             return lstRoles;
         }
+
+        public int devolverRol(string nombreRol)
+        {
+            ConexionBD cadConexion = new ConexionBD();
+            string query = "SELECT Id FROM dbo.Rol WHERE ='" + nombreRol + "'" ;
+            SqlConnection conexion = new SqlConnection(cadConexion.CadenaConexion);
+            SqlCommand sentencia = conexion.CreateCommand();
+            sentencia.CommandText = query;
+
+            conexion.Open();
+            SqlDataReader reader = sentencia.ExecuteReader();
+
+            int idRol = Int32.Parse(reader["Id"].ToString());
+
+            conexion.Close();
+
+            return idRol;
+        }
+
     }
 }

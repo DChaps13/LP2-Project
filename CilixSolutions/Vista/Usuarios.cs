@@ -16,12 +16,33 @@ namespace Vista
     {
         BindingList<Usuario> usuarios;
         UsuarioBL logNegUsu;
+        RolBL logNegRol;
+        EstadoBL logNegEstado;
 
         public Usuarios()
         {
             InitializeComponent();
             
             logNegUsu = new UsuarioBL();
+            logNegRol = new RolBL();
+            logNegEstado = new EstadoBL();
+
+            BindingList<RolUsuario> listaRol = new BindingList<RolUsuario>();
+            listaRol = logNegRol.listaRoles();
+            cbxRol.ValueMember = "Descriptor";
+            foreach (RolUsuario r in listaRol)
+            {
+                cbxRol.Items.Add(r);
+            }
+
+            BindingList<Estado> listaEst = new BindingList<Estado>();
+            listaEst = logNegEstado.listarEstados();
+            cbxEstado.ValueMember = "Nombre";
+            foreach (Estado r in listaEst)
+            {
+                cbxEstado.Items.Add(r);
+            }
+
             usuarios = logNegUsu.listaUsuarios();
             dataUsuarios.AutoGenerateColumns = false;
             dataUsuarios.DataSource = logNegUsu.listaUsuarios();
@@ -68,11 +89,11 @@ namespace Vista
             }
 
             usuariosAux = usuariosSel;
-            if (comboBox1.Text!= "Todos") // Rol del usuario
+            if (cbxRol.Text!= "Todos") // Rol del usuario
             {
                 for (int i = 0; i < usuariosSel.Count; i++)
                 {
-                    if (usuariosSel[i].Rol.ToString() != comboBox1.Text)
+                    if (usuariosSel[i].Rol.ToString() != cbxRol.Text)
                     {
                         usuariosAux.Remove(usuariosSel[i]);
                     }
@@ -80,11 +101,11 @@ namespace Vista
             }
 
             usuariosSel = usuariosAux;
-            if (comboBox2.Text != "Todos") //Estado del usuario
+            if (cbxEstado.Text != "Todos") //Estado del usuario
             {
                 for (int i = 0; i < usuariosSel.Count; i++)
                 {
-                    if (usuariosSel[i].Estado.ToString() != comboBox2.Text)
+                    if (usuariosSel[i].Estado.ToString() != cbxEstado.Text)
                     {
                         usuariosAux.Remove(usuariosSel[i]);
                     }
@@ -110,6 +131,11 @@ namespace Vista
                 dataUsuarios.DataSource = usuarios;
             }
                 
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

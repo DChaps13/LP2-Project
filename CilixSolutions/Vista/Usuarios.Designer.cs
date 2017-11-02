@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBoxBuscarUsuario = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbxEstado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Buscar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxRol = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,10 +46,10 @@
             // 
             // groupBoxBuscarUsuario
             // 
-            this.groupBoxBuscarUsuario.Controls.Add(this.comboBox2);
+            this.groupBoxBuscarUsuario.Controls.Add(this.cbxEstado);
             this.groupBoxBuscarUsuario.Controls.Add(this.label3);
             this.groupBoxBuscarUsuario.Controls.Add(this.Buscar);
-            this.groupBoxBuscarUsuario.Controls.Add(this.comboBox1);
+            this.groupBoxBuscarUsuario.Controls.Add(this.cbxRol);
             this.groupBoxBuscarUsuario.Controls.Add(this.label2);
             this.groupBoxBuscarUsuario.Controls.Add(this.textBox1);
             this.groupBoxBuscarUsuario.Controls.Add(this.label1);
@@ -61,14 +61,14 @@
             this.groupBoxBuscarUsuario.Text = "Buscar Usuario";
             this.groupBoxBuscarUsuario.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // comboBox2
+            // cbxEstado
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(97, 104);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(169, 21);
-            this.comboBox2.TabIndex = 9;
-            this.comboBox2.Text = "Todos";
+            this.cbxEstado.FormattingEnabled = true;
+            this.cbxEstado.Location = new System.Drawing.Point(97, 104);
+            this.cbxEstado.Name = "cbxEstado";
+            this.cbxEstado.Size = new System.Drawing.Size(169, 21);
+            this.cbxEstado.TabIndex = 9;
+            this.cbxEstado.Text = "Todos";
             // 
             // label3
             // 
@@ -89,15 +89,15 @@
             this.Buscar.UseVisualStyleBackColor = true;
             this.Buscar.Click += new System.EventHandler(this.Buscar_Click);
             // 
-            // comboBox1
+            // cbxRol
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(97, 65);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 21);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.Text = "Todos";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbxRol.FormattingEnabled = true;
+            this.cbxRol.Location = new System.Drawing.Point(97, 65);
+            this.cbxRol.Name = "cbxRol";
+            this.cbxRol.Size = new System.Drawing.Size(169, 21);
+            this.cbxRol.TabIndex = 6;
+            this.cbxRol.Text = "Todos";
+            this.cbxRol.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -115,6 +115,7 @@
             this.textBox1.Size = new System.Drawing.Size(169, 20);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Todos";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -176,10 +177,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBoxBuscarUsuario;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxRol;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbxEstado;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Buscar;
         private System.Windows.Forms.DataGridView dataUsuarios;
