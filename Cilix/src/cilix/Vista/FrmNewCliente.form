@@ -207,8 +207,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtRuc">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNombres">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
@@ -221,8 +227,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtRazonSocial">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDni">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>

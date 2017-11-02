@@ -5,9 +5,9 @@ public class Empresa extends Cliente{
     private String razonSocial;
     private String ruc;
     
-    private Empresa(){}
+    public Empresa(){}
     
-    private Empresa(String direccion, String telefono, String email, String razonSocial, String ruc){
+    public Empresa(String direccion, String telefono, String email, String razonSocial, String ruc){
         super(direccion,telefono,email);
         this.razonSocial = razonSocial;
         this.ruc = ruc;
