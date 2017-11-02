@@ -5,19 +5,24 @@
  */
 package cilix.Vista;
 
+import Controlador.ClienteBL;
+import Modelo.Cliente;
+import Modelo.ClienteNatural;
+import Modelo.Empresa;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Emanuel
  */
 public class FrmNewCliente extends javax.swing.JDialog {
-
-    /**
-     * Creates new form NewCliente
-     */
+    
+    ClienteBL logNegCliente;
+    
     public FrmNewCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        logNegCliente = new ClienteBL();
         initComponents();
     }
 
@@ -73,9 +78,17 @@ public class FrmNewCliente extends javax.swing.JDialog {
 
         jLabel6.setText("Nombres");
 
+        txtRuc.setEnabled(false);
+
+        txtNombres.setEnabled(false);
+
         jLabel7.setText("RUC");
 
         jLabel9.setText("Razon Social");
+
+        txtRazonSocial.setEnabled(false);
+
+        txtDni.setEnabled(false);
 
         jButton1.setText("Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -193,15 +206,40 @@ public class FrmNewCliente extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private boolean empty(JTextField x){
+        return x.getText().equals("");
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if( txtDireccion.getText().equals("") || txtEmail.getText().equals("") || txtTelefono.getText().equals("") ){
             JOptionPane.showMessageDialog(null, "Inserte los datos necesarios");
             return;
-        }else {
-            // guardar info
+        }else if(cboTipoCliente.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(null, "Selecciona un tipo de cliente");
+        }else if(cboTipoCliente.getSelectedIndex() == 1 && ( empty(txtNombres) || empty(txtDni) ) ){
+            JOptionPane.showMessageDialog(null, "Completa los datos del cliente");
+        }else if(cboTipoCliente.getSelectedIndex() == 2 && (empty(txtRuc) || empty(txtRazonSocial) ) ){
+            JOptionPane.showMessageDialog(null, "Completa los datos del cliente");
+        }else{
+            Cliente c;
+            String direccion = txtDireccion.getText();
+            String telf = txtTelefono.getText();
+            String email = txtEmail.getText();
+            String nombres = txtNombres.getText();
+            String dni = txtDni.getText();
+            String ruc = txtRuc.getText();
+            String razonSocial = txtRazonSocial.getText();
+            if(cboTipoCliente.getSelectedIndex() == 1){
+                // Cliente Natural
+                c = new ClienteNatural(direccion,telf,email,dni,nombres);
+            }else{
+                c = new Empresa(direccion,telf,email,ruc,razonSocial);
+            }
+            logNegCliente.agregarCliente(c);
             dispose();
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cboTipoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboTipoClienteActionPerformed
