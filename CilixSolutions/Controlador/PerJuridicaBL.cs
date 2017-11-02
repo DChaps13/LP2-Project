@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modelo;
-using Controlador;
+using AccesoDatos;
 using System.ComponentModel;
 
 namespace Controlador
@@ -20,7 +20,7 @@ namespace Controlador
 
         public bool registrarPerJuridica(PersonaJuridica c)
         {
-            return pjDA.registrarPerJuridica(c);
+            return pjDA.registrarPJ(c);
         }
 
         public BindingList<PersonaJuridica> listaPJs()
