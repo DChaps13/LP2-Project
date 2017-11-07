@@ -8,10 +8,6 @@ package Controlador;
 import AccesoDatos.ClienteDA;
 import Modelo.Cliente;
 
-/**
- *
- * @author Emanuel
- */
 public class ClienteBL {
     
     ClienteDA accesoDatos;

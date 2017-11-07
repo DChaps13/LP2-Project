@@ -237,6 +237,7 @@ public class FrmNewCliente extends javax.swing.JDialog {
                 c = new Empresa(direccion,telf,email,ruc,razonSocial);
             }
             logNegCliente.agregarCliente(c);
+            JOptionPane.showMessageDialog(null, "Cliente agregado correctamente");
             dispose();
         }
         
@@ -244,7 +245,22 @@ public class FrmNewCliente extends javax.swing.JDialog {
 
     private void cboTipoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboTipoClienteActionPerformed
         // TODO add your handling code here:
-        
+        if( cboTipoCliente.getSelectedIndex() == 1 ){
+            txtNombres.setEnabled(true);
+            txtDni.setEnabled(true);
+            txtRuc.setEnabled(false);
+            txtRazonSocial.setEnabled(false);
+        }else if( cboTipoCliente.getSelectedIndex() == 2 ){
+            txtNombres.setEnabled(false);
+            txtDni.setEnabled(false);
+            txtRuc.setEnabled(true);
+            txtRazonSocial.setEnabled(true);
+        }else{
+            txtNombres.setEnabled(false);
+            txtDni.setEnabled(false);
+            txtRuc.setEnabled(false);
+            txtRazonSocial.setEnabled(false);
+        }
     }//GEN-LAST:event_cboTipoClienteActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
