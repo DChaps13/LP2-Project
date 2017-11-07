@@ -65,6 +65,8 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
 
         jLabel3.setText("Cantidad actual");
 
+        txtUsuario.setEnabled(false);
+
         jLabel4.setText("Cantidad");
 
         jLabel5.setText("Cliente");

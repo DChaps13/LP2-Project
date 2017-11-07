@@ -6,27 +6,22 @@
 package cilix.Vista;
 
 import Controlador.UsuarioBL;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import Modelo.Usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Emanuel
  */
-public class frmLogueo extends javax.swing.JFrame {
+public class frmLogueo extends javax.swing.JDialog {
 
-    /**
-     * Creates new form frmLogueo
-     */
-    
     UsuarioBL logNegUsuario;
     
-    public frmLogueo() {
+    public frmLogueo(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         logNegUsuario = new UsuarioBL();
     }
@@ -46,7 +41,7 @@ public class frmLogueo extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Usuario");
 
@@ -70,7 +65,7 @@ public class frmLogueo extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
@@ -80,8 +75,8 @@ public class frmLogueo extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(btnLogin))
-                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,7 +91,7 @@ public class frmLogueo extends javax.swing.JFrame {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addComponent(btnLogin)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,28 +103,27 @@ public class frmLogueo extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        
+
         String usuario = txtUsuario.getText();
         String password = txtPassword.getText();
         boolean valid = false;
-        ResultSet rs = logNegUsuario.devolverUsuarios();
-        if(rs == null) {
+        ArrayList<Usuario> lista = logNegUsuario.devolverUsuarios();
+        if(lista == null) {
             JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos. ");
             return;
         }
-        try {
-            while(rs.next()){
-                String us = rs.getString("Usuario");
-                String pass = rs.getString("Password");
-                if(usuario.equals(us) && password.equals(pass)){
-                    valid = true; break;
-                }
+
+        for(Usuario u : lista){
+            if( u.getId().equals(usuario) && u.getPassword().equals(password) ){ 
+                valid = true; 
+                txtUsuario.setText("");
+                txtPassword.setText("");
+                break; 
             }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
+        
         if(valid){
-            FrmPrincipal fp = new FrmPrincipal();
+            FrmPrincipalAUX fp = new FrmPrincipalAUX();
             fp.setVisible(true);
             this.setVisible(false);
         }else{
@@ -164,10 +158,17 @@ public class frmLogueo extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmLogueo().setVisible(true);
+                frmLogueo dialog = new frmLogueo(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

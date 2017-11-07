@@ -2,6 +2,7 @@
 package Controlador;
 
 import AccesoDatos.UsuarioDA;
+import Modelo.Usuario;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ public class UsuarioBL {
         accesoDatosUsuario = new UsuarioDA();
     }
     
-    public ResultSet devolverUsuarios(){
+    public ArrayList<Usuario> devolverUsuarios(){
         return accesoDatosUsuario.devolverUsuarios();
     }
    
