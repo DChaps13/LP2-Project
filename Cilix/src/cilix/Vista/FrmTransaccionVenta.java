@@ -11,9 +11,9 @@ import Modelo.Usuario;
  *
  * @author Emanuel
  */
-public class FrmTransaccionVenta extends javax.swing.JFrame {
+public class FrmTransaccionVenta extends javax.swing.JDialog {
 
-    Usuario user;
+    static Usuario user;
     
     public FrmTransaccionVenta() {
         initComponents();
@@ -24,6 +24,14 @@ public class FrmTransaccionVenta extends javax.swing.JFrame {
         initComponents();
         setUser(user);
         setLocationRelativeTo(null);
+    }
+    
+    public FrmTransaccionVenta(java.awt.Frame parent, boolean modal, Usuario user) {
+        super(parent, modal);
+        setLocationRelativeTo(null);
+        initComponents();
+        this.user = user;
+        //txtUsuario.setText(user.getId());
     }
     
     public Usuario getUser() {
@@ -72,7 +80,7 @@ public class FrmTransaccionVenta extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -309,7 +317,7 @@ public class FrmTransaccionVenta extends javax.swing.JFrame {
 
     private void btnNuevaTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaTransaccionActionPerformed
         // TODO add your handling code here:
-        FrmNewTransaccion nt = new FrmNewTransaccion(this, true,user);
+        FrmNewTransaccion nt = new FrmNewTransaccion(null, true,user);
         nt.setVisible(true);
     }//GEN-LAST:event_btnNuevaTransaccionActionPerformed
 
@@ -361,7 +369,14 @@ public class FrmTransaccionVenta extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmTransaccionVenta().setVisible(true);
+                FrmTransaccionVenta dialog = new FrmTransaccionVenta(new javax.swing.JFrame(), true,user);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

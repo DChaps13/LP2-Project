@@ -9,6 +9,7 @@ import Controlador.ClienteBL;
 import Modelo.Cliente;
 import Modelo.ClienteNatural;
 import Modelo.Usuario;
+import java.awt.Frame;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,12 +17,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Emanuel
  */
-public class FrmClientes extends javax.swing.JFrame {
+public class FrmClientes extends javax.swing.JDialog {
 
     Usuario user;
     ArrayList<Cliente> listaClientes;
     
     public FrmClientes() {
+        initComponents();
+        setLocationRelativeTo(null);
+        listaClientes = new ArrayList<Cliente>();
+    }
+    
+    public FrmClientes(Frame parent, boolean modal) {
+        super(parent,modal);
         initComponents();
         setLocationRelativeTo(null);
         listaClientes = new ArrayList<Cliente>();
@@ -90,7 +98,7 @@ public class FrmClientes extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Clientes");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -233,7 +241,7 @@ public class FrmClientes extends javax.swing.JFrame {
 
     private void btnNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoClienteActionPerformed
         // TODO add your handling code here:
-        FrmNewCliente nc = new FrmNewCliente(this,true);
+        FrmNewCliente nc = new FrmNewCliente(null,true);
         nc.setVisible(true);
     }//GEN-LAST:event_btnNuevoClienteActionPerformed
 
@@ -315,7 +323,14 @@ public class FrmClientes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmClientes().setVisible(true);
+                FrmClientes dialog = new FrmClientes(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
