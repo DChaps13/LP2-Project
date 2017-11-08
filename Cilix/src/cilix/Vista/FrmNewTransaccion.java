@@ -5,6 +5,7 @@
  */
 package cilix.Vista;
 
+import Modelo.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,14 +14,30 @@ import javax.swing.JOptionPane;
  */
 public class FrmNewTransaccion extends javax.swing.JDialog {
 
-    /**
-     * Creates new form NewTransaccion
-     */
+    Usuario user;
+    
     public FrmNewTransaccion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
+    
+    public FrmNewTransaccion(java.awt.Frame parent, boolean modal, Usuario user) {
+        super(parent, modal);
+        initComponents();
+        this.user = user;
+        txtUsuario.setText(user.getId());
+    }
 
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,9 +78,13 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
 
         jLabel1.setText("Usuario");
 
+        txtCantidadActual.setEnabled(false);
+
         jLabel2.setText("ID Producto");
 
         jLabel3.setText("Cantidad actual");
+
+        txtIdProducto.setEnabled(false);
 
         txtUsuario.setEnabled(false);
 

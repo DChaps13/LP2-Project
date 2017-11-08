@@ -20,7 +20,9 @@ public class FrmNewCliente extends javax.swing.JDialog {
     
     ClienteBL logNegCliente;
     
+    // CAMBIO EN ESTA LINEA
     public FrmNewCliente(java.awt.Frame parent, boolean modal) {
+    //public FrmNewCliente(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
         logNegCliente = new ClienteBL();
         initComponents();
@@ -146,9 +148,7 @@ public class FrmNewCliente extends javax.swing.JDialog {
                                     .addComponent(jLabel7))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(cboTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(cboTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtRuc)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel9)

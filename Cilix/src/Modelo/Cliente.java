@@ -25,6 +25,16 @@ public class Cliente {
         this.telefono = telefono;
         this.email = email;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
     
     public String getDireccion() {
         return direccion;

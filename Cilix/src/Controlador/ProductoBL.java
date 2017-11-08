@@ -5,10 +5,23 @@
  */
 package Controlador;
 
+import AccesoDatos.ProductoDA;
+import Modelo.Producto;
+import java.util.ArrayList;
+
 /**
  *
  * @author Emanuel
  */
 public class ProductoBL {
+    ProductoDA accesoDatos;
+    
+    public ProductoBL(){
+        accesoDatos = new ProductoDA();
+    }
+    
+    public ArrayList<Producto> devolverProductos(){
+        return accesoDatos.devolverProductos();
+    }
     
 }

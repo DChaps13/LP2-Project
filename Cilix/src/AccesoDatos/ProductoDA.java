@@ -5,10 +5,20 @@
  */
 package AccesoDatos;
 
+import Modelo.Producto;
+import java.util.ArrayList;
+
 /**
  *
  * @author Emanuel
  */
 public class ProductoDA {
+    
+    public ProductoDA(){}
+    
+    public ArrayList<Producto> devolverProductos(){
+        ArrayList<Producto> lista = new ArrayList<>();
+        return lista;
+    }
     
 }

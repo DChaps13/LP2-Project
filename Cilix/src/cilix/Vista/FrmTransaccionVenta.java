@@ -5,19 +5,30 @@
  */
 package cilix.Vista;
 
+import Modelo.Usuario;
+
 /**
  *
  * @author Emanuel
  */
 public class FrmTransaccionVenta extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TransaccionVenta
-     */
+    Usuario user;
+    
     public FrmTransaccionVenta() {
         initComponents();
     }
 
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,6 +66,11 @@ public class FrmTransaccionVenta extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nueva Transaccion"));
 
@@ -285,9 +301,17 @@ public class FrmTransaccionVenta extends javax.swing.JFrame {
 
     private void btnNuevaTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaTransaccionActionPerformed
         // TODO add your handling code here:
-        FrmNewTransaccion nt = new FrmNewTransaccion(null, true);
+        FrmNewTransaccion nt = new FrmNewTransaccion(this, true,user);
         nt.setVisible(true);
     }//GEN-LAST:event_btnNuevaTransaccionActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        
+        frmPrincipal fp = new frmPrincipal(null,true);
+        fp.setUser(user);
+        fp.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

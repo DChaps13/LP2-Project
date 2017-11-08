@@ -103,7 +103,8 @@ public class frmLogueo extends javax.swing.JDialog {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-
+        /*
+        Usuario currentUser = new Usuario();
         String usuario = txtUsuario.getText();
         String password = txtPassword.getText();
         boolean valid = false;
@@ -115,17 +116,19 @@ public class frmLogueo extends javax.swing.JDialog {
 
         for(Usuario u : lista){
             if( u.getId().equals(usuario) && u.getPassword().equals(password) ){ 
-                valid = true; 
+                valid = true;
+                currentUser = u;
                 txtUsuario.setText("");
                 txtPassword.setText("");
                 break; 
             }
         }
-        
+        */   boolean valid = true;
         if(valid){
-            FrmPrincipalAUX fp = new FrmPrincipalAUX();
+            frmPrincipal fp = new frmPrincipal(null,true);
+            //fp.setUser(currentUser);
+            dispose();
             fp.setVisible(true);
-            this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos. ");
         }

@@ -95,6 +95,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCantidadActual">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -107,6 +110,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtIdProducto">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtUsuario">
       <Properties>
