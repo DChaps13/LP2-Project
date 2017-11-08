@@ -23,7 +23,16 @@ public class FrmClientes extends javax.swing.JFrame {
     
     public FrmClientes() {
         initComponents();
+        setLocationRelativeTo(null);
         listaClientes = new ArrayList<Cliente>();
+    }
+    
+    public FrmClientes(Usuario user) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.user = user;
+        listaClientes = new ArrayList<Cliente>();
+        int x = 5;
     }
 
     public Usuario getUser() {
@@ -86,6 +95,9 @@ public class FrmClientes extends javax.swing.JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
 
@@ -240,11 +252,22 @@ public class FrmClientes extends javax.swing.JFrame {
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
-        
+        /*
+        System.out.println("CERRANDO FRM CLIENTES");
         frmPrincipal fp = new frmPrincipal(null,true);
-        fp.setUser(user);
         fp.setVisible(true);
+        fp.setUser(user);
+        */
     }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        System.out.println("CLOSING CLIENTES");
+        frmPrincipal fp = new frmPrincipal(null,true);
+        dispose();
+        fp.setVisible(true);
+        fp.setUser(user);
+    }//GEN-LAST:event_formWindowClosing
 
     public void actualizarDatosTabla(){
         DefaultTableModel modelo = (DefaultTableModel)tblClientes.getModel();

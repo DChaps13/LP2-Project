@@ -22,6 +22,7 @@ public class frmLogueo extends javax.swing.JDialog {
     
     public frmLogueo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        setLocationRelativeTo(null);
         initComponents();
         logNegUsuario = new UsuarioBL();
     }

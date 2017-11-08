@@ -24,6 +24,7 @@ public class FrmNewCliente extends javax.swing.JDialog {
     public FrmNewCliente(java.awt.Frame parent, boolean modal) {
     //public FrmNewCliente(javax.swing.JDialog parent, boolean modal) {
         super(parent, modal);
+        setLocationRelativeTo(null);
         logNegCliente = new ClienteBL();
         initComponents();
     }
