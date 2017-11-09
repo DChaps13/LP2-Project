@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Modelo;
 using System.ComponentModel;
+using System.Data.SqlClient;
 
 namespace AccesoDatos
 {
