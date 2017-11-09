@@ -5,8 +5,18 @@
  */
 package cilix.Vista;
 
+import Controlador.ClienteBL;
+import Controlador.ProductoBL;
+import Controlador.TransaccionBL;
+import Modelo.Cliente;
+import Modelo.ClienteNatural;
+import Modelo.Empresa;
+import Modelo.Producto;
+import Modelo.Transaccion;
 import Modelo.Usuario;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,6 +25,13 @@ import javax.swing.JOptionPane;
 public class FrmNewTransaccion extends javax.swing.JDialog {
 
     Usuario user;
+    int idProducto = -1;
+    int cantidadActual = -1;
+    double precio = -1;
+    int cantidadComprar = 0;
+    int idCliente = -1;
+    String descripcion = "";
+    int tipoCliente;
     
     public FrmNewTransaccion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -22,14 +39,58 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
         initComponents();
     }
     
+    /*ESTE CONSTRUCTOR ES EL QUE SE INVOCA*/
     public FrmNewTransaccion(java.awt.Frame parent, boolean modal, Usuario user) {
         super(parent, modal);
         setLocationRelativeTo(null);
         initComponents();
         this.user = user;
-        //txtUsuario.setText(user.getId());
+        txtUsuario.setText(user.getId());
+        
+        ProductoBL logNegProducto = new ProductoBL();
+        ArrayList<Producto> listaProductos = logNegProducto.devolverProductos();
+        if(listaProductos != null)
+            actualizarTablaProductos(listaProductos);
+        
+        ClienteBL logNegCliente = new ClienteBL();
+        ArrayList<Cliente> listaClientes = logNegCliente.devolverClientes("", "", "");
+        if(listaClientes != null)
+            actualizarTablaClientes(listaClientes);
     }
 
+    public void actualizarTablaClientes(ArrayList<Cliente> lista){
+        DefaultTableModel modelo = (DefaultTableModel)tblClientes.getModel();
+        modelo.setRowCount(0);
+        Object[] fila = new Object[5];
+        for(int i=0; i<lista.size();i++){
+            Cliente c = lista.get(i);
+            fila[0] = c.getId();
+            if(c instanceof ClienteNatural){
+                fila[1] = ((ClienteNatural) c).getNombre() + ((ClienteNatural) c).getApellido();
+                fila[4] = "Persona";
+            }else if(c instanceof Empresa){
+                fila[1] = ((Empresa) c).getRazonSocial();
+                fila[4] = "Empresa";
+            }
+            fila[2] = c.getTelefono();
+            fila[3] = c.getEmail();
+            modelo.addRow(fila);
+        }
+    }
+    
+    public void actualizarTablaProductos(ArrayList<Producto> lista){
+        DefaultTableModel modelo = (DefaultTableModel)tblProductos.getModel();
+        modelo.setRowCount(0);
+        Object[] fila = new Object[4];
+        for(int i=0; i<lista.size();i++){
+            fila[0] = lista.get(i).getId();
+            fila[1] = lista.get(i).getNombre();
+            fila[2] = lista.get(i).getCantidad();
+            fila[3] = lista.get(i).getPrecio();
+            modelo.addRow(fila);
+        }
+    }
+    
     public Usuario getUser() {
         return user;
     }
@@ -49,7 +110,7 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
+        btnPasarProducto = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtCantidadActual = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -60,24 +121,24 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtCliente = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        txtIdCliente = new javax.swing.JTextField();
+        btnPasarCliente = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JTextArea();
         btnAceptar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblClientes = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblProductos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton2.setText("<<");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnPasarProducto.setText("<<");
+        btnPasarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnPasarProductoActionPerformed(evt);
             }
         });
 
@@ -95,11 +156,16 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
 
         jLabel4.setText("Cantidad");
 
-        jLabel5.setText("Cliente");
+        jLabel5.setText("Id Cliente");
 
-        txtCliente.setEnabled(false);
+        txtIdCliente.setEnabled(false);
 
-        jButton3.setText("<<");
+        btnPasarCliente.setText("<<");
+        btnPasarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPasarClienteActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Descripcion");
 
@@ -121,18 +187,15 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Codigo", "Identificador", "Telefono", "Correo", "Tipo"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tblClientes);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -144,7 +207,7 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnAceptar)
-                        .addGap(23, 23, 23))
+                        .addGap(0, 0, 0))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -159,18 +222,17 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton3)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)))
+                                        .addComponent(btnPasarCliente)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addGap(51, 51, 51)
                         .addComponent(jButton5)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -185,8 +247,8 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3))
+                            .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPasarCliente))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -199,18 +261,15 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Codigo", "Nombre", "Cantidad", "Precio"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(tblProductos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -221,7 +280,7 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(27, Short.MAX_VALUE))
+                        .addContainerGap(17, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -241,10 +300,10 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
                                         .addGap(32, 32, 32)
                                         .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton2)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43))))
+                                        .addComponent(btnPasarProducto)))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(36, 36, 36))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +319,7 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
                             .addComponent(jLabel2)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton2)))
+                                .addComponent(btnPasarProducto)))
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -276,9 +335,17 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnPasarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasarProductoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        
+        int idx = tblProductos.getSelectedRow();
+        if(idx == -1) return;
+        idProducto = (int) tblProductos.getValueAt(idx, 0);
+        cantidadActual = (int) tblProductos.getValueAt(idx, 2);
+        precio = (double) tblProductos.getValueAt(idx, 3);
+        txtIdProducto.setText("" + idProducto );
+        txtCantidadActual.setText("" + cantidadActual );
+    }//GEN-LAST:event_btnPasarProductoActionPerformed
 
     private boolean isEmpty(javax.swing.JTextField x){
         return x.getText().equals("");
@@ -290,11 +357,27 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
     
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
-        if( isEmpty(txtCantidad) || isEmpty(txtCantidadActual) || isEmpty(txtCliente) || isEmpty(txtIdProducto) || isEmpty(txtUsuario) || isEmpty(txtDescripcion) ){
+        if( isEmpty(txtCantidad) || isEmpty(txtCantidadActual) || isEmpty(txtIdCliente) || isEmpty(txtIdProducto) || isEmpty(txtUsuario) || isEmpty(txtDescripcion) ){
             JOptionPane.showMessageDialog(null, "Ingrese la informacion en los campos correspondientes");
             return;
         }else{
-            // guardar datos;
+            cantidadComprar = Integer.parseInt(txtCantidad.getText());
+            if(cantidadComprar > cantidadActual){
+                JOptionPane.showMessageDialog(null, "El stock actual no alcanza para esta compra.");
+                return;
+            }
+            double total = cantidadComprar*precio;
+            Transaccion t = new Transaccion();
+            t.setCantidad(cantidadComprar);
+            t.setDescripcion(descripcion);
+            t.setIdContacto(tipoCliente);
+            t.setIdProducto(idProducto);
+            t.setIdUsuario(idCliente);
+            TransaccionBL logNegTrn = new TransaccionBL();
+            if(logNegTrn.registrarVenta(t))
+                JOptionPane.showMessageDialog(null, "Transaccion registrada correctamente");
+            else
+                JOptionPane.showMessageDialog(null, "No se pudo concretar la transaccion");
             dispose();
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
@@ -303,6 +386,18 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void btnPasarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasarClienteActionPerformed
+        // TODO add your handling code here:
+        int idx = tblClientes.getSelectedRow();
+        if(idx == -1) return;
+        idCliente = (int) tblClientes.getValueAt(idx, 0);
+        txtIdCliente.setText("" + idCliente);
+        if(((String)tblClientes.getValueAt(idx, 4)).equals("Persona") ) 
+            tipoCliente = 1;
+        else
+            tipoCliente = 2;
+    }//GEN-LAST:event_btnPasarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,8 +444,8 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnPasarCliente;
+    private javax.swing.JButton btnPasarProducto;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -362,12 +457,12 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable tblClientes;
+    private javax.swing.JTable tblProductos;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtCantidadActual;
-    private javax.swing.JTextField txtCliente;
     private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JTextField txtIdCliente;
     private javax.swing.JTextField txtIdProducto;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

@@ -17,8 +17,8 @@ public class ClienteBL {
         accesoDatos = new ClienteDA();
     }
     
-    public void agregarCliente(Cliente c){
-        accesoDatos.agregarCliente(c);
+    public boolean agregarCliente(Cliente c){
+        return accesoDatos.agregarCliente(c);
     }
     
     public ArrayList<Cliente> devolverClientes(String id, String telefono, String email){

@@ -104,7 +104,7 @@ public class frmLogueo extends javax.swing.JDialog {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        /*
+        
         Usuario currentUser = new Usuario();
         String usuario = txtUsuario.getText();
         String password = txtPassword.getText();
@@ -124,10 +124,9 @@ public class frmLogueo extends javax.swing.JDialog {
                 break; 
             }
         }
-        */   boolean valid = true;
+        
         if(valid){
-            frmPrincipal fp = new frmPrincipal(null,true);
-            //fp.setUser(currentUser);
+            frmPrincipal fp = new frmPrincipal(null,true,currentUser);
             dispose();
             fp.setVisible(true);
         }else{
