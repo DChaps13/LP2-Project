@@ -12,6 +12,10 @@ namespace Modelo
         private string descriptor;
         private int privilegio;
 
+        public RolUsuario()
+        {
+        }
+
         public RolUsuario(int id, string descriptor, int privilegio)
         {
             this.Id = id;

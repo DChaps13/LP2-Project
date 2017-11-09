@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,12 @@ namespace Vista
         public principal()
         {
             InitializeComponent();
+            lbLoggedUser.Visible = false;
         }
 
+        private Usuario usuarioActual;
+
+        //Eventos del form
         private void transacciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NuevaTransaccion childForm = new NuevaTransaccion();
@@ -86,9 +91,64 @@ namespace Vista
         private void logueoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Logueo childForm = new Logueo();
-            childForm.MdiParent = this;
-            childForm.Text = "Logueo";
-            childForm.Show();
+            if (childForm.ShowDialog() == DialogResult.OK)
+            {
+                usuarioActual = childForm.UsuarioActivo;
+
+                lbLoggedUser.Font = new Font(lbLoggedUser.Font, FontStyle.Bold);
+                lbLoggedUser.Text = "Hola, " + usuarioActual.Id + " ("+usuarioActual.Rol.Descriptor+")";
+                lbLoggedUser.Visible = true;
+
+                logueoToolStripMenuItem.Enabled = false;
+                logOutToolStripMenuItem.Visible = true;
+                
+                switch (usuarioActual.Rol.Privilegio)
+                {
+                    case (1): //Administrador
+                        //Nuevo
+                        transacciónToolStripMenuItem.Enabled = true;
+                        usuarioToolStripMenuItem.Enabled = true;
+                        naturalToolStripMenuItem.Enabled = true;
+                        jurídicoToolStripMenuItem.Enabled = true;
+                        productoToolStripMenuItem1.Enabled = true;
+                        //Buscar
+                        transacciónToolStripMenuItem1.Enabled = true;
+                        usuarioToolStripMenuItem1.Enabled = true;
+                        juridicoToolStripMenuItem1.Enabled = true; //natural
+                        jurídicoToolStripMenuItem2.Enabled = true; //juridico
+                        productoToolStripMenuItem.Enabled = true;
+
+                        break;
+                    case (2): //Registrador
+                        //Nuevo
+                        transacciónToolStripMenuItem.Enabled = true;
+                        usuarioToolStripMenuItem.Enabled = false;//<- restringido
+                        naturalToolStripMenuItem.Enabled = true;
+                        jurídicoToolStripMenuItem.Enabled = true;
+                        productoToolStripMenuItem1.Enabled = true;
+                        //Buscar
+                        transacciónToolStripMenuItem1.Enabled = true;
+                        usuarioToolStripMenuItem1.Enabled = true;
+                        juridicoToolStripMenuItem1.Enabled = true; //natural
+                        jurídicoToolStripMenuItem2.Enabled = true; //juridico
+                        productoToolStripMenuItem.Enabled = true;
+                        break;
+                    case (3): //Trabajador
+                        //Nuevo
+                        transacciónToolStripMenuItem.Enabled = true;
+                        usuarioToolStripMenuItem.Enabled = false; //<- restringido
+                        naturalToolStripMenuItem.Enabled = true;
+                        jurídicoToolStripMenuItem.Enabled = true;
+                        productoToolStripMenuItem1.Enabled = false; //<- restringido
+                        //Buscar
+                        transacciónToolStripMenuItem1.Enabled = true;
+                        usuarioToolStripMenuItem1.Enabled = true;
+                        juridicoToolStripMenuItem1.Enabled = true; //natural
+                        jurídicoToolStripMenuItem2.Enabled = true; //juridico
+                        productoToolStripMenuItem.Enabled = true;
+                        break;
+                }
+            }
         }
 
         private void transaccionesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,6 +164,30 @@ namespace Vista
         private void naturalToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            usuarioActual = null;
+
+            lbLoggedUser.Font = new Font(lbLoggedUser.Font, FontStyle.Regular);
+            lbLoggedUser.Visible = false;
+
+            logueoToolStripMenuItem.Enabled = true;
+            logOutToolStripMenuItem.Visible = false;
+            
+            //Nuevo
+            transacciónToolStripMenuItem.Enabled = false;
+            usuarioToolStripMenuItem.Enabled = false;
+            naturalToolStripMenuItem.Enabled = false;
+            jurídicoToolStripMenuItem.Enabled = false;
+            productoToolStripMenuItem1.Enabled = false;
+            //Buscar
+            transacciónToolStripMenuItem1.Enabled = false;
+            usuarioToolStripMenuItem1.Enabled = false;
+            juridicoToolStripMenuItem1.Enabled = false; //natural
+            jurídicoToolStripMenuItem2.Enabled = false; //juridico
+            productoToolStripMenuItem.Enabled = false;
         }
     }
 }
