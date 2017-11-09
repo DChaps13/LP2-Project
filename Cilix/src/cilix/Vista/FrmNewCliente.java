@@ -252,17 +252,19 @@ public class FrmNewCliente extends javax.swing.JDialog {
             String email = txtEmail.getText();
             String nombres = txtNombres.getText();
             String apellidos = txtApellidos.getText();
-            String dni = txtApellidos.getText();
+            String dni = txtDni.getText();
             String ruc = txtRuc.getText();
             String razonSocial = txtRazonSocial.getText();
             if(cboTipoCliente.getSelectedIndex() == 1){
                 // Cliente Natural
                 c = new ClienteNatural(direccion,telf,email,dni,nombres,apellidos);
             }else{
-                c = new Empresa(direccion,telf,email,ruc,razonSocial);
+                c = new Empresa(direccion,telf,email,razonSocial,ruc);
             }
-            logNegCliente.agregarCliente(c);
-            JOptionPane.showMessageDialog(null, "Cliente agregado correctamente");
+            if(logNegCliente.agregarCliente(c))
+                JOptionPane.showMessageDialog(null, "Cliente agregado correctamente");
+            else 
+                JOptionPane.showMessageDialog(null, "No se pudo agregar al cliente");
             dispose();
         }
         
