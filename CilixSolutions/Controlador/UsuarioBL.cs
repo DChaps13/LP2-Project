@@ -28,6 +28,10 @@ namespace Controlador
             return usuarioDA.devolverLista();
         }
 
+        public BindingList<Usuario> buscarUsuarios(string id, string rol, string estado)
+        {
+            return usuarioDA.buscarUsuario(id,rol,estado);
+        }
 
 
 

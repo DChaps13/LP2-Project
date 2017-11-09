@@ -20,12 +20,12 @@ namespace Modelo
 
         }
 
-        public Usuario(string id, string contraseña, DateTime fechaCreacion, DateTime fechaModificacion, Estado estado, RolUsuario rol)
+        public Usuario(string id, string contraseña, DateTime fechaCreacion, Estado estado, RolUsuario rol)
         {
             this.id = id;
             this.contraseña = contraseña;
             this.fechaCreacion = fechaCreacion;
-            this.fechaModificacion = fechaModificacion;
+            //this.fechaModificacion = fechaModificacion;
             this.estado = estado;
             this.rol = rol;
         }

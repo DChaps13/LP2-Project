@@ -14,22 +14,22 @@ namespace Vista
 {
     public partial class Usuarios : Form
     {
-        BindingList<Usuario> usuarios;
-        UsuarioBL logNegUsu;
-        RolBL logNegRol;
-        EstadoBL logNegEstado;
-
+        private BindingList<Usuario> usuarios;
+        private UsuarioBL logNegUsu;
+        
         public Usuarios()
         {
             InitializeComponent();
-            
+
             logNegUsu = new UsuarioBL();
-            logNegRol = new RolBL();
-            logNegEstado = new EstadoBL();
+            RolBL logNegRol = new RolBL();
+            EstadoBL logNegEstado = new EstadoBL();
+
 
             BindingList<RolUsuario> listaRol = new BindingList<RolUsuario>();
             listaRol = logNegRol.listaRoles();
             cbxRol.ValueMember = "Descriptor";
+            cbxRol.Items.Add("Todos");
             foreach (RolUsuario r in listaRol)
             {
                 cbxRol.Items.Add(r);
@@ -38,14 +38,19 @@ namespace Vista
             BindingList<Estado> listaEst = new BindingList<Estado>();
             listaEst = logNegEstado.listarEstados();
             cbxEstado.ValueMember = "Nombre";
+            cbxEstado.Items.Add("Todos");
             foreach (Estado r in listaEst)
             {
                 cbxEstado.Items.Add(r);
             }
 
-            usuarios = logNegUsu.listaUsuarios();
+            usuarios = new BindingList<Usuario>();
+            //usuarios = logNegUsu.listaUsuarios();
+
             dataUsuarios.AutoGenerateColumns = false;
-            dataUsuarios.DataSource = logNegUsu.listaUsuarios();
+            dataUsuarios.Refresh();
+            dataUsuarios.AllowUserToAddRows = false;
+            //dataUsuarios.DataSource = usuarios;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -69,52 +74,10 @@ namespace Vista
         private void Buscar_Click(object sender, EventArgs e)
         {
 
-            BindingList<Usuario> usuariosSel = new BindingList<Usuario>();
-            BindingList<Usuario> usuariosAux = new BindingList<Usuario>();
+            usuarios = logNegUsu.buscarUsuarios(textBox1.Text, cbxRol.Text, cbxEstado.Text);
 
-            if (textBox1.Text!= "Todos")
-            {
-                for (int i=0; i< usuarios.Count;i++)
-                {
-                    if(usuarios[i].Id == textBox1.Text)
-                    {
-                        usuariosSel.Add(usuarios[i]);
-                    } 
-                }             
-
-            }
-            else
-            {
-                usuariosSel = usuarios;
-            }
-
-            usuariosAux = usuariosSel;
-            if (cbxRol.Text!= "Todos") // Rol del usuario
-            {
-                for (int i = 0; i < usuariosSel.Count; i++)
-                {
-                    if (usuariosSel[i].Rol.ToString() != cbxRol.Text)
-                    {
-                        usuariosAux.Remove(usuariosSel[i]);
-                    }
-                }
-            }
-
-            usuariosSel = usuariosAux;
-            if (cbxEstado.Text != "Todos") //Estado del usuario
-            {
-                for (int i = 0; i < usuariosSel.Count; i++)
-                {
-                    if (usuariosSel[i].Estado.ToString() != cbxEstado.Text)
-                    {
-                        usuariosAux.Remove(usuariosSel[i]);
-                    }
-                }
-            }
-
-            usuariosSel = usuariosAux;
-
-            dataUsuarios.DataSource = usuariosSel;
+            dataUsuarios.DataSource = usuarios;
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,7 +93,7 @@ namespace Vista
                 usuarios = logNegUsu.listaUsuarios();
                 dataUsuarios.DataSource = usuarios;
             }
-                
+
 
         }
 

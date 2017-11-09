@@ -39,6 +39,8 @@
             this.dataUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.nuevoUsuario = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxBuscarUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataUsuarios)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -130,6 +132,9 @@
             // dataUsuarios
             // 
             this.dataUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.fechaCreacion});
             this.dataUsuarios.Location = new System.Drawing.Point(11, 229);
             this.dataUsuarios.Name = "dataUsuarios";
             this.dataUsuarios.Size = new System.Drawing.Size(401, 137);
@@ -154,6 +159,20 @@
             this.nuevoUsuario.Text = "Nuevo Usuario";
             this.nuevoUsuario.UseVisualStyleBackColor = true;
             this.nuevoUsuario.Click += new System.EventHandler(this.nuevoUsuario_Click);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // fechaCreacion
+            // 
+            this.fechaCreacion.DataPropertyName = "fechaCreacion";
+            this.fechaCreacion.HeaderText = "fechaCreacion";
+            this.fechaCreacion.Name = "fechaCreacion";
+            this.fechaCreacion.ReadOnly = true;
             // 
             // Usuarios
             // 
@@ -186,5 +205,7 @@
         private System.Windows.Forms.DataGridView dataUsuarios;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button nuevoUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
     }
 }
