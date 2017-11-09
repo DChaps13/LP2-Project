@@ -36,7 +36,9 @@ namespace AccesoDatos
             BindingList<Producto> productos = new BindingList<Producto>();
 
             ConexionBD cadConexion = new ConexionBD();
-            string query = "SELECT p.*, cj.RazonSocial as 'razon',cj.Telefono as 'tlf', cj.Correo as 'correo', cj.RUC as 'ruc' FROM dbo.Usuario p INNER JOIN dbo.ClienteJuridico cj ON p.Id = cj.Id";
+            string query = "SELECT p.*, cj.RazonSocial as 'razon',cj.Telefono as 'tlf', cj.Correo as 'correo', cj.RUC as 'ruc' " +
+                "FROM dbo.Usuario p " +
+                "INNER JOIN dbo.ClienteJuridico cj ON p.Id = cj.Id";
             SqlConnection conexion = new SqlConnection(cadConexion.CadenaConexion);
             SqlCommand sentencia = conexion.CreateCommand();
             sentencia.CommandText = query;
@@ -49,8 +51,22 @@ namespace AccesoDatos
             while (reader.Read())
             {
                 CategoriaProd cat = new CategoriaProd(reader["Categoria"].ToString());
-                PersonaJuridica pj = new PersonaJuridica(reader["razon"].ToString(),reader["ruc"].ToString(),reader["tlf"].ToString(),reader["Correo"].ToString());
-                Producto p = new Producto(reader["Id"].ToString(), reader["Nombre"].ToString(), Int32.Parse(reader["Cantidad"].ToString()), Double.Parse(reader["Precio"].ToString()), reader["Estado"].ToString(), cat, DateTime.Parse(reader["fechaUltModif"].ToString()), DateTime.Parse(reader["fechaLanzamiento"].ToString()), Int32.Parse(reader["stock_minimo"].ToString()), pj);
+                PersonaJuridica pj = new PersonaJuridica(
+                    reader["razon"].ToString(),
+                    reader["ruc"].ToString(),
+                    reader["tlf"].ToString(),
+                    reader["Correo"].ToString());
+                Producto p = new Producto(
+                    reader["Id"].ToString(), 
+                    reader["Nombre"].ToString(), 
+                    Int32.Parse(reader["Cantidad"].ToString()), 
+                    Double.Parse(reader["Precio"].ToString()), 
+                    reader["Estado"].ToString(), 
+                    cat, 
+                    DateTime.Parse(reader["fechaUltModif"].ToString()), 
+                    DateTime.Parse(reader["fechaLanzamiento"].ToString()), 
+                    Int32.Parse(reader["stock_minimo"].ToString()), 
+                    pj);
                 productos.Add(p);
             }
 
