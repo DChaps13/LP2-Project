@@ -1,4 +1,5 @@
-﻿using Modelo;
+﻿using Controlador;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,11 +26,19 @@ namespace Vista
         private Usuario getUser(string usuario, string contrasena)
         {
             Usuario u = new Usuario();
+            UsuarioBL logNegUs = new UsuarioBL();
+            BindingList<Usuario> lstUsuarios = new BindingList<Usuario>();
+
             //operaciones SQL y asignación de datos a u;
-                //debugeo
-                u.Id = "juan";
-                u.Rol.Privilegio = 1;
-                u.Rol.Descriptor = "Administrador"; //pueden haber roles con el mismo privilegio y otros nombres e.g: Gerente (en caso se expanda el sistema)
+            //debugeo
+
+
+            lstUsuarios = logNegUs.buscarUsuarios(txtUsuario.Text, "Todos", "Todos");//"juan";
+            u.Id = lstUsuarios[0].Id;
+            u.Rol.Privilegio = lstUsuarios[0].Rol.Privilegio;
+            u.Rol.Descriptor =lstUsuarios[0].Rol.Descriptor;
+            //u.Rol.Privilegio = 1;
+            //    u.Rol.Descriptor = "Administrador"; //pueden haber roles con el mismo privilegio y otros nombres e.g: Gerente (en caso se expanda el sistema)
 
             if (u.Id != null)
                 return u;
