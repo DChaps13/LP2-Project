@@ -10,6 +10,11 @@ namespace Modelo
     {
         private string nombre;
 
+        public CategoriaProd(string nombre)
+        {
+            this.nombre = nombre;
+        }
+
         public string Nombre { get => nombre; set => nombre = value; }
         
     }
