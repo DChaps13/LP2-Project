@@ -18,6 +18,24 @@ namespace Modelo
         private DateTime fecha_Lanzamiento;
         private int stock_minimo;
         private PersonaJuridica proveedor;
+        public Producto()
+        {
+
+        }
+        public Producto(string id, string nombre, int cantidad, double precio, string estado, 
+            CategoriaProd cat, DateTime fechaUltModif, DateTime fechaLanzamiento, int stock_minimo, PersonaJuridica pj)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.cantidad = cantidad;
+            this.precio = precio;
+            this.estado = estado;
+            this.categoria = cat;
+            this.fecha_Ult_modificacion = fechaUltModif;
+            this.fecha_Lanzamiento = fechaLanzamiento;
+            this.stock_minimo = stock_minimo;
+            this.proveedor = pj;
+        }
 
         public string Nombre { get => nombre; set => nombre = value; }
         public int Cantidad { get => cantidad; set => cantidad = value; }
