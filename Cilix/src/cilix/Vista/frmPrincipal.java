@@ -23,6 +23,14 @@ public class frmPrincipal extends javax.swing.JDialog {
     public frmPrincipal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         setLocationRelativeTo(null);
+        this.user = user;
+        initComponents();
+    }
+    
+    public frmPrincipal(java.awt.Frame parent, boolean modal, Usuario user) {
+        super(parent, modal);
+        setLocationRelativeTo(null);
+        this.user = user;
         initComponents();
     }
 
@@ -100,8 +108,7 @@ public class frmPrincipal extends javax.swing.JDialog {
         // TODO add your handling code here:
         opened = true;
         FrmClientes fc = new FrmClientes(user);
-        
-        fc.setUser(user);
+        //fc.setUser(user);
         fc.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -123,7 +130,6 @@ public class frmPrincipal extends javax.swing.JDialog {
         opened = true;
         FrmTransaccionVenta ftv = new FrmTransaccionVenta(user);
         dispose();
-        ftv.setUser(user);
         ftv.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 

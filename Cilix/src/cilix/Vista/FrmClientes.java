@@ -254,6 +254,7 @@ public class FrmClientes extends javax.swing.JDialog {
         catch(Exception e){
             System.out.println(e.getMessage());
         }
+        System.out.println("HOLA");
         if(listaClientes!=null)
             actualizarDatosTabla();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -279,6 +280,7 @@ public class FrmClientes extends javax.swing.JDialog {
 
     public void actualizarDatosTabla(){
         DefaultTableModel modelo = (DefaultTableModel)tblClientes.getModel();
+        modelo.setRowCount(0);
         Object[] fila = new Object[4];
         for(int i=0; i<listaClientes.size();i++){
             if(listaClientes.get(i) instanceof ClienteNatural)

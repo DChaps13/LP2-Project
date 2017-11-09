@@ -28,6 +28,14 @@ namespace Modelo
 
         private bool esCliente; //corresponde al comentario en el diagrama de clases
 
+        public PersonaJuridica(string razonSocial, string ruc, string telefono, string correo)
+        {
+            this.razonSocial = razonSocial;
+            this.ruc = ruc;
+            this.telefono = telefono;
+            this.correo = correo;
+        }
+
         public string RazonSocial { get => razonSocial; set => razonSocial = value; }
         public string Ruc { get => ruc; set => ruc = value; }
         public string Telefono { get => telefono; set => telefono = value; }
