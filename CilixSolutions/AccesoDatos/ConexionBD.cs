@@ -14,7 +14,9 @@ namespace AccesoDatos
 
         public ConexionBD()
         {
-            string conexion = "Data Source=localhost;Initial Catalog=inf282g4;Persist Security Info=True;User ID=inf282g4;Password=LnyBcOhGWyvFVtBp";
+
+            //string conexion = "Data Source=localhost;Initial Catalog=inf282g4;Persist Security Info=True;User ID=inf282g4;Password=LnyBcOhGWyvFVtBp";
+            string conexion = "Persist Security Info = False; User ID = inf282g4; Password = LnyBcOhGWyvFVtBp; Initial Catalog = inf282g4; Server = 200.16.7.140";
             this.cadenaConexion = conexion;
         }
 
