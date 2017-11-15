@@ -32,12 +32,20 @@ namespace Vista
             //operaciones SQL y asignación de datos a u;
             //debugeo
 
-            while (true)
-            {
-                lstUsuarios = logNegUs.buscarUsuarios(txtUsuario.Text, "Todos", "Todos");//"juan";
-                if (lstUsuarios.Count != 0)
+            while (true) {
+                lstUsuarios = logNegUs.listaUsuarios();
+                //lstUsuarios = logNegUs.buscarUsuarios(txtUsuario.Text, "Todos", "Todos");//"juan";
+                if (lstUsuarios.Count >= 1)
                 {
-                    break;
+                    bool valid = false;
+                    for (int i = 0; i < lstUsuarios.Count && !valid; ++i) {
+                        Usuario x = lstUsuarios.ElementAt(i);
+                        if (x.Id == usuario && x.Contraseña == contrasena)
+                        {
+                            return x;
+                        }
+                    }
+                    return null;
                 }
                 if (lstUsuarios.Count == 0)
                 {
@@ -66,6 +74,9 @@ namespace Vista
             {
                 DialogResult = DialogResult.OK;
                 this.Close();
+            }
+            else {
+                MessageBox.Show("Acceso DENEGADO. Contraseña incorrecta", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }

@@ -18,6 +18,7 @@ namespace Modelo
         public Usuario()
         {
             rol = new RolUsuario();
+            estado = new Estado();
         }
 
         public Usuario(string id, string contraseña, DateTime fechaCreacion, Estado estado, RolUsuario rol)

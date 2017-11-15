@@ -38,29 +38,26 @@
             // lbUsuario
             // 
             this.lbUsuario.AutoSize = true;
-            this.lbUsuario.Location = new System.Drawing.Point(85, 107);
-            this.lbUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbUsuario.Location = new System.Drawing.Point(64, 87);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(57, 17);
+            this.lbUsuario.Size = new System.Drawing.Size(43, 13);
             this.lbUsuario.TabIndex = 0;
             this.lbUsuario.Text = "Usuario";
             // 
             // lbContraseña
             // 
             this.lbContraseña.AutoSize = true;
-            this.lbContraseña.Location = new System.Drawing.Point(85, 182);
-            this.lbContraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbContraseña.Location = new System.Drawing.Point(64, 148);
             this.lbContraseña.Name = "lbContraseña";
-            this.lbContraseña.Size = new System.Drawing.Size(81, 17);
+            this.lbContraseña.Size = new System.Drawing.Size(61, 13);
             this.lbContraseña.TabIndex = 1;
             this.lbContraseña.Text = "Contraseña";
             // 
             // btnEmpezar
             // 
-            this.btnEmpezar.Location = new System.Drawing.Point(219, 277);
-            this.btnEmpezar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEmpezar.Location = new System.Drawing.Point(164, 225);
             this.btnEmpezar.Name = "btnEmpezar";
-            this.btnEmpezar.Size = new System.Drawing.Size(100, 28);
+            this.btnEmpezar.Size = new System.Drawing.Size(75, 23);
             this.btnEmpezar.TabIndex = 2;
             this.btnEmpezar.Text = "Empezar";
             this.btnEmpezar.UseVisualStyleBackColor = true;
@@ -68,31 +65,29 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(219, 107);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsuario.Location = new System.Drawing.Point(164, 87);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(132, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
             this.txtUsuario.TabIndex = 3;
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(219, 182);
-            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtContraseña.Location = new System.Drawing.Point(164, 148);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(132, 22);
+            this.txtContraseña.PasswordChar = '*';
+            this.txtContraseña.Size = new System.Drawing.Size(100, 20);
             this.txtContraseña.TabIndex = 4;
             // 
             // Logueo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 362);
+            this.ClientSize = new System.Drawing.Size(355, 294);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnEmpezar);
             this.Controls.Add(this.lbContraseña);
             this.Controls.Add(this.lbUsuario);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Logueo";
             this.Text = "Logueo";
             this.ResumeLayout(false);
