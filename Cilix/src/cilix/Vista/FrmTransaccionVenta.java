@@ -30,12 +30,19 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
     public FrmTransaccionVenta() {
         initComponents();
         setLocationRelativeTo(null);
+        listaProductos = new ArrayList<Producto>();
+        listaClientes = new ArrayList<Cliente>();
+        listaUsuarios = new ArrayList<Usuario>();
     }
 
     public FrmTransaccionVenta(Usuario user) {
         initComponents();
         setUser(user);
         setLocationRelativeTo(null);
+        this.user = user;
+        listaProductos = new ArrayList<Producto>();
+        listaClientes = new ArrayList<Cliente>();
+        listaUsuarios = new ArrayList<Usuario>();
     }
     
     public FrmTransaccionVenta(java.awt.Frame parent, boolean modal, Usuario user) {
@@ -91,7 +98,7 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
         tblClientes = new javax.swing.JTable();
         jButton12 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblTransacciones = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -142,7 +149,7 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -159,6 +166,11 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
         });
 
         btnEliminarProducto.setText("Eliminar");
+        btnEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarProductoActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Cliente");
 
@@ -170,6 +182,11 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
         });
 
         btnEliminarCliente.setText("Eliminar");
+        btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarClienteActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Usuario");
 
@@ -181,6 +198,11 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
         });
 
         btnEliminarUsuario.setText("Eliminar");
+        btnEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarUsuarioActionPerformed(evt);
+            }
+        });
 
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -298,7 +320,7 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblTransacciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -314,9 +336,9 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(20);
+        jScrollPane2.setViewportView(tblTransacciones);
+        if (tblTransacciones.getColumnModel().getColumnCount() > 0) {
+            tblTransacciones.getColumnModel().getColumn(0).setPreferredWidth(20);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -418,6 +440,7 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
             Usuario x = lista.get(i);
             fila[0] = x.getId();
             fila[1] = x.getRol().getDescriptor();
+            modelo.addRow(fila);
         }
     }
     
@@ -451,6 +474,31 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
         listaUsuarios.add(x);
         actualizarTablaUsuarios();
     }//GEN-LAST:event_btnBuscarUsuarioActionPerformed
+
+    private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
+        // TODO add your handling code here:
+        
+        int idx = tblProductos.getSelectedRow();
+        if(idx == -1) return;
+        listaProductos.remove(idx);
+        actualizarTablaProductos();
+    }//GEN-LAST:event_btnEliminarProductoActionPerformed
+
+    private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
+        // TODO add your handling code here:
+        int idx = tblClientes.getSelectedRow();
+        if(idx == -1) return;
+        listaClientes.remove(idx);
+        actualizarTablaClientes();
+    }//GEN-LAST:event_btnEliminarClienteActionPerformed
+
+    private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
+        // TODO add your handling code here:
+        int idx = tblUsuarios.getSelectedRow();
+        if(idx == -1) return;
+        listaProductos.remove(idx);
+        actualizarTablaUsuarios();
+    }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -513,12 +561,12 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTable tblClientes;
     private javax.swing.JTable tblProductos;
+    private javax.swing.JTable tblTransacciones;
     private javax.swing.JTable tblUsuarios;
     // End of variables declaration//GEN-END:variables
 }

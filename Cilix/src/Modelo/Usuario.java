@@ -11,7 +11,12 @@ public class Usuario {
     private String estado;
     private RolUsuario rol;
 
-    public Usuario(){}
+    public Usuario(){
+        RolUsuario x = new RolUsuario();
+        x.setDescriptor("Estándar");
+        x.setPrivilegio(1);
+        this.setRol(x);
+    }
     
     public Usuario(String id, String password, Date fechaCreacion, Date fechaModificacion, String estado, RolUsuario rol){
         this.id = id;
