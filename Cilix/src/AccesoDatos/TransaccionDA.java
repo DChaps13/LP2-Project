@@ -56,14 +56,15 @@ public class TransaccionDA {
             ps.setString(4, t.getDestino());
             ps.setInt(5, t.getIdContacto());
             ps.setInt(6, t.getIdProducto());
-            ps.setString(7, "" + t.getIdUsuario());
+            ps.setString(7, t.getUsuario().getId());    
             ps.execute();
             /* ACTUALIZAR LA TABLA PRODUCTO */
+            /*
             String actualizar = "{call dbo.actualizarCantidadProducto(?,?)}";
             ps = conn.prepareStatement(actualizar);
             ps.setInt(1,t.getIdProducto());
             ps.setInt(2,t.getCantidad());
-            ps.execute();
+            ps.execute();*/
             return true;
         }catch (Exception ex) {
             System.out.println(ex.getMessage());

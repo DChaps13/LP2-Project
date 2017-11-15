@@ -7,6 +7,7 @@ package cilix.Vista;
 
 import Controlador.UsuarioBL;
 import Modelo.Usuario;
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -58,6 +59,12 @@ public class frmLogueo extends javax.swing.JDialog {
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
+            }
+        });
+
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyReleased(evt);
             }
         });
 
@@ -133,6 +140,39 @@ public class frmLogueo extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos. ");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            Usuario currentUser = new Usuario();
+            String usuario = txtUsuario.getText();
+            String password = txtPassword.getText();
+            boolean valid = false;
+            ArrayList<Usuario> lista = logNegUsuario.devolverUsuarios();
+            if(lista == null) {
+                JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos. ");
+                return;
+            }
+
+            for(Usuario u : lista){
+                if( u.getId().equals(usuario) && u.getPassword().equals(password) ){ 
+                    valid = true;
+                    currentUser = u;
+                    txtUsuario.setText("");
+                    txtPassword.setText("");
+                    break; 
+                }
+            }
+
+            if(valid){
+                frmPrincipal fp = new frmPrincipal(null,true,currentUser);
+                dispose();
+                fp.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos. ");
+            }
+        }
+    }//GEN-LAST:event_txtPasswordKeyReleased
 
     /**
      * @param args the command line arguments

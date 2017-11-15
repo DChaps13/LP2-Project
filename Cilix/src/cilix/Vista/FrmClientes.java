@@ -274,8 +274,8 @@ public class FrmClientes extends javax.swing.JDialog {
         System.out.println("CLOSING CLIENTES");
         frmPrincipal fp = new frmPrincipal(null,true);
         dispose();
-        fp.setVisible(true);
         fp.setUser(user);
+        fp.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
 
     public void actualizarDatosTabla(){

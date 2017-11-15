@@ -22,12 +22,23 @@ public class Transaccion {
     private int idTipoTransaccion;
     private int idProducto;
     private int idUsuario;
+    private Usuario usuario;
     
     public Transaccion(){
         this.descripcion = "No c dice";
         this.destino = "No c dice";
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    
+    
     public int getId() {
         return id;
     }
