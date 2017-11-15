@@ -5,8 +5,16 @@
  */
 package cilix.Vista;
 
+import Controlador.ClienteBL;
+import Controlador.ProductoBL;
+import Controlador.UsuarioBL;
+import Modelo.Cliente;
+import Modelo.ClienteNatural;
+import Modelo.Empresa;
 import Modelo.Producto;
 import Modelo.Usuario;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,6 +23,9 @@ import Modelo.Usuario;
 public class FrmTransaccionVenta extends javax.swing.JDialog {
 
     static Usuario user;
+    ArrayList<Producto> listaProductos;
+    ArrayList<Cliente> listaClientes;
+    ArrayList<Usuario> listaUsuarios;
     
     public FrmTransaccionVenta() {
         initComponents();
@@ -32,6 +43,9 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         initComponents();
         this.user = user;
+        listaProductos = new ArrayList<Producto>();
+        listaClientes = new ArrayList<Cliente>();
+        listaUsuarios = new ArrayList<Usuario>();
         //txtUsuario.setText(user.getId());
     }
     
@@ -60,7 +74,7 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblProductos = new javax.swing.JTable();
         btnBuscarProducto = new javax.swing.JButton();
         btnEliminarProducto = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -72,9 +86,9 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
         btnBuscarUsuario = new javax.swing.JButton();
         btnEliminarUsuario = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblUsuarios = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tblClientes = new javax.swing.JTable();
         jButton12 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -119,7 +133,7 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
 
         jLabel1.setText("Producto");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -135,7 +149,7 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblProductos);
 
         btnBuscarProducto.setText("...");
         btnBuscarProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +182,7 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
 
         btnEliminarUsuario.setText("Eliminar");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -184,9 +198,9 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tblUsuarios);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -202,7 +216,7 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(tblClientes);
 
         jButton12.setText("Buscar");
 
@@ -358,24 +372,84 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
         fp.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
 
+    void actualizarTablaProductos(){
+        ProductoBL logNegProducto = new ProductoBL();
+        ArrayList<Producto> lista = listaProductos;
+        if(lista == null) return;
+        DefaultTableModel modelo = (DefaultTableModel)tblProductos.getModel();
+        modelo.setRowCount(0);
+        Object[] fila = new Object[4];
+        for(int i=0; i<lista.size();i++){
+            fila[0] = lista.get(i).getId();
+            fila[1] = lista.get(i).getNombre();
+            fila[2] = lista.get(i).getCantidad();
+            fila[3] = lista.get(i).getPrecio();
+            modelo.addRow(fila);
+        }
+    }
+    
+    void actualizarTablaClientes(){
+        ClienteBL logica = new ClienteBL();
+        ArrayList<Cliente> lista = listaClientes;
+        if(lista == null) return;
+        DefaultTableModel modelo = (DefaultTableModel)tblClientes.getModel();
+        modelo.setRowCount(0);
+        Object[] fila = new Object[3];
+        for(int i = 0; i < lista.size(); ++i){
+            Cliente c = lista.get(i);
+            fila[0] = c.getId();
+            if(c instanceof Empresa)
+                fila[1] = ((Empresa) c).getRazonSocial();
+            else if(c instanceof ClienteNatural)
+                fila[1] = ((ClienteNatural) c).getNombre() +  " " + ((ClienteNatural) c).getApellido();
+            fila[2] = c.getEmail();
+            modelo.addRow(fila);
+        }
+    }
+    
+    void actualizarTablaUsuarios(){
+        UsuarioBL logica = new UsuarioBL();
+        ArrayList<Usuario> lista = listaUsuarios;
+        if(lista == null) return;
+        DefaultTableModel modelo = (DefaultTableModel)tblUsuarios.getModel();
+        modelo.setRowCount(0);
+        Object[] fila = new Object[2];
+        for(int i = 0; i < lista.size(); ++i){
+            Usuario x = lista.get(i);
+            fila[0] = x.getId();
+            fila[1] = x.getRol().getDescriptor();
+        }
+    }
+    
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
         // TODO add your handling code here:
         
         FrmBuscarProducto fbp = new FrmBuscarProducto(null, true);
         fbp.setVisible(true);
         Producto p = fbp.getProductoSeleccionado();
+        if(p == null) return ;
+        listaProductos.add(p);
+        actualizarTablaProductos();
     }//GEN-LAST:event_btnBuscarProductoActionPerformed
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
         // TODO add your handling code here:
         FrmBuscarCliente fbc = new FrmBuscarCliente(null, true);
         fbc.setVisible(true);
+        Cliente c = fbc.getClienteSeleccionado();
+        if(c == null) return;
+        listaClientes.add(c);
+        actualizarTablaClientes();
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
 
     private void btnBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarUsuarioActionPerformed
         // TODO add your handling code here:
         FrmBuscarUsuario fbu = new FrmBuscarUsuario(null, true);
         fbu.setVisible(true);
+        Usuario x = fbu.getUsuarioSeleccionado();
+        if(x == null) return;
+        listaUsuarios.add(x);
+        actualizarTablaUsuarios();
     }//GEN-LAST:event_btnBuscarUsuarioActionPerformed
 
     /**
@@ -439,12 +513,12 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable tblClientes;
+    private javax.swing.JTable tblProductos;
+    private javax.swing.JTable tblUsuarios;
     // End of variables declaration//GEN-END:variables
 }

@@ -127,7 +127,7 @@ public class FrmBuscarProducto extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,"Seleccione un producto");
             return;
         }
-        this.setProductoSeleccionado(lista.get(idx));
+        productoSeleccionado = lista.get(idx);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

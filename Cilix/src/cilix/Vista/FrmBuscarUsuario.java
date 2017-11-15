@@ -5,6 +5,14 @@
  */
 package cilix.Vista;
 
+import Controlador.ProductoBL;
+import Controlador.UsuarioBL;
+import Modelo.Producto;
+import Modelo.Usuario;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Emanuel
@@ -14,11 +22,39 @@ public class FrmBuscarUsuario extends javax.swing.JDialog {
     /**
      * Creates new form buscarUsuario
      */
+    
+    Usuario usuarioSeleccionado;
+    ArrayList<Usuario> lista;
+    
     public FrmBuscarUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        UsuarioBL logica = new UsuarioBL();
+        lista = logica.devolverUsuarios();
+        DefaultTableModel modelo = (DefaultTableModel)tblUsuarios.getModel();
+        modelo.setRowCount(0);
+        Object[] fila = new Object[2];
+        for(int i=0; i<lista.size();i++){
+            Usuario x = lista.get(i);
+            fila[0] = x.getId();
+            fila[1] = x.getRol().getDescriptor();
+            modelo.addRow(fila);
+        }
+        usuarioSeleccionado = null;
+        
     }
 
+    public Usuario getUsuarioSeleccionado() {
+        return usuarioSeleccionado;
+    }
+
+    public void setUsuarioSeleccionado(Usuario usuarioSeleccionado) {
+        this.usuarioSeleccionado = usuarioSeleccionado;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,13 +66,18 @@ public class FrmBuscarUsuario extends javax.swing.JDialog {
 
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblUsuarios = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setText("Seleccionar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -52,7 +93,7 @@ public class FrmBuscarUsuario extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblUsuarios);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,6 +120,19 @@ public class FrmBuscarUsuario extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        int idx = tblUsuarios.getSelectedRow();
+        if(idx == -1){
+            JOptionPane.showMessageDialog(null,"Seleccione un producto");
+            return;
+        }
+        this.setUsuarioSeleccionado(lista.get(idx));
+        dispose();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,6 +180,6 @@ public class FrmBuscarUsuario extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblUsuarios;
     // End of variables declaration//GEN-END:variables
 }

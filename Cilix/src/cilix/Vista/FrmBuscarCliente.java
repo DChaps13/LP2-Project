@@ -11,6 +11,7 @@ import Modelo.ClienteNatural;
 import Modelo.Empresa;
 import Modelo.Producto;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -126,7 +127,13 @@ public class FrmBuscarCliente extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        
+        int idx = tblClientes.getSelectedRow();
+        if(idx == -1){
+            JOptionPane.showMessageDialog(null,"Seleccione un cliente");
+            return;
+        }
+        this.setClienteSeleccionado(lista.get(idx));
+        dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

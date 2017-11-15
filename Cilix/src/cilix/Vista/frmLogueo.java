@@ -117,6 +117,7 @@ public class frmLogueo extends javax.swing.JDialog {
         String password = txtPassword.getText();
         boolean valid = false;
         ArrayList<Usuario> lista = logNegUsuario.devolverUsuarios();
+        
         if(lista == null) {
             JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos. ");
             return;
