@@ -171,9 +171,9 @@ namespace Vista
 
         private void naturalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NuevoProveedor childForm = new NuevoProveedor();
+            NuevoCliente childForm = new NuevoCliente();
             childForm.MdiParent = this;
-            childForm.Text = "Nuevo Proveedor";
+            childForm.Text = "Nuevo Cliente";
             childForm.Show();
         }
 

@@ -202,6 +202,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "NuevoCliente";
             this.Text = "Nuevo Cliente";
+            this.Load += new System.EventHandler(this.NuevoCliente_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

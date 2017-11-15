@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace Vista
 {
     public partial class NuevoCliente : Form
     {
+        private PersonaNatural cliente;
         public NuevoCliente()
         {
             InitializeComponent();
+            cliente = new PersonaNatural();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -64,10 +67,39 @@ namespace Vista
 
         private void CREARbutton_Click(object sender, EventArgs e)
         {
+            string nombres;
+            nombres = NOMBREtextBox.Text;
+            string apellidoPat;
+            apellidoPat = APEPATtextBox.Text;
+            string apellidoMat;
+            apellidoMat = APEMATtextBox.Text;
+            string dni;
+            dni = DNItextBox.Text;
+            string telefono;
+            telefono = TLFtextBox.Text;
+            string correo;
+            correo = CORREOtextBox.Text;
+
+
+            cliente.Nombres = nombres;
+            cliente.ApellidoPat = apellidoPat;
+            cliente.ApellidoMat = apellidoMat;
+            cliente.Correo = correo;
+            cliente.Telefono = telefono;
+            cliente.Dni = dni;
+
+
+
 
         }
 
         private void CANCELARbutton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void NuevoCliente_Load(object sender, EventArgs e)
         {
 
         }
