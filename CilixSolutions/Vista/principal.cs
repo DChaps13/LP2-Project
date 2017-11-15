@@ -99,6 +99,14 @@ namespace Vista
                 lbLoggedUser.Text = "Hola, " + usuarioActual.Id + " ("+usuarioActual.Rol.Descriptor+")";
                 lbLoggedUser.Visible = true;
 
+
+                transaccionesToolStripMenuItem.Visible = true;
+                transaccionesToolStripMenuItem.Enabled = true;
+
+                buscarToolStripMenuItem.Visible = true;
+                buscarToolStripMenuItem.Enabled = true;
+
+
                 logueoToolStripMenuItem.Enabled = false;
                 logOutToolStripMenuItem.Visible = true;
                 
@@ -163,7 +171,10 @@ namespace Vista
 
         private void naturalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            NuevoCliente childForm = new NuevoCliente();
+            childForm.MdiParent = this;
+            childForm.Text = "Nuevo Cliente";
+            childForm.Show();
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -188,6 +199,11 @@ namespace Vista
             juridicoToolStripMenuItem1.Enabled = false; //natural
             jurídicoToolStripMenuItem2.Enabled = false; //juridico
             productoToolStripMenuItem.Enabled = false;
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

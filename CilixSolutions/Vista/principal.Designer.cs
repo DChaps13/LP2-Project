@@ -138,6 +138,7 @@
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
             this.buscarToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.buscarToolStripMenuItem.Text = "Buscar";
+            this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
             // transacciónToolStripMenuItem1
             // 
@@ -168,14 +169,14 @@
             // 
             this.juridicoToolStripMenuItem1.Enabled = false;
             this.juridicoToolStripMenuItem1.Name = "juridicoToolStripMenuItem1";
-            this.juridicoToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.juridicoToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
             this.juridicoToolStripMenuItem1.Text = "Natural...";
             // 
             // jurídicoToolStripMenuItem2
             // 
             this.jurídicoToolStripMenuItem2.Enabled = false;
             this.jurídicoToolStripMenuItem2.Name = "jurídicoToolStripMenuItem2";
-            this.jurídicoToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.jurídicoToolStripMenuItem2.Size = new System.Drawing.Size(124, 22);
             this.jurídicoToolStripMenuItem2.Text = "Jurídico...";
             this.jurídicoToolStripMenuItem2.Click += new System.EventHandler(this.jurídicoToolStripMenuItem2_Click);
             // 
@@ -223,7 +224,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "principal";
             this.Text = "principal";
             this.menuStrip1.ResumeLayout(false);

@@ -32,8 +32,21 @@ namespace Vista
             //operaciones SQL y asignación de datos a u;
             //debugeo
 
+            while (true)
+            {
+                lstUsuarios = logNegUs.buscarUsuarios(txtUsuario.Text, "Todos", "Todos");//"juan";
+                if (lstUsuarios.Count != 0)
+                {
+                    break;
+                }
+                if (lstUsuarios.Count == 0)
+                {
+                    MessageBox.Show("USUARIO INVALIDO", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return null;
 
-            lstUsuarios = logNegUs.buscarUsuarios(txtUsuario.Text, "Todos", "Todos");//"juan";
+                }
+            }
+            
             u.Id = lstUsuarios[0].Id;
             u.Rol.Privilegio = lstUsuarios[0].Rol.Privilegio;
             u.Rol.Descriptor =lstUsuarios[0].Rol.Descriptor;
