@@ -36,9 +36,8 @@ namespace AccesoDatos
             BindingList<Producto> productos = new BindingList<Producto>();
 
             ConexionBD cadConexion = new ConexionBD();
-            string query = "SELECT p.*, cj.RazonSocial as 'razon',cj.Telefono as 'tlf', cj.Correo as 'correo', cj.RUC as 'ruc' " +
-                "FROM dbo.Usuario p " +
-                "INNER JOIN dbo.ClienteJuridico cj ON p.Id = cj.Id";
+            string query = "SELECT p.Id as 'id', p.Nombre as 'nombre', p.Cantidad as 'cant', p.Estado as 'estado',p.Categoria as 'cat', p.fechaUltModif as 'fUM', p.fechaLanzamiento as 'fL', p.stock_minimo as 'stockMin',  " +
+                "FROM dbo.Producto p " ;
             SqlConnection conexion = new SqlConnection(cadConexion.CadenaConexion);
             SqlCommand sentencia = conexion.CreateCommand();
             sentencia.CommandText = query;
