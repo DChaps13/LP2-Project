@@ -37,5 +37,10 @@ namespace Modelo
         public DateTime FechaModificacion { get => fechaModificacion; set => fechaModificacion = value; }
         public Estado Estado { get => estado; set => estado = value; }
         public RolUsuario Rol { get => rol; set => rol = value; }
+
+        public string getRol()
+        {
+            return rol.Descriptor;
+        }
     }
 }
