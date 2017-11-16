@@ -81,7 +81,7 @@
             // 
             this.transacciónToolStripMenuItem.Enabled = false;
             this.transacciónToolStripMenuItem.Name = "transacciónToolStripMenuItem";
-            this.transacciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.transacciónToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.transacciónToolStripMenuItem.Text = "Transacción...";
             this.transacciónToolStripMenuItem.Click += new System.EventHandler(this.transacciónToolStripMenuItem_Click);
             // 
@@ -89,7 +89,7 @@
             // 
             this.usuarioToolStripMenuItem.Enabled = false;
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.usuarioToolStripMenuItem.Text = "Usuario...";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
@@ -99,7 +99,7 @@
             this.naturalToolStripMenuItem,
             this.jurídicoToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -123,7 +123,7 @@
             // 
             this.productoToolStripMenuItem1.Enabled = false;
             this.productoToolStripMenuItem1.Name = "productoToolStripMenuItem1";
-            this.productoToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.productoToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
             this.productoToolStripMenuItem1.Text = "Producto";
             this.productoToolStripMenuItem1.Click += new System.EventHandler(this.productoToolStripMenuItem1_Click);
             // 
@@ -144,7 +144,7 @@
             // 
             this.transacciónToolStripMenuItem1.Enabled = false;
             this.transacciónToolStripMenuItem1.Name = "transacciónToolStripMenuItem1";
-            this.transacciónToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.transacciónToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
             this.transacciónToolStripMenuItem1.Text = "Transacción...";
             this.transacciónToolStripMenuItem1.Click += new System.EventHandler(this.transacciónToolStripMenuItem1_Click);
             // 
@@ -152,7 +152,7 @@
             // 
             this.usuarioToolStripMenuItem1.Enabled = false;
             this.usuarioToolStripMenuItem1.Name = "usuarioToolStripMenuItem1";
-            this.usuarioToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.usuarioToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
             this.usuarioToolStripMenuItem1.Text = "Usuario...";
             this.usuarioToolStripMenuItem1.Click += new System.EventHandler(this.usuarioToolStripMenuItem1_Click);
             // 
@@ -162,7 +162,7 @@
             this.juridicoToolStripMenuItem1,
             this.jurídicoToolStripMenuItem2});
             this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
-            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
             this.clientesToolStripMenuItem1.Text = "Clientes";
             // 
             // juridicoToolStripMenuItem1
@@ -184,7 +184,7 @@
             // 
             this.productoToolStripMenuItem.Enabled = false;
             this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
-            this.productoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.productoToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.productoToolStripMenuItem.Text = "Producto";
             this.productoToolStripMenuItem.Click += new System.EventHandler(this.productoToolStripMenuItem_Click);
             // 
