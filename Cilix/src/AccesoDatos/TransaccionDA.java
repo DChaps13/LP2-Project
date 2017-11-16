@@ -12,6 +12,7 @@ import Modelo.Producto;
 import Modelo.Transaccion;
 import Modelo.Usuario;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -119,14 +120,35 @@ public class TransaccionDA {
                 }
                 extra = extra + " ) ";
             }
-
+            //Esto lo hizo chapi
+            if (extra != "") query = query + " WHERE " + extra;
             ResultSet rs = sentencia.executeQuery(query);
             while(rs.next()){
                 Transaccion t = new Transaccion();
                 /* SOLO FALTA EXTRAER DATOS DE TRANSACCION */
+                //Esto lo hizo chapi
+                int id = rs.getInt("Id");
+                int cantidad = rs.getInt("cantidad");
+                String descp = rs.getString("Descripción");
+                String destino = rs.getString("Destino");
+                Date fecha = rs.getDate("Fecha");
+                int idCont = rs.getInt("Id_Contacto");
+                int idTipo = rs.getInt("Id_Tipo_Transaccion");
+                int idProd = rs.getInt("Id_Producto");
+                String idUsu = rs.getString("Id_Usuario");
+                t.setId(id);
+                t.setCantidad(cantidad);
+                t.setDescripcion(descp);
+                t.setDestino(destino);
+                t.setFecha(fecha);
+                t.setIdContacto(idCont);
+                t.setIdProducto(idProd);
+                t.setIdTipoTransaccion(idTipo);
+                t.setIdUsuario(idUsu);
                 lista.add(t);
             }
             conn.close();
+            return lista;
         }catch (Exception e){
             // do something appropriate with the exception, *at least*:
             System.out.println(e.getMessage());

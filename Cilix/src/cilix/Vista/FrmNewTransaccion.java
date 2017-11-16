@@ -389,6 +389,7 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
     
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
+        //Falta codear como cancha
         if( isEmpty(txtCantidad) || isEmpty(txtCantidadActual) || isEmpty(txtIdCliente) || isEmpty(txtIdProducto) || isEmpty(txtUsuario) || isEmpty(txtDescripcion) ){
             JOptionPane.showMessageDialog(null, "Ingrese la informacion en los campos correspondientes");
             return;
@@ -409,7 +410,7 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
             t.setDescripcion(descripcion);
             t.setIdContacto(tipoCliente);
             t.setIdProducto(idProducto);
-            t.setIdUsuario(idCliente);
+            t.setIdUsuario(user.getId());
             t.setUsuario(user);
             TransaccionBL logNegTrn = new TransaccionBL();
             if(logNegTrn.registrarVenta(t))

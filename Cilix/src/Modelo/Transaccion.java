@@ -21,7 +21,7 @@ public class Transaccion {
     private int idContacto;
     private int idTipoTransaccion;
     private int idProducto;
-    private int idUsuario;
+    private String idUsuario; //se cambio el id de int  A  STRING
     private Usuario usuario;
     
     public Transaccion(){
@@ -103,11 +103,11 @@ public class Transaccion {
         this.idProducto = idProducto;
     }
 
-    public int getIdUsuario() {
+    public String getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
     }
     
