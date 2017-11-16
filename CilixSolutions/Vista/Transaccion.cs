@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace Vista
 {
     public partial class Transaccion : Form
     {
+        BindingList<Producto> listaProductos;
+        BindingList<Usuario> listaUsuarios;
+        BindingList<Contacto> listaContactos;
+
         public Transaccion()
         {
             InitializeComponent();
+            listaProductos = new BindingList<Producto>();
+            listaUsuarios = new BindingList<Usuario>();
+            listaContactos = new BindingList<Contacto>();
         }
 
         private void btBuscaContacto_Click(object sender, EventArgs e)
@@ -43,6 +51,11 @@ namespace Vista
             NuevaTransaccion frmNuevaTransaccion = new NuevaTransaccion();
             frmNuevaTransaccion.Owner = this;
             frmNuevaTransaccion.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

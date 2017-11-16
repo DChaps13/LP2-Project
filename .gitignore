@@ -241,3 +241,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /Cilix/nbproject/private/
+/Cilix/dist/
