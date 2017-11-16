@@ -16,6 +16,7 @@ namespace Vista
     {
         private BindingList<Usuario> usuarios;
         private UsuarioBL logNegUsu;
+        private Usuario usuarioSeleccionado;
         
         public Usuarios()
         {
@@ -100,6 +101,12 @@ namespace Vista
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btOK_Click(object sender, EventArgs e)
+        {
+            usuarioSeleccionado = (Usuario)dataUsuarios.CurrentRow.DataBoundItem;
+            this.Close();
         }
     }
 }
