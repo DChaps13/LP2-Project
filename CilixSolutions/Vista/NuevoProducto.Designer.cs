@@ -29,56 +29,96 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtStock = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbxCat = new System.Windows.Forms.ComboBox();
+            this.cbxProv = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.crearProd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombreProd = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.txtPrecio);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtStock);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cbxCat);
+            this.groupBox1.Controls.Add(this.cbxProv);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.crearProd);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtNombreProd);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(349, 168);
+            this.groupBox1.Size = new System.Drawing.Size(474, 258);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Producto";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // comboBox2
+            // txtPrecio
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(125, 94);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(174, 21);
-            this.comboBox2.TabIndex = 7;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.txtPrecio.Location = new System.Drawing.Point(125, 177);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(174, 20);
+            this.txtPrecio.TabIndex = 11;
             // 
-            // comboBox1
+            // label5
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(125, 59);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(174, 21);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(48, 180);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Precio";
+            // 
+            // txtStock
+            // 
+            this.txtStock.Location = new System.Drawing.Point(125, 134);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(174, 20);
+            this.txtStock.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(48, 137);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Stock Inicial";
+            // 
+            // cbxCat
+            // 
+            this.cbxCat.FormattingEnabled = true;
+            this.cbxCat.Location = new System.Drawing.Point(125, 94);
+            this.cbxCat.Name = "cbxCat";
+            this.cbxCat.Size = new System.Drawing.Size(174, 21);
+            this.cbxCat.TabIndex = 7;
+            this.cbxCat.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // cbxProv
+            // 
+            this.cbxProv.FormattingEnabled = true;
+            this.cbxProv.Location = new System.Drawing.Point(125, 59);
+            this.cbxProv.Name = "cbxProv";
+            this.cbxProv.Size = new System.Drawing.Size(174, 21);
+            this.cbxProv.TabIndex = 6;
+            this.cbxProv.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(193, 131);
+            this.button5.Location = new System.Drawing.Point(246, 219);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(136, 23);
             this.button5.TabIndex = 5;
@@ -88,7 +128,7 @@
             // 
             // crearProd
             // 
-            this.crearProd.Location = new System.Drawing.Point(19, 131);
+            this.crearProd.Location = new System.Drawing.Point(72, 219);
             this.crearProd.Name = "crearProd";
             this.crearProd.Size = new System.Drawing.Size(136, 23);
             this.crearProd.TabIndex = 4;
@@ -116,12 +156,12 @@
             this.label2.Text = "Proveedor";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox1
+            // txtNombreProd
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtNombreProd.Location = new System.Drawing.Point(125, 25);
+            this.txtNombreProd.Name = "txtNombreProd";
+            this.txtNombreProd.Size = new System.Drawing.Size(174, 20);
+            this.txtNombreProd.TabIndex = 1;
             // 
             // label1
             // 
@@ -137,7 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 192);
+            this.ClientSize = new System.Drawing.Size(511, 296);
             this.Controls.Add(this.groupBox1);
             this.Name = "NuevoProducto";
             this.Text = "Nuevo Producto";
@@ -154,9 +194,13 @@
         private System.Windows.Forms.Button crearProd;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombreProd;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbxProv;
+        private System.Windows.Forms.ComboBox cbxCat;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtStock;
+        private System.Windows.Forms.Label label4;
     }
 }

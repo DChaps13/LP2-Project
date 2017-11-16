@@ -8,6 +8,7 @@ namespace Modelo
 {
     public class PersonaJuridica : Contacto
     {
+        private int _id;
         private string razonSocial;
         private string ruc;
         private string telefono;
@@ -20,6 +21,7 @@ namespace Modelo
 
         public PersonaJuridica(string razonSocial, string ruc, string telefono, string correo)
         {
+            //this.Id = id;
             this.razonSocial = razonSocial;
             this.ruc = ruc;
             this.telefono = telefono;
@@ -33,5 +35,6 @@ namespace Modelo
         public string Telefono { get => telefono; set => telefono = value; }
         public string Correo { get => correo; set => correo = value; }
         public bool EsCliente { get => esCliente; set => esCliente = value; }
+        public int Id { get => _id; set => _id = value; }
     }
 }

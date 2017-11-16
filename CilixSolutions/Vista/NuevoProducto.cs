@@ -26,21 +26,23 @@ namespace Vista
             logNegPJ = new PerJuridicaBL();
             BindingList<PersonaJuridica> listaPJ = new BindingList<PersonaJuridica>();
             BindingList<CategoriaProd> listaCat = new BindingList<CategoriaProd>();
-            listaCat = logNegCat.listaCategorias();
-            listaPJ = logNegPJ.listaPJs();
+            //listaCat = logNegCat.listaCategorias();
+            listaPJ = logNegPJ.listarProveedores();
 
 
-            comboBox1.ValueMember = "RazonSocial";
+            cbxProv.ValueMember = "RazonSocial";
             foreach (PersonaJuridica l in listaPJ)
             {
-                comboBox1.Items.Add(l);
+                cbxProv.Items.Add(l);
             }
 
-            comboBox2.ValueMember = "Nombre";
-            foreach(CategoriaProd c in listaCat)
-            {
-                comboBox2.Items.Add(c);
-            }
+            //cbxCat.ValueMember = "Nombre";
+            //foreach(CategoriaProd c in listaCat)
+            //{
+            //    cbxCat.Items.Add(c);
+            //}
+            cbxCat.Items.Add("Electronicos");
+            cbxCat.Items.Add("Software");
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -52,23 +54,40 @@ namespace Vista
         {
             Producto p = new Producto();
 
-            p.Nombre = textBox1.Text; //id
-            if (comboBox1.SelectedItem == null) //Proveedor
+            p.Nombre = txtNombreProd.Text; //id
+            if (cbxProv.SelectedItem == null) //Proveedor
             {
                 MessageBox.Show("Debe seleccionar un proveedor", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            p.Proveedor = (PersonaJuridica)comboBox1.SelectedItem;
+            p.Proveedor = (PersonaJuridica)cbxProv.SelectedItem;
 
 
-            if (comboBox2.SelectedItem == null) //Categoria
+            if (cbxCat.SelectedItem == null) //Categoria
             {
                 MessageBox.Show("Debe seleccionar una categoria", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            p.Categoria = (CategoriaProd)comboBox2.SelectedItem;
 
-            logNegProd.registrarProducto(p);
+            //p.Categoria = (CategoriaProd)cbxCat.SelectedItem;
+            CategoriaProd cat = new CategoriaProd();
+            cat.Nombre = cbxCat.SelectedItem.ToString();
+            p.Cantidad = Int32.Parse(txtStock.Text);
+            p.Precio = float.Parse(txtPrecio.Text);
+            p.Categoria = cat;
+
+            try
+            {
+                logNegProd.registrarProducto(cbxProv.Text, p);
+                MessageBox.Show("El registro del producto fue exitoso", "Mensaje de éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo registrar el producto", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
 
 
 
@@ -95,7 +114,7 @@ namespace Vista
         {
 
         }
-        
+
         private void label2_Click(object sender, EventArgs e)
         {
 

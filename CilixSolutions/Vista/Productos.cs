@@ -90,7 +90,11 @@ namespace Vista
 
             productosSel = productosAux;
 
-            dataProductos.DataSource = productosSel;
+            dataProductos.AutoGenerateColumns = false;
+            dataProductos.Refresh();
+            dataProductos.AllowUserToAddRows = false;
+
+            //dataProductos.DataSource = productosSel;
         }
 
         private void nuevoProducto_Click(object sender, EventArgs e)
@@ -106,8 +110,9 @@ namespace Vista
         private void button1_Click(object sender, EventArgs e)
         {
             ProductoSeleccionado = (Producto)dataProductos.CurrentRow.DataBoundItem;
-            //this.Close();
-            DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }
+
+

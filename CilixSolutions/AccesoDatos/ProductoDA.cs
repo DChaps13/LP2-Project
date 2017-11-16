@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Modelo;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace AccesoDatos
 {
@@ -16,13 +17,20 @@ namespace AccesoDatos
 
         }
 
-        public bool registrarProducto(Producto p)
+        public bool registrarProducto(String nombreProveeedor, Producto p)
         {
             ConexionBD cadConexion = new ConexionBD();
-            string query = "INSERT INTO dbo.Usuario(Id,Nombre,Cantidad,Precio,Estado,Categoria,fechaUltModif,fechaLanzamiento,stock_minimo,Id_Proveedor) VALUES('" + p.Id + "','" + p.Nombre + "','" + 0 + " ' , ' " + 0 + "','" + p.Estado + "','" + p.Categoria + "'," + p.Fecha_Ult_modificacion.ToString() + "," + p.Fecha_Lanzamiento.ToString() + " ','" + 0 + " ','" + p.Proveedor.Id_contacto + ")";
+            //string query = "INSERT INTO dbo.Usuario(Id,Nombre,Cantidad,Precio,Estado,Categoria,fechaUltModif,fechaLanzamiento,stock_minimo,Id_Proveedor) VALUES('" + p.Id + "','" + p.Nombre + "','" + 0 + " ' , ' " + 0 + "','" + p.Estado + "','" + p.Categoria + "'," + p.Fecha_Ult_modificacion.ToString() + "," + p.Fecha_Lanzamiento.ToString() + " ','" + 0 + " ','" + p.Proveedor.Id_contacto + ")";
             SqlConnection conexion = new SqlConnection(cadConexion.CadenaConexion);
             SqlCommand sentencia = conexion.CreateCommand();
-            sentencia.CommandText = query;
+
+            sentencia.CommandText = "dbo.insertarProducto";
+            sentencia.CommandType = System.Data.CommandType.StoredProcedure;
+            sentencia.Parameters.Add("@_nombre", SqlDbType.VarChar).Value = p.Nombre;
+            sentencia.Parameters.Add("@_proveedor", SqlDbType.VarChar).Value = nombreProveeedor;
+            sentencia.Parameters.Add("@_categoria", SqlDbType.VarChar).Value = p.Categoria.Nombre;
+            sentencia.Parameters.Add("@_stockInicial", SqlDbType.Int).Value = p.Cantidad;
+            sentencia.Parameters.Add("@_precio", SqlDbType.Float).Value = p.Precio;
 
             conexion.Open();
             sentencia.ExecuteNonQuery();
@@ -37,7 +45,7 @@ namespace AccesoDatos
 
             ConexionBD cadConexion = new ConexionBD();
             string query = "SELECT p.Id as 'id', p.Nombre as 'nombre', p.Cantidad as 'cant', p.Estado as 'estado',p.Categoria as 'cat', p.fechaUltModif as 'fUM', p.fechaLanzamiento as 'fL', p.stock_minimo as 'stockMin',  " +
-                "FROM dbo.Producto p " ;
+                "FROM dbo.Producto p ";
             SqlConnection conexion = new SqlConnection(cadConexion.CadenaConexion);
             SqlCommand sentencia = conexion.CreateCommand();
             sentencia.CommandText = query;
@@ -47,27 +55,27 @@ namespace AccesoDatos
             SqlDataReader reader = sentencia.ExecuteReader();
 
 
-            while (reader.Read())
-            {
-                CategoriaProd cat = new CategoriaProd(reader["Categoria"].ToString());
-                PersonaJuridica pj = new PersonaJuridica(
-                    reader["razon"].ToString(),
-                    reader["ruc"].ToString(),
-                    reader["tlf"].ToString(),
-                    reader["Correo"].ToString());
-                Producto p = new Producto(
-                    reader["Id"].ToString(), 
-                    reader["Nombre"].ToString(), 
-                    Int32.Parse(reader["Cantidad"].ToString()), 
-                    Double.Parse(reader["Precio"].ToString()), 
-                    reader["Estado"].ToString(), 
-                    cat, 
-                    DateTime.Parse(reader["fechaUltModif"].ToString()), 
-                    DateTime.Parse(reader["fechaLanzamiento"].ToString()), 
-                    Int32.Parse(reader["stock_minimo"].ToString()), 
-                    pj);
-                productos.Add(p);
-            }
+            //while (reader.Read())
+            //{
+            //    CategoriaProd cat = new CategoriaProd(reader["Categoria"].ToString());
+            //    PersonaJuridica pj = new PersonaJuridica(
+            //        reader["razon"].ToString(),
+            //        reader["ruc"].ToString(),
+            //        reader["tlf"].ToString(),
+            //        reader["Correo"].ToString());
+            //    Producto p = new Producto(
+            //        reader["Id"].ToString(), 
+            //        reader["Nombre"].ToString(), 
+            //        Int32.Parse(reader["Cantidad"].ToString()), 
+            //        Double.Parse(reader["Precio"].ToString()), 
+            //        reader["Estado"].ToString(), 
+            //        cat, 
+            //        DateTime.Parse(reader["fechaUltModif"].ToString()), 
+            //        DateTime.Parse(reader["fechaLanzamiento"].ToString()), 
+            //        Int32.Parse(reader["stock_minimo"].ToString()), 
+            //        pj);
+            //    productos.Add(p);
+            //}
 
             conexion.Close();
             return productos;

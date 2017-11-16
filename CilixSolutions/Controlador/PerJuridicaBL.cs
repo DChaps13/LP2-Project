@@ -27,5 +27,10 @@ namespace Controlador
         {
             return pjDA.devolverLista();
         }
+
+        public BindingList<PersonaJuridica> listarProveedores()
+        {
+            return pjDA.devolverProveedores();
+        }
     }
 }

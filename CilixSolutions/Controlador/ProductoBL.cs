@@ -18,9 +18,9 @@ namespace Controlador
             prodDA = new ProductoDA();
         }
 
-        public bool registrarProducto(Producto p)
+        public bool registrarProducto(String proveedor, Producto p)
         {
-            return prodDA.registrarProducto(p);
+            return prodDA.registrarProducto(proveedor, p);
         }
 
         public BindingList<Producto> listaProductos()
