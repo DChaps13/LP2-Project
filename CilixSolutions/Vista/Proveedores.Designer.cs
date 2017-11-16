@@ -30,7 +30,7 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.datosContacto = new System.Windows.Forms.DataGridView();
             this.groupBoxBuscarUsuario = new System.Windows.Forms.GroupBox();
             this.rbNo = new System.Windows.Forms.RadioButton();
             this.rbSi = new System.Windows.Forms.RadioButton();
@@ -46,7 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btOK = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datosContacto)).BeginInit();
             this.groupBoxBuscarUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,9 +54,9 @@
             // 
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Location = new System.Drawing.Point(13, 11);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(535, 71);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
@@ -66,7 +66,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(152, 23);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(227, 28);
             this.button3.TabIndex = 10;
@@ -74,15 +74,15 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // dataGridView1
+            // datosContacto
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(579, 11);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(535, 491);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.datosContacto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datosContacto.Location = new System.Drawing.Point(579, 11);
+            this.datosContacto.Margin = new System.Windows.Forms.Padding(4);
+            this.datosContacto.Name = "datosContacto";
+            this.datosContacto.Size = new System.Drawing.Size(535, 491);
+            this.datosContacto.TabIndex = 7;
+            this.datosContacto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // groupBoxBuscarUsuario
             // 
@@ -99,9 +99,9 @@
             this.groupBoxBuscarUsuario.Controls.Add(this.textBox1);
             this.groupBoxBuscarUsuario.Controls.Add(this.label1);
             this.groupBoxBuscarUsuario.Location = new System.Drawing.Point(11, 102);
-            this.groupBoxBuscarUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxBuscarUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxBuscarUsuario.Name = "groupBoxBuscarUsuario";
-            this.groupBoxBuscarUsuario.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxBuscarUsuario.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxBuscarUsuario.Size = new System.Drawing.Size(535, 249);
             this.groupBoxBuscarUsuario.TabIndex = 6;
             this.groupBoxBuscarUsuario.TabStop = false;
@@ -137,7 +137,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(129, 167);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(388, 22);
             this.txtTelefono.TabIndex = 11;
@@ -146,7 +146,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(129, 124);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(388, 22);
             this.textBox3.TabIndex = 11;
@@ -155,7 +155,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(129, 79);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(388, 22);
             this.textBox2.TabIndex = 10;
@@ -197,7 +197,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(395, 210);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 7;
@@ -219,7 +219,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(129, 32);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(388, 22);
             this.textBox1.TabIndex = 1;
@@ -244,6 +244,7 @@
             this.btOK.TabIndex = 15;
             this.btOK.Text = "OK";
             this.btOK.UseVisualStyleBackColor = true;
+            this.btOK.Click += new System.EventHandler(this.btOK_Click);
             // 
             // Proveedores
             // 
@@ -252,13 +253,13 @@
             this.ClientSize = new System.Drawing.Size(1141, 540);
             this.Controls.Add(this.btOK);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.datosContacto);
             this.Controls.Add(this.groupBoxBuscarUsuario);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Proveedores";
             this.Text = "Proveedores";
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datosContacto)).EndInit();
             this.groupBoxBuscarUsuario.ResumeLayout(false);
             this.groupBoxBuscarUsuario.PerformLayout();
             this.ResumeLayout(false);
@@ -269,7 +270,7 @@
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView datosContacto;
         private System.Windows.Forms.GroupBox groupBoxBuscarUsuario;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;

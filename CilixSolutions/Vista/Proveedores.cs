@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,10 @@ namespace Vista
 {
     public partial class Proveedores : Form
     {
+        Contacto contactoSeleccionado;
+
+        public Contacto ContactoSeleccionado { get => contactoSeleccionado; set => contactoSeleccionado = value; }
+
         public Proveedores()
         {
             InitializeComponent();
@@ -95,6 +100,12 @@ namespace Vista
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btOK_Click(object sender, EventArgs e)
+        {
+            contactoSeleccionado = (Contacto)datosContacto.CurrentRow.DataBoundItem;
+            DialogResult = DialogResult.OK;
         }
     }
 }

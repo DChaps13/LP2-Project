@@ -18,6 +18,9 @@ namespace Vista
         BindingList<Producto> productos;
         ProductoBL logNegProd;
         Producto productoSeleccionado;
+
+        public Producto ProductoSeleccionado { get => productoSeleccionado; set => productoSeleccionado = value; }
+
         public Productos()
         {
             InitializeComponent();
@@ -102,8 +105,9 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            productoSeleccionado = (Producto)dataProductos.CurrentRow.DataBoundItem;
-            this.Close();
+            ProductoSeleccionado = (Producto)dataProductos.CurrentRow.DataBoundItem;
+            //this.Close();
+            DialogResult = DialogResult.OK;
         }
     }
 }

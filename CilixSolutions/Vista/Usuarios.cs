@@ -17,7 +17,9 @@ namespace Vista
         private BindingList<Usuario> usuarios;
         private UsuarioBL logNegUsu;
         private Usuario usuarioSeleccionado;
-        
+
+        public Usuario UsuarioSeleccionado { get => usuarioSeleccionado; set => usuarioSeleccionado = value; }
+
         public Usuarios()
         {
             InitializeComponent();
@@ -105,8 +107,9 @@ namespace Vista
 
         private void btOK_Click(object sender, EventArgs e)
         {
-            usuarioSeleccionado = (Usuario)dataUsuarios.CurrentRow.DataBoundItem;
-            this.Close();
+            UsuarioSeleccionado = (Usuario)dataUsuarios.CurrentRow.DataBoundItem;
+            //this.Close();
+            DialogResult = DialogResult.OK;
         }
     }
 }
