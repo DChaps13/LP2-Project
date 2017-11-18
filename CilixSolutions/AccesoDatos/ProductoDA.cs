@@ -39,43 +39,30 @@ namespace AccesoDatos
             return true;
         }
 
-        public BindingList<Producto> devolverLista()
+        public BindingList<Producto> devolverLista(string nombre, string categoria, string proveedor)
         {
             BindingList<Producto> productos = new BindingList<Producto>();
 
             ConexionBD cadConexion = new ConexionBD();
-            string query = "SELECT p.Id as 'id', p.Nombre as 'nombre', p.Cantidad as 'cant', p.Estado as 'estado',p.Categoria as 'cat', p.fechaUltModif as 'fUM', p.fechaLanzamiento as 'fL', p.stock_minimo as 'stockMin',  " +
-                "FROM dbo.Producto p ";
             SqlConnection conexion = new SqlConnection(cadConexion.CadenaConexion);
             SqlCommand sentencia = conexion.CreateCommand();
-            sentencia.CommandText = query;
-
+            sentencia.CommandText = "dbo.buscarProducto";
+            sentencia.CommandType = System.Data.CommandType.StoredProcedure;
+            sentencia.Parameters.Add("@_nombre", SqlDbType.VarChar).Value = nombre;
+            sentencia.Parameters.Add("@_categoria", SqlDbType.VarChar).Value = categoria;
+            sentencia.Parameters.Add("@_proveedor", SqlDbType.VarChar).Value = proveedor;
 
             conexion.Open();
             SqlDataReader reader = sentencia.ExecuteReader();
 
 
-            //while (reader.Read())
-            //{
-            //    CategoriaProd cat = new CategoriaProd(reader["Categoria"].ToString());
-            //    PersonaJuridica pj = new PersonaJuridica(
-            //        reader["razon"].ToString(),
-            //        reader["ruc"].ToString(),
-            //        reader["tlf"].ToString(),
-            //        reader["Correo"].ToString());
-            //    Producto p = new Producto(
-            //        reader["Id"].ToString(), 
-            //        reader["Nombre"].ToString(), 
-            //        Int32.Parse(reader["Cantidad"].ToString()), 
-            //        Double.Parse(reader["Precio"].ToString()), 
-            //        reader["Estado"].ToString(), 
-            //        cat, 
-            //        DateTime.Parse(reader["fechaUltModif"].ToString()), 
-            //        DateTime.Parse(reader["fechaLanzamiento"].ToString()), 
-            //        Int32.Parse(reader["stock_minimo"].ToString()), 
-            //        pj);
-            //    productos.Add(p);
-            //}
+            while (reader.Read())
+            {
+                CategoriaProd cat = new CategoriaProd(Int32.Parse(reader["Id_Categoria"].ToString()), reader["Nombre_Categoria"].ToString());
+                PersonaJuridica prov = new PersonaJuridica(Int32.Parse(reader["Id_Proveedor"].ToString()), reader["RazonSocial"].ToString());
+                Producto prod = new Producto(Int32.Parse(reader["Id"].ToString()), reader["Nombre"].ToString(), Int32.Parse(reader["Cantidad"].ToString()), Double.Parse(reader["Precio"].ToString()), reader["Estado"].ToString(),cat,prov);
+                productos.Add(prod);
+            }
 
             conexion.Close();
             return productos;

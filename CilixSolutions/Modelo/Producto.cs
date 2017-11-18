@@ -8,7 +8,7 @@ namespace Modelo
 {
     public class Producto
     {
-        private string id;
+        private int id;
         private string nombre;
         private int cantidad;
         private double precio;
@@ -23,7 +23,19 @@ namespace Modelo
         {
             this.categoria = new CategoriaProd();
         }
-        public Producto(string id, string nombre, int cantidad, double precio, string estado,
+
+        public Producto(int id, string nombre, int cantidad, double precio, string estado, CategoriaProd cat, PersonaJuridica prov)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.cantidad = cantidad;
+            this.precio = precio;
+            this.estado = estado;
+            this.Categoria = cat;
+            this.Proveedor = prov;
+        }
+
+        public Producto(int id, string nombre, int cantidad, double precio, string estado,
             CategoriaProd cat, DateTime fechaUltModif, DateTime fechaLanzamiento, int stock_minimo, PersonaJuridica pj)
         {
             this.id = id;
@@ -36,6 +48,7 @@ namespace Modelo
             this.fecha_Lanzamiento = fechaLanzamiento;
             this.stock_minimo = stock_minimo;
             this.proveedor = pj;
+            this.categoria = new CategoriaProd();
         }
 
         public string Nombre { get => nombre; set => nombre = value; }
@@ -45,7 +58,7 @@ namespace Modelo
         public DateTime Fecha_Ult_modificacion { get => fecha_Ult_modificacion; set => fecha_Ult_modificacion = value; }
         public DateTime Fecha_Lanzamiento { get => fecha_Lanzamiento; set => fecha_Lanzamiento = value; }
         public int Stock_minimo { get => stock_minimo; set => stock_minimo = value; }
-        public string Id { get => id; set => id = value; }
+        public int Id { get => id; set => id = value; }
         public PersonaJuridica Proveedor { get => proveedor; set => proveedor = value; }
         //public string Categoria { get => categoria; set => categoria = value; }
 
