@@ -14,12 +14,16 @@ namespace Vista
     public partial class Proveedores : Form
     {
         Contacto contactoSeleccionado;
+        BindingList<PersonaJuridica> proveedores;
 
         public Contacto ContactoSeleccionado { get => contactoSeleccionado; set => contactoSeleccionado = value; }
 
         public Proveedores()
         {
             InitializeComponent();
+            txtTelefono.Enabled = false;
+            textBox1.Enabled = false;
+            proveedores = new BindingList<PersonaJuridica>();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -99,7 +103,7 @@ namespace Vista
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btOK_Click(object sender, EventArgs e)

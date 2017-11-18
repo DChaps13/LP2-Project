@@ -32,5 +32,10 @@ namespace Controlador
         {
             return pjDA.devolverProveedores();
         }
+
+        public BindingList<PersonaJuridica> buscaProveedor(string razonSocial,string ruc)
+        {
+            return pjDA.buscarProveedor(razonSocial, ruc);
+        }
     }
 }

@@ -32,9 +32,5 @@ namespace Controlador
         {
             return usuarioDA.buscarUsuario(id,rol,estado);
         }
-
-
-
-
     }
 }
