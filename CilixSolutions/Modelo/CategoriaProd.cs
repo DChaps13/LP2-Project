@@ -8,6 +8,7 @@ namespace Modelo
 {
     public class CategoriaProd
     {
+        private int _id;
         private string nombre;
 
         public CategoriaProd()
@@ -15,12 +16,13 @@ namespace Modelo
 
         }
 
-        public CategoriaProd(string nombre)
+        public CategoriaProd(int id,string nombre)
         {
+            this.Id = id;
             this.nombre = nombre;
         }
 
         public string Nombre { get => nombre; set => nombre = value; }
-
+        public int Id { get => _id; set => _id = value; }
     }
 }

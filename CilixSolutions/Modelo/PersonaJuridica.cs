@@ -19,6 +19,12 @@ namespace Modelo
 
         }
 
+        public PersonaJuridica(int id, string razonSocial)
+        {
+            this.Id = id;
+            this.razonSocial = razonSocial;
+        }
+
         public PersonaJuridica(string razonSocial, string ruc, string telefono, string correo)
         {
             //this.Id = id;

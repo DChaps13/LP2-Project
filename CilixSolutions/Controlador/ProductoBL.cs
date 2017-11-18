@@ -23,9 +23,9 @@ namespace Controlador
             return prodDA.registrarProducto(proveedor, p);
         }
 
-        public BindingList<Producto> listaProductos()
+        public BindingList<Producto> listaProductos(String nombre, String categoria, String proveedor)
         {
-            return prodDA.devolverLista();
+            return prodDA.devolverLista(nombre, categoria, proveedor);
         }
     }
 }

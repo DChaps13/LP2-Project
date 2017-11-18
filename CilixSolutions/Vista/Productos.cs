@@ -26,73 +26,48 @@ namespace Vista
             InitializeComponent();
 
             logNegProd = new ProductoBL();
-            productos = logNegProd.listaProductos();
-            dataProductos.AutoGenerateColumns = false;
-            dataProductos.DataSource = productos;
-        }
+            PerJuridicaBL logNegPerJur = new PerJuridicaBL();
+            CategoriaBL logNegCategoria = new CategoriaBL();
+            PerJuridicaBL logNegProv = new PerJuridicaBL();
 
-        private void buscarProd_Click(object sender, EventArgs e)
-        {
-            BindingList<Producto> productosSel = new BindingList<Producto>();
-            BindingList<Producto> productosAux = new BindingList<Producto>();
+            //Categorias ComboBox
+            BindingList<CategoriaProd> listCat = new BindingList<CategoriaProd>();
+            listCat = logNegCategoria.listaCategorias();
 
-            if (textBox1.Text != "Todos") //Id del producto
+            cbxCategoria.ValueMember = "Nombre";
+            cbxCategoria.Items.Add("Todos");
+            foreach (CategoriaProd r in listCat)
             {
-                for (int i = 0; i < productos.Count; i++)
-                {
-                    if (productos[i].Id == textBox1.Text)
-                    {
-                        productosSel.Add(productos[i]);
-                    }
-                }
-
-            }
-            else
-            {
-                productosSel = productos;
+                cbxCategoria.Items.Add(r);
             }
 
-            productosAux = productosSel;
-            if (textBox2.Text != "Todos") // Nombre del producto
+
+            //Proveedores ComboBox
+            BindingList<PersonaJuridica> listaProv = new BindingList<PersonaJuridica>();
+            listaProv = logNegProv.listarProveedores();
+
+            cbxProv.ValueMember = "RazonSocial";
+            cbxProv.Items.Add("Todos");
+            foreach (PersonaJuridica p in listaProv)
             {
-                for (int i = 0; i < productosSel.Count; i++)
-                {
-                    if (productosSel[i].Nombre != textBox2.Text)
-                    {
-                        productosAux.Remove(productosSel[i]);
-                    }
-                }
+                cbxProv.Items.Add(p);
             }
 
-            productosSel = productosAux;
-            if (comboBox1.Text != "Todos") //Categoria del producto
-            {
-                for (int i = 0; i < productosSel.Count; i++)
-                {
-                    if (productosSel[i].Categoria.Nombre != comboBox1.Text)
-                    {
-                        productosAux.Remove(productosSel[i]);
-                    }
-                }
-            }
 
-            productosSel = productosAux;
-            if (comboBox2.Text != "Todos") //Proveedor del producto
-            {
-                for (int i = 0; i < productosSel.Count; i++)
-                {
-                    if (productosSel[i].Proveedor.RazonSocial != comboBox2.Text)
-                    {
-                        productosAux.Remove(productosSel[i]);
-                    }
-                }
-            }
-
-            productosSel = productosAux;
+            productos = new BindingList<Producto>();
 
             dataProductos.AutoGenerateColumns = false;
             dataProductos.Refresh();
             dataProductos.AllowUserToAddRows = false;
+            //dataProductos.DataSource = productos;
+        }
+
+        private void buscarProd_Click(object sender, EventArgs e)
+        {
+
+            productos = logNegProd.listaProductos(txtNombreProd.Text,cbxCategoria.Text,cbxProv.Text);
+
+            dataProductos.DataSource = productos;
 
             //dataProductos.DataSource = productosSel;
         }
@@ -102,7 +77,7 @@ namespace Vista
             NuevoProducto frmNuevoProducto = new NuevoProducto();
             if (frmNuevoProducto.ShowDialog() == DialogResult.OK)
             {
-                productos = logNegProd.listaProductos();
+                //productos = logNegProd.listaProductos();
                 dataProductos.DataSource = productos;
             }
         }
