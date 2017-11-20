@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Modelo;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace AccesoDatos
 {
@@ -20,14 +21,24 @@ namespace AccesoDatos
         public bool registrarUsuario(Usuario u)
         {
             ConexionBD cadConexion = new ConexionBD();
-            string query = "INSERT INTO dbo.Usuario(Id,Contraseña,fechaCreacion,fechaModificacion,Id_Rol,Id_Estado) VALUES('" + u.Id + "','" + u.Contraseña + "','" + u.FechaCreacion.ToString() + "','" + u.FechaModificacion.ToString() + "'," + u.Rol.Id + "," + u.Estado.Id + ")";
+            string query = "INSERT INTO dbo.Usuario(Id,Contraseña,fechaCreacion,Id_Rol,Id_Estado) VALUES('" + u.Id + "','" + u.Contraseña + "'," + "GETDATE ( )" + "," + u.Rol.Id + "," + u.Estado.Id + ")";
+
+            
             SqlConnection conexion = new SqlConnection(cadConexion.CadenaConexion);
             SqlCommand sentencia = conexion.CreateCommand();
             sentencia.CommandText = query;
 
-            conexion.Open();
-            sentencia.ExecuteNonQuery();
+           
+            try
+            {
+                conexion.Open();
+                sentencia.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Mensaje de error");
 
+            }
             conexion.Close();
 
             return true;
