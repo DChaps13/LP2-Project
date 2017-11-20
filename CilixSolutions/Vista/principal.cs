@@ -34,6 +34,11 @@ namespace Vista
             buscarToolStripMenuItem.Visible = true;
             buscarToolStripMenuItem.Enabled = true;
 
+            clientesToolStripMenuItem.Visible = false;
+            clientesToolStripMenuItem1.Visible = false;
+            transacciónToolStripMenuItem.Visible = false;
+            transacciónToolStripMenuItem1.Visible = false;
+
             switch (usuarioActual.Rol.Privilegio)
             {
                 case (1): //Administrador
