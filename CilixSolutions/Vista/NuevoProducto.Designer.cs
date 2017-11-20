@@ -100,6 +100,7 @@
             // 
             // cbxCat
             // 
+            this.cbxCat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCat.FormattingEnabled = true;
             this.cbxCat.Location = new System.Drawing.Point(125, 94);
             this.cbxCat.Name = "cbxCat";
@@ -109,6 +110,7 @@
             // 
             // cbxProv
             // 
+            this.cbxProv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxProv.FormattingEnabled = true;
             this.cbxProv.Location = new System.Drawing.Point(125, 59);
             this.cbxProv.Name = "cbxProv";

@@ -35,7 +35,7 @@ namespace Vista
             listCat = logNegCategoria.listaCategorias();
 
             cbxCategoria.ValueMember = "Nombre";
-            cbxCategoria.Items.Add("Todos");
+            cbxCategoria.Items.Add("Todas");
             foreach (CategoriaProd r in listCat)
             {
                 cbxCategoria.Items.Add(r);
@@ -64,7 +64,21 @@ namespace Vista
 
         private void buscarProd_Click(object sender, EventArgs e)
         {
-
+            if (txtNombreProd.Text == "")
+            {
+                MessageBox.Show("Ingrese el nombre del producto o 'Todos'", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cbxCategoria.Text == "")
+            {
+                MessageBox.Show("Seleccione una categorìa o 'Todas'", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cbxProv.Text == "")
+            {
+                MessageBox.Show("Seleccione un proveedor o 'Todos'", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             productos = logNegProd.listaProductos(txtNombreProd.Text,cbxCategoria.Text,cbxProv.Text);
 
             dataProductos.DataSource = productos;
@@ -84,7 +98,7 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ProductoSeleccionado = (Producto)dataProductos.CurrentRow.DataBoundItem;
+            //ProductoSeleccionado = (Producto)dataProductos.CurrentRow.DataBoundItem;
             this.Close();
         }
     }

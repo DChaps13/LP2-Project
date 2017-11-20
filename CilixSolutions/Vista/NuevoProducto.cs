@@ -72,8 +72,53 @@ namespace Vista
             p.Categoria = (CategoriaProd)cbxCat.SelectedItem;
             //CategoriaProd cat = new CategoriaProd();
             //cat.Nombre = cbxCat.SelectedItem.ToString();
-            p.Cantidad = Int32.Parse(txtStock.Text);
-            p.Precio = float.Parse(txtPrecio.Text);
+            try
+            {
+                if (txtStock.Text == "")
+                {
+                    MessageBox.Show("Debe ingresar un stock inicial para el producto", "Mensaje de error");
+
+                    return;
+                }
+
+                int cantidad = Int32.Parse(txtStock.Text);
+               
+                if (cantidad < 0)
+                {
+                    MessageBox.Show("El stock inicial debe ser mayor o igual a 0", "Mensaje de error");
+                    return;
+                }
+                p.Cantidad = cantidad;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Mensaje de error");
+                return;
+            }
+
+            try
+            {
+                if (txtPrecio.Text == "")
+                {
+                    MessageBox.Show("Debe ingresar un precio para el producto", "Mensaje de error");
+
+                    return;
+                }
+                Double precio= Double.Parse(txtPrecio.Text);
+                
+                if (precio < 0)
+                {
+                    MessageBox.Show("El precio debe ser mayor o igual a 0", "Mensaje de error");
+
+                    return;
+                }
+                p.Precio = precio;
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Mensaje de error");
+                return;
+            }
             //p.Categoria = cat;
 
             try
@@ -85,6 +130,7 @@ namespace Vista
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudo registrar el producto", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
 

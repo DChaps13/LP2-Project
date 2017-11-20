@@ -31,6 +31,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.nuevoProducto = new System.Windows.Forms.Button();
             this.dataProductos = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxBuscarUsuario = new System.Windows.Forms.GroupBox();
             this.cbxProv = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,10 +46,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btOK = new System.Windows.Forms.Button();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataProductos)).BeginInit();
             this.groupBoxBuscarUsuario.SuspendLayout();
@@ -84,6 +84,30 @@
             this.dataProductos.Size = new System.Drawing.Size(401, 137);
             this.dataProductos.TabIndex = 7;
             // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "Cantidad";
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Precio
+            // 
+            this.Precio.DataPropertyName = "Precio";
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            // 
             // groupBoxBuscarUsuario
             // 
             this.groupBoxBuscarUsuario.Controls.Add(this.cbxProv);
@@ -104,12 +128,12 @@
             // 
             // cbxProv
             // 
+            this.cbxProv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxProv.FormattingEnabled = true;
             this.cbxProv.Location = new System.Drawing.Point(97, 139);
             this.cbxProv.Name = "cbxProv";
             this.cbxProv.Size = new System.Drawing.Size(169, 21);
             this.cbxProv.TabIndex = 13;
-            this.cbxProv.Text = "Todos";
             // 
             // label4
             // 
@@ -122,12 +146,12 @@
             // 
             // cbxCategoria
             // 
+            this.cbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategoria.FormattingEnabled = true;
             this.cbxCategoria.Location = new System.Drawing.Point(97, 101);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(169, 21);
             this.cbxCategoria.TabIndex = 11;
-            this.cbxCategoria.Text = "Todos";
             // 
             // txtNombreProd
             // 
@@ -186,37 +210,13 @@
             // btOK
             // 
             this.btOK.Location = new System.Drawing.Point(171, 401);
-            this.btOK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btOK.Margin = new System.Windows.Forms.Padding(2);
             this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(75, 23);
             this.btOK.TabIndex = 14;
             this.btOK.Text = "OK";
             this.btOK.UseVisualStyleBackColor = true;
             this.btOK.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.DataPropertyName = "Cantidad";
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            // 
-            // Precio
-            // 
-            this.Precio.DataPropertyName = "Precio";
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            // 
-            // Estado
-            // 
-            this.Estado.DataPropertyName = "Estado";
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
             // 
             // Productos
             // 
