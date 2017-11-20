@@ -17,6 +17,7 @@ namespace Vista
         public Logueo()
         {
             InitializeComponent();
+            
         }
 
         private Usuario usuarioActivo;
@@ -73,7 +74,13 @@ namespace Vista
             if (usuarioActivo != null)
             {
                 DialogResult = DialogResult.OK;
-                this.Close();
+                principal newform = new principal(usuarioActivo);
+                this.Visible = false;
+                newform.Visible = false;
+                newform.ShowDialog();
+                Close();
+                
+                
             }
             else {
                 MessageBox.Show("Acceso DENEGADO. Contraseña incorrecta", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);

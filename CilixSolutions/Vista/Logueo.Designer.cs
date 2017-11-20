@@ -89,6 +89,7 @@
             this.Controls.Add(this.lbContraseña);
             this.Controls.Add(this.lbUsuario);
             this.Name = "Logueo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logueo";
             this.ResumeLayout(false);
             this.PerformLayout();
