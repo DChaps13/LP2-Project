@@ -22,6 +22,7 @@ namespace Modelo
         public Producto()
         {
             this.categoria = new CategoriaProd();
+            this.proveedor = new PersonaJuridica();
         }
 
         public Producto(int id, string nombre, int cantidad, double precio, string estado, CategoriaProd cat, PersonaJuridica prov)

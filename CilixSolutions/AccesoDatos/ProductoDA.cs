@@ -7,6 +7,7 @@ using Modelo;
 using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace AccesoDatos
 {
@@ -22,19 +23,26 @@ namespace AccesoDatos
             ConexionBD cadConexion = new ConexionBD();
             //string query = "INSERT INTO dbo.Usuario(Id,Nombre,Cantidad,Precio,Estado,Categoria,fechaUltModif,fechaLanzamiento,stock_minimo,Id_Proveedor) VALUES('" + p.Id + "','" + p.Nombre + "','" + 0 + " ' , ' " + 0 + "','" + p.Estado + "','" + p.Categoria + "'," + p.Fecha_Ult_modificacion.ToString() + "," + p.Fecha_Lanzamiento.ToString() + " ','" + 0 + " ','" + p.Proveedor.Id_contacto + ")";
             SqlConnection conexion = new SqlConnection(cadConexion.CadenaConexion);
+            
             SqlCommand sentencia = conexion.CreateCommand();
 
             sentencia.CommandText = "dbo.insertarProducto";
             sentencia.CommandType = System.Data.CommandType.StoredProcedure;
             sentencia.Parameters.Add("@_nombre", SqlDbType.VarChar).Value = p.Nombre;
-            sentencia.Parameters.Add("@_proveedor", SqlDbType.VarChar).Value = nombreProveeedor;
+            sentencia.Parameters.Add("@_proveedor", SqlDbType.VarChar).Value = p.Proveedor.RazonSocial;
             sentencia.Parameters.Add("@_categoria", SqlDbType.VarChar).Value = p.Categoria.Nombre;
             sentencia.Parameters.Add("@_stockInicial", SqlDbType.Int).Value = p.Cantidad;
             sentencia.Parameters.Add("@_precio", SqlDbType.Float).Value = p.Precio;
+            try
+            {
+                conexion.Open();
+                sentencia.ExecuteNonQuery();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "Mensaje de error");
 
-            conexion.Open();
-            sentencia.ExecuteNonQuery();
-
+            }
             conexion.Close();
             return true;
         }

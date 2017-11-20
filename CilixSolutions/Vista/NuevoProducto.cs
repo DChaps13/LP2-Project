@@ -26,7 +26,7 @@ namespace Vista
             logNegPJ = new PerJuridicaBL();
             BindingList<PersonaJuridica> listaPJ = new BindingList<PersonaJuridica>();
             BindingList<CategoriaProd> listaCat = new BindingList<CategoriaProd>();
-            //listaCat = logNegCat.listaCategorias();
+            listaCat = logNegCat.listaCategorias();
             listaPJ = logNegPJ.listarProveedores();
 
 
@@ -36,13 +36,13 @@ namespace Vista
                 cbxProv.Items.Add(l);
             }
 
-            //cbxCat.ValueMember = "Nombre";
-            //foreach(CategoriaProd c in listaCat)
-            //{
-            //    cbxCat.Items.Add(c);
-            //}
-            cbxCat.Items.Add("Electronicos");
-            cbxCat.Items.Add("Software");
+            cbxCat.ValueMember = "Nombre";
+            foreach(CategoriaProd c in listaCat)
+            {
+                cbxCat.Items.Add(c);
+            }
+            //cbxCat.Items.Add("Electronicos");
+            //cbxCat.Items.Add("Software");
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace Vista
         {
             Producto p = new Producto();
 
-            p.Nombre = txtNombreProd.Text; //id
+            p.Nombre = txtNombreProd.Text; //Nombre
             if (cbxProv.SelectedItem == null) //Proveedor
             {
                 MessageBox.Show("Debe seleccionar un proveedor", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -69,12 +69,12 @@ namespace Vista
                 return;
             }
 
-            //p.Categoria = (CategoriaProd)cbxCat.SelectedItem;
-            CategoriaProd cat = new CategoriaProd();
-            cat.Nombre = cbxCat.SelectedItem.ToString();
+            p.Categoria = (CategoriaProd)cbxCat.SelectedItem;
+            //CategoriaProd cat = new CategoriaProd();
+            //cat.Nombre = cbxCat.SelectedItem.ToString();
             p.Cantidad = Int32.Parse(txtStock.Text);
             p.Precio = float.Parse(txtPrecio.Text);
-            p.Categoria = cat;
+            //p.Categoria = cat;
 
             try
             {
