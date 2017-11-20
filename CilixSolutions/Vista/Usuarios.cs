@@ -77,11 +77,12 @@ namespace Vista
         private void Buscar_Click(object sender, EventArgs e)
         {
 
+
             usuarios = logNegUsu.buscarUsuarios(textBox1.Text, cbxRol.Text, cbxEstado.Text);
 
             dataUsuarios.DataSource = usuarios;
-            
-        }
+
+            }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

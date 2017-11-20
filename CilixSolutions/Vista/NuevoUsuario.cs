@@ -29,6 +29,9 @@ namespace Vista
             {
                 comboBox1.Items.Add(r);
             }
+
+            button2.Enabled = false;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -96,8 +99,11 @@ namespace Vista
                 
             }
 
-            if(noEncontrado) MessageBox.Show("Puede registrarse con este Id", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            if (noEncontrado)
+            {
+                MessageBox.Show("Puede registrarse con este Id", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                button2.Enabled = true;
+            }
             return;
 
 
