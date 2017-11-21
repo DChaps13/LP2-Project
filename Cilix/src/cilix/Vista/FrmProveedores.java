@@ -147,7 +147,7 @@ public class FrmProveedores extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -171,14 +171,19 @@ public class FrmProveedores extends javax.swing.JFrame {
         // TODO add your handling code here:
         EmpresaBL logNegEmpresa = new EmpresaBL();
         try{
+            
             String rSocial = txtRazonSocial.getText();
             String ruc = txtRuc.getText();
             
             listaProveedores = logNegEmpresa.devolverEmpresas(rSocial,ruc);
+            
         }
         catch(Exception e){
+            
             System.out.println(e.getMessage());
+            
         }
+        
         if(listaProveedores!=null)
         actualizarDatosTabla();
     }//GEN-LAST:event_btnBuscarProvActionPerformed

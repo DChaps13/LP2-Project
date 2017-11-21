@@ -37,6 +37,7 @@ public class ClienteDA {
     
     public boolean agregarCliente(Cliente c){
         try {
+            
             //registrar el Driver 
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             //establecer la conexión

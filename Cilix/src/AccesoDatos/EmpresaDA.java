@@ -28,6 +28,7 @@ public class EmpresaDA {
     public ArrayList<Empresa> devolverEmpresas(String rSocial,String ruc){
         ArrayList<Empresa> empresas = new ArrayList<Empresa>();
         try{
+            
             //registrar el Driver 
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             //establecer la conexión
@@ -49,9 +50,7 @@ public class EmpresaDA {
                 empresas.add(e);
             }
         }
-        catch(Exception e){
-            
-        }
+        catch(Exception e){}
         
         return empresas;
     }
