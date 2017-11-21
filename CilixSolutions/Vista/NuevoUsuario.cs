@@ -30,7 +30,7 @@ namespace Vista
                 comboBox1.Items.Add(r);
             }
 
-            button2.Enabled = false;
+            btnCrear.Enabled = false;
 
         }
 
@@ -48,8 +48,35 @@ namespace Vista
         {
             Usuario u = new Usuario();
 
-            u.Id = textBox1.Text; //id
-            u.Contraseña = textBox2.Text; //contra
+            if (txtID.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un ID", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnCrear.Enabled = false;
+                return;
+            }
+
+            if (txtContra.Text == "")
+            {
+                MessageBox.Show("Debe ingresar una contraseña", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (txtID.Text.Length > 20) //Maximo nro de caracteres
+            {
+                MessageBox.Show("Solo puede ingresar un máximo de 20 caracteres en el ID", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnCrear.Enabled = false;
+                return;
+            }
+
+            if (txtContra.Text.Length > 20)  //Maximo nro de caracteres
+            {
+                MessageBox.Show("Solo puede ingresar un máximo de 20 caracteres en la Contraseña", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            u.Id = txtID.Text; //id
+            u.Contraseña = txtContra.Text; //contraseña
+
             if (comboBox1.SelectedItem == null)
             {
                 MessageBox.Show("Debe seleccionar un rol", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -90,7 +117,7 @@ namespace Vista
             bool noEncontrado = true;
             for (int i=0; i< usuarios.Count; i++)
             {
-                if(usuarios[i].Id == textBox1.Text)
+                if(usuarios[i].Id == txtID.Text)
                 {
                     MessageBox.Show("Este Id no esta disponible", "Mensaje de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     noEncontrado = false;
@@ -102,7 +129,7 @@ namespace Vista
             if (noEncontrado)
             {
                 MessageBox.Show("Puede registrarse con este Id", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                button2.Enabled = true;
+                btnCrear.Enabled = true;
             }
             return;
 
