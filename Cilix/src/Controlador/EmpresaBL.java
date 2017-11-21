@@ -17,7 +17,9 @@ public class EmpresaBL {
     EmpresaDA accesoDatos;
     
     public EmpresaBL(){
+        
         accesoDatos = new EmpresaDA();
+        
     }
     
     public boolean agregarEmpresa(Empresa e){

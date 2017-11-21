@@ -14,7 +14,9 @@ public class ClienteBL {
     ClienteDA accesoDatos;
     
     public ClienteBL(){
+        
         accesoDatos = new ClienteDA();
+        
     }
     
     public boolean agregarCliente(Cliente c){
