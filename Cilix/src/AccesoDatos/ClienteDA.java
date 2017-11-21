@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ClienteDA {
     public ClienteDA(){}
     
-    public int getID(){
+    /*public int getID(){
         try {
             //registrar el Driver
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -33,7 +33,7 @@ public class ClienteDA {
             System.out.println(ex.getMessage());
         }
         return -1;
-    }
+    }*/
     
     public boolean agregarCliente(Cliente c){
         try {
