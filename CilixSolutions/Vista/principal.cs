@@ -42,7 +42,8 @@ namespace Vista
             switch (usuarioActual.Rol.Privilegio)
             {
                 case (1): //Administrador
-                          //Nuevo
+
+                    //Nuevo
                     transacciónToolStripMenuItem.Enabled = true;
                     usuarioToolStripMenuItem.Enabled = true;
                     naturalToolStripMenuItem.Enabled = true;
@@ -221,6 +222,16 @@ namespace Vista
         }
 
         private void principal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbLoggedUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void juridicoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
         }

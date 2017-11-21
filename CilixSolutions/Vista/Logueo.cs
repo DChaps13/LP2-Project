@@ -14,10 +14,12 @@ namespace Vista
 {
     public partial class Logueo : Form
     {
+        
         public Logueo()
         {
             InitializeComponent();
-            
+         
+
         }
 
         private Usuario usuarioActivo;
@@ -74,10 +76,10 @@ namespace Vista
             if (usuarioActivo != null)
             {
                 DialogResult = DialogResult.OK;
-                principal newform = new principal(usuarioActivo);
+                Cilix form = new Cilix(UsuarioActivo);
                 this.Visible = false;
-                newform.Visible = false;
-                newform.ShowDialog();
+                form.Visible = false;
+                form.ShowDialog();
                 Close();
                 
                 
