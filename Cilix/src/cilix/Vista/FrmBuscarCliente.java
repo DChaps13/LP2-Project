@@ -31,7 +31,7 @@ public class FrmBuscarCliente extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         ClienteBL logica = new ClienteBL();
-        lista = logica.devolverClientes("", "", "");
+        lista = logica.devolverClientes("","","","","","", "", "");
         DefaultTableModel modelo = (DefaultTableModel)tblClientes.getModel();
         modelo.setRowCount(0);
         Object[] fila = new Object[3];

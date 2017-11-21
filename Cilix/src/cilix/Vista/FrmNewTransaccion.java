@@ -52,7 +52,7 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
 
     public void actualizarTablaClientes(){
         ClienteBL logNegCliente = new ClienteBL();
-        ArrayList<Cliente> lista = logNegCliente.devolverClientes("", "", "");
+        ArrayList<Cliente> lista = logNegCliente.devolverClientes("","","","","","", "", "");
         if(lista == null) return;
         DefaultTableModel modelo = (DefaultTableModel)tblClientes.getModel();
         modelo.setRowCount(0);

@@ -12,8 +12,8 @@ public class ClienteNatural extends Cliente{
     
     public ClienteNatural(){}
     
-    public ClienteNatural(String direccion, String telefono, String email, String dni, String nombre, String apellido){
-        super(direccion,telefono,email);
+    public ClienteNatural( String telefono, String email, String dni, String nombre, String apellido){
+        super(telefono,email);
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;

@@ -43,30 +43,31 @@ public class ClienteDA {
             Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
                     + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
             System.out.println("HOLI");
-            int ID = getID();
-            if(ID == -1) return false;
+            //int ID = getID();
+            //if(ID == -1) return false;
             if(c instanceof ClienteNatural){
                 System.out.println("HOLI");
-                String insertar = "{call dbo.insertarClienteNatural(?,?,?,?,?,?,?)}";
+                String insertar = "{call dbo.insertarClienteNatural(?,?,?,?,?)}";
                 PreparedStatement ps = conn.prepareStatement(insertar);
                 //CallableStatement ps = conn.prepareCall(insertar);
-                ps.setInt(1,ID);
-                ps.setInt(2,1);
-                ps.setString(3, ((ClienteNatural) c).getNombre());
-                ps.setString(4, ((ClienteNatural) c).getApellido());
-                ps.setString(5, ((ClienteNatural) c).getDni());
-                ps.setString(6, c.getTelefono());
-                ps.setString(7, c.getEmail());
+                //ps.setInt(1,ID);
+                
+                ps.setString(1, ((ClienteNatural) c).getNombre());
+                ps.setString(2, ((ClienteNatural) c).getApellido());
+                ps.setString(3, ((ClienteNatural) c).getDni());
+                ps.setString(4, c.getTelefono());
+                ps.setString(5, c.getEmail());
                 ps.execute();
             }else if(c instanceof Empresa){
-                String insertar = "{call dbo.insertarClienteJuridico(?,?,?,?,?,?)}";
+                String insertar = "{call dbo.insertarEmpresa(?,?,?,?,?)}";
                 PreparedStatement ps = conn.prepareStatement(insertar);
-                ps.setInt(1, ID);
-                ps.setInt(2, 2);
-                ps.setString(3, ((Empresa) c).getRazonSocial());
-                ps.setString(4, c.getTelefono());
-                ps.setString(5,c.getEmail());
-                ps.setString(6, ((Empresa) c).getRuc());
+              //  ps.setInt(1, ID);
+                
+                ps.setString(1, ((Empresa) c).getRazonSocial());
+                ps.setString(2, c.getTelefono());
+                ps.setString(3, c.getEmail());
+                ps.setString(4, ((Empresa) c).getRuc());
+                ps.setString(5, ((Empresa) c).getTipo());
                 ps.execute();
             }
             conn.close();
@@ -77,7 +78,7 @@ public class ClienteDA {
         return false;
     }
     
-    public ArrayList<Cliente> devolverClientes(String id, String telefono, String email){
+    public ArrayList<Cliente> devolverClientes(String id,String nombres, String apellidos, String dni, String telefono, String email, String razon, String ruc){
         ArrayList<Cliente> lista = new ArrayList<Cliente>();
         try{    
             //registrar el Driver 
@@ -88,65 +89,54 @@ public class ClienteDA {
             
             Statement sentencia=conn.createStatement();
             
-            // formar query
-            String query = "SELECT * FROM ClienteNatural ";
-            String extra = "";
-            if(!id.equals("")) extra = extra + "Id = " + id;
-            if(!telefono.equals("")){
-                if(!extra.equals("")) extra = extra + " AND "; 
-                extra = extra + " Telefono = " + "'" + telefono + "' ";
-            }
-            if(!email.equals("")){
-                if(!extra.equals("")) extra = extra + " AND ";
-                extra = extra + " Correo = " + "'" + email + "' ";
-            }
-            if(!extra.equals("")) query = query + " WHERE " + extra;
             
-            ResultSet rs = sentencia.executeQuery(query);
-            while(rs.next()){
-                int _id = rs.getInt("Id");
-                String _nombre = rs.getString("Nombre");
-                String _apellido = rs.getString("Apellido");
-                String _dni = rs.getString("DNI");
-                String _telefono = rs.getString("Telefono");
-                String _email = rs.getString("Correo");
-                ClienteNatural c = new ClienteNatural();
-                c.setId(_id);
-                c.setTelefono(_telefono);
-                c.setEmail(_email);
-                c.setNombre(_nombre);
-                c.setApellido(_apellido);
-                c.setDni(_dni);
-                lista.add(c);
-            }
+            String buscarCNatural = "{call dbo.buscarClienteNatural(?,?,?,?,?,?)}";
+            PreparedStatement ps = conn.prepareStatement(buscarCNatural);
+            if (id.equals("")) id="-1";
+            ps.setInt(1, Integer.parseInt(id));
+            ps.setString(2, nombres);
+            ps.setString(3, apellidos);
+            ps.setString(4, dni);
+            ps.setString(5, telefono);
+            ps.setString(6, email);
+            
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()){
+                ClienteNatural cl = new ClienteNatural();
                 
-            query = "SELECT * FROM ClienteJuridico ";
-            extra = "";
-            if(!id.equals("")) extra = extra + "Id = " + id;
-            if(!telefono.equals("")){
-                if(!extra.equals("")) extra = extra + " AND "; 
-                extra = extra + " Telefono = " + "'" + telefono + "' ";
+                cl.setId(rs.getInt("Id"));
+                cl.setNombre(rs.getString("Nombre"));
+                cl.setApellido(rs.getString("Apellido"));
+                cl.setDni(rs.getString("DNI"));
+                cl.setTelefono(rs.getString("Telefono"));
+                cl.setEmail(rs.getString("Correo"));
+                lista.add(cl);
             }
-            if(!email.equals("")){
-                if(!extra.equals("")) extra = extra + " AND ";
-                extra = extra + " Correo = " + "'" + email + "' ";
-            }
-            if(!extra.equals("")) query = query + " WHERE " + extra;
             
-            rs = sentencia.executeQuery(query);
-            while(rs.next()){
-                int _id = rs.getInt("Id");
-                String _telefono = rs.getString("Telefono");
-                String _email = rs.getString("Correo");
-                String _razonSocial = rs.getString("RazonSocial");
-                String _ruc = rs.getString("RUC");
-                Empresa c = new Empresa();
-                c.setId(_id);
-                c.setTelefono(_telefono);
-                c.setEmail(_email);
-                c.setRazonSocial(_razonSocial);
-                c.setRuc(_ruc);
-                lista.add(c);
+            String buscarEmpresa = "{call dbo.buscarEmpresa(?,?,?,?,?,?)}";
+            PreparedStatement ps2 = conn.prepareStatement(buscarEmpresa);
+            
+            
+            ps2.setInt(1, Integer.parseInt(id));
+            ps2.setString(2, razon);
+            ps2.setString(3, ruc);
+            ps2.setString(4, telefono);
+            ps2.setString(5, email);
+            ps2.setString(6,"Cliente");
+            
+            ResultSet rs2 = ps2.executeQuery();
+            
+            while (rs2.next()){
+                Empresa e = new Empresa();
+                
+                e.setId(rs2.getInt("Id"));
+                e.setRazonSocial(rs2.getString("RazonSocial"));
+                e.setRuc(rs2.getString("RUC"));
+                e.setTelefono(rs2.getString("Telefono"));
+                e.setEmail(rs2.getString("Correo"));
+                e.setTipo(rs2.getString("Tipo"));
+                lista.add(e);
             }
             
             conn.close();

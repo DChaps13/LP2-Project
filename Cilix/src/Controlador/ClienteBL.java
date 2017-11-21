@@ -21,8 +21,8 @@ public class ClienteBL {
         return accesoDatos.agregarCliente(c);
     }
     
-    public ArrayList<Cliente> devolverClientes(String id, String telefono, String email){
-        return accesoDatos.devolverClientes(id,telefono,email);
+    public ArrayList<Cliente> devolverClientes(String id,String nombres, String apellidos, String dni, String telefono, String email, String razon, String ruc){
+        return accesoDatos.devolverClientes(id,nombres,apellidos,dni,telefono,email,razon,ruc);
     }
     
 }

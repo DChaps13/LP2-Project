@@ -247,7 +247,6 @@ public class FrmNewCliente extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Completa los datos del cliente");
         }else{
             Cliente c;
-            String direccion = txtDireccion.getText();
             String telf = txtTelefono.getText();
             String email = txtEmail.getText();
             String nombres = txtNombres.getText();
@@ -255,11 +254,12 @@ public class FrmNewCliente extends javax.swing.JDialog {
             String dni = txtDni.getText();
             String ruc = txtRuc.getText();
             String razonSocial = txtRazonSocial.getText();
+            
             if(cboTipoCliente.getSelectedIndex() == 1){
                 // Cliente Natural
-                c = new ClienteNatural(direccion,telf,email,dni,nombres,apellidos);
+                c = new ClienteNatural(telf,email,dni,nombres,apellidos);
             }else{
-                c = new Empresa(direccion,telf,email,razonSocial,ruc);
+                c = new Empresa(telf,email,razonSocial,ruc,"Cliente");
             }
             if(logNegCliente.agregarCliente(c))
                 JOptionPane.showMessageDialog(null, "Cliente agregado correctamente");

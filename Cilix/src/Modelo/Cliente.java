@@ -13,15 +13,13 @@ public class Cliente {
 
     private static int cont = 1;
     private int id;
-    private String direccion;
     private String telefono;
     private String email;
     
     public Cliente(){}
     
-    public Cliente(String direccion, String telefono, String email){
+    public Cliente( String telefono, String email){
         id = cont++;
-        this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
     }
@@ -35,15 +33,7 @@ public class Cliente {
     }
     
     
-    
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
+  
     public String getTelefono() {
         return telefono;
     }
