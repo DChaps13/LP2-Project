@@ -53,7 +53,7 @@ public class frmInicial extends javax.swing.JFrame {
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGap(0, 729, Short.MAX_VALUE)
         );
 
         jMenu1.setText("File");
