@@ -22,8 +22,26 @@ public class EmpresaDA {
     public EmpresaDA(){}
     
     public boolean agregarEmpresa(Empresa e){
-        //
-        return true;
+        
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //establecer la conexión
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
+                    + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
+            String sentence = "{call dbo.insertarEmpresa(?,?,?,?,?)}";
+            PreparedStatement ps = conn.prepareStatement(sentence);
+            ps.setString(1,e.getRazonSocial());
+            ps.setString(2,e.getTelefono());
+            ps.setString(3,e.getEmail());
+            ps.setString(4,e.getRuc());
+            ps.setString(5,e.getTipo());
+            ps.execute();
+            conn.close();
+            return true;
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return false;
     }
     
     public boolean actualizarEmpresa(Empresa x){

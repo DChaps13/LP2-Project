@@ -5,6 +5,10 @@
  */
 package cilix.Vista;
 
+import Controlador.EmpresaBL;
+import Modelo.Empresa;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alulab14
@@ -14,11 +18,23 @@ public class FrmModificarProveedor extends javax.swing.JDialog {
     /**
      * Creates new form FrmModificarProveedor
      */
+    
+    Empresa empresa;
+    
     public FrmModificarProveedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-
+    
+    public FrmModificarProveedor(java.awt.Frame parent, boolean modal, Empresa e) {
+        super(parent, modal);
+        initComponents();
+        empresa = e;
+        txtRazonSocial.setText(e.getRazonSocial());
+        txtRUC.setText(e.getRuc());
+        txtCorreo.setText(e.getEmail());
+        txtTelefono.setText(e.getTelefono());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,6 +56,7 @@ public class FrmModificarProveedor extends javax.swing.JDialog {
         btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Razon Social");
@@ -127,8 +144,17 @@ public class FrmModificarProveedor extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    boolean sameFields(Empresa e, String razon, String ruc, String correo, String telefono){
+        if(!e.getRazonSocial().equals(razon)) return false;
+        if(!e.getRuc().equals(ruc)) return false;
+        if(!e.getEmail().equals(correo)) return false;
+        if(!e.getTelefono().equals(telefono)) return false;
+        return true;
+    }
+    
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
 

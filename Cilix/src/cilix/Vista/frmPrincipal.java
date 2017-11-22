@@ -121,9 +121,9 @@ public class frmPrincipal extends javax.swing.JDialog {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         opened = true;
-        FrmClientes fc = new FrmClientes(user);
+        //FrmClientes fc = new FrmClientes(user);
         //fc.setUser(user);
-        fc.setVisible(true);
+        //fc.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 

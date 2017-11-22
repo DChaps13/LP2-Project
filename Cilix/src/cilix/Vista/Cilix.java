@@ -41,6 +41,7 @@ public class Cilix extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(41, 44, 51));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(41, 44, 51));
 
@@ -51,7 +52,7 @@ public class Cilix extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(41, 44, 51));
         jButton3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\temp\\LP2\\LP2-Project\\Cilix\\src\\locked-icon.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/rsz_1addressbook-grey-icon.png"))); // NOI18N
         jButton3.setText("  Reportes");
         jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton3.setBorderPainted(false);
@@ -66,7 +67,7 @@ public class Cilix extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(41, 44, 51));
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\temp\\LP2\\LP2-Project\\Cilix\\src\\2.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/2.png"))); // NOI18N
         jButton2.setText(" Log in      ");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.setBorderPainted(false);
@@ -81,7 +82,7 @@ public class Cilix extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(41, 44, 51));
         jButton4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\temp\\LP2\\LP2-Project\\Cilix\\src\\locked-icon.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/locked-icon.png"))); // NOI18N
         jButton4.setText(" Log out   ");
         jButton4.setToolTipText("");
         jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -97,7 +98,7 @@ public class Cilix extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(41, 44, 51));
         jButton5.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\temp\\LP2\\LP2-Project\\Cilix\\src\\addition-icon (1) - copia.png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/addition-icon (1) - copia.png"))); // NOI18N
         jButton5.setText(" Nuevo     ");
         jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton5.setBorderPainted(false);
@@ -112,7 +113,7 @@ public class Cilix extends javax.swing.JFrame {
         jButton6.setBackground(new java.awt.Color(41, 44, 51));
         jButton6.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon("C:\\temp\\LP2\\LP2-Project\\Cilix\\src\\close-2-icon.png")); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/close-2-icon.png"))); // NOI18N
         jButton6.setText("  Cerrar    ");
         jButton6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton6.setBorderPainted(false);
@@ -127,7 +128,7 @@ public class Cilix extends javax.swing.JFrame {
         jButton7.setBackground(new java.awt.Color(41, 44, 51));
         jButton7.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setIcon(new javax.swing.ImageIcon("C:\\temp\\LP2\\LP2-Project\\Cilix\\src\\zoom-search-2-icon (1).png")); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/zoom-search-2-icon (1).png"))); // NOI18N
         jButton7.setText(" Buscar    ");
         jButton7.setToolTipText("");
         jButton7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));

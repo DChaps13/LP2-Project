@@ -27,6 +27,7 @@ public class FrmGestionarProveedores extends javax.swing.JDialog {
     public FrmGestionarProveedores(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        actualizarTabla();
     }
 
     void actualizarTabla(){
@@ -293,7 +294,7 @@ public class FrmGestionarProveedores extends javax.swing.JDialog {
             return;
         }
 
-        FrmModificarEmpresa x = new FrmModificarEmpresa(null, true,lista.get(idx));
+        FrmModificarProveedor x = new FrmModificarProveedor(null, true,lista.get(idx));
         x.setVisible(true);
         actualizarTabla();
     }//GEN-LAST:event_btnModificarActionPerformed

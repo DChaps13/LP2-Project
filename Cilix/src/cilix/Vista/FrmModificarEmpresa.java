@@ -55,6 +55,7 @@ public class FrmModificarEmpresa extends javax.swing.JDialog {
         btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Razon Social");
@@ -142,6 +143,7 @@ public class FrmModificarEmpresa extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     boolean sameFields(Empresa e, String razon, String ruc, String correo, String telefono){
