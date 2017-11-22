@@ -258,6 +258,10 @@ public class FrmGestionarEmpresas extends javax.swing.JDialog {
         return x.getText().equals("");
     }
     
+    void clear(JTextField x){
+        x.setText("");
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
@@ -280,7 +284,11 @@ public class FrmGestionarEmpresas extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Empresa agregada correctamente");
             else
             JOptionPane.showMessageDialog(null, "No se pudo agregar a la empresa");
-            dispose();
+            clear(txtRazonSocial);
+            clear(txtRuc);
+            clear(txtEmail);
+            clear(txtTelefono);
+            actualizarTabla();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -308,7 +316,7 @@ public class FrmGestionarEmpresas extends javax.swing.JDialog {
         }
         EmpresaBL logica = new EmpresaBL();
         if(logica.eliminarEmpresa(lista.get(idx).getId())){
-            JOptionPane.showMessageDialog(null,"Se elimino al usuario correctamente");
+            JOptionPane.showMessageDialog(null,"Se elimino a la empresa correctamente");
         }else{
             JOptionPane.showMessageDialog(null,"No se pudo eliminar al cliente :(");
         }

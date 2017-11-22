@@ -22,6 +22,10 @@ public class EmpresaBL {
         
     }
     
+    public boolean actualizarEmpresa(Empresa x){
+        return accesoDatos.actualizarEmpresa(x);
+    }
+    
     public boolean eliminarEmpresa(int id){
         return accesoDatos.eliminarEmpresa(id);
     }
