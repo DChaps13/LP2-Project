@@ -4,34 +4,19 @@
  * and open the template in the editor.
  */
 package cilix.Vista;
-import Controlador.EmpresaBL;
-import Modelo.*;
-import javax.swing.JOptionPane;
+
 /**
  *
  * @author alulab14
  */
-public class FrmModificarEmpresa extends javax.swing.JDialog {
+public class FrmModificarProveedor extends javax.swing.JDialog {
 
     /**
-     * Creates new form FrmModificarEmpresa
+     * Creates new form FrmModificarProveedor
      */
-    
-    Empresa empresa;
-    
-    public FrmModificarEmpresa(java.awt.Frame parent, boolean modal) {
+    public FrmModificarProveedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-    }
-    
-    public FrmModificarEmpresa(java.awt.Frame parent, boolean modal,Empresa e) {
-        super(parent, modal);
-        initComponents();
-        empresa = e;
-        txtRazonSocial.setText(e.getRazonSocial());
-        txtRUC.setText(e.getRuc());
-        txtCorreo.setText(e.getEmail());
-        txtTelefono.setText(e.getTelefono());
     }
 
     /**
@@ -45,12 +30,12 @@ public class FrmModificarEmpresa extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         txtRazonSocial = new javax.swing.JTextField();
-        txtRUC = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        txtRUC = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        txtTelefono = new javax.swing.JTextField();
         btnActualizar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
@@ -61,20 +46,20 @@ public class FrmModificarEmpresa extends javax.swing.JDialog {
 
         txtRazonSocial.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
-        txtRUC.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("RUC");
+
+        txtRUC.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+
+        txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Correo");
 
-        txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-
-        txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Telefono");
+
+        txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
 
         btnActualizar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnActualizar.setText("Actualizar");
@@ -113,7 +98,7 @@ public class FrmModificarEmpresa extends javax.swing.JDialog {
                     .addComponent(txtRUC)
                     .addComponent(txtCorreo)
                     .addComponent(txtTelefono))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,20 +123,12 @@ public class FrmModificarEmpresa extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActualizar)
                     .addComponent(btnCancelar))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    boolean sameFields(Empresa e, String razon, String ruc, String correo, String telefono){
-        if(!e.getRazonSocial().equals(razon)) return false;
-        if(!e.getRuc().equals(ruc)) return false;
-        if(!e.getEmail().equals(correo)) return false;
-        if(!e.getTelefono().equals(telefono)) return false;
-        return true;
-    }
-    
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
 
@@ -176,14 +153,12 @@ public class FrmModificarEmpresa extends javax.swing.JDialog {
             }
             dispose();
         }
-
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
 
         dispose();
-
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
@@ -203,20 +178,20 @@ public class FrmModificarEmpresa extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmModificarEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmModificarProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmModificarEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmModificarProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmModificarEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmModificarProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmModificarEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmModificarProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FrmModificarEmpresa dialog = new FrmModificarEmpresa(new javax.swing.JFrame(), true);
+                FrmModificarProveedor dialog = new FrmModificarProveedor(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

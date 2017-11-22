@@ -137,7 +137,7 @@
             this.BLogout.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BLogout.ForeColor = System.Drawing.Color.White;
             this.BLogout.Image = ((System.Drawing.Image)(resources.GetObject("BLogout.Image")));
-            this.BLogout.Location = new System.Drawing.Point(-3, 187);
+            this.BLogout.Location = new System.Drawing.Point(3, 114);
             this.BLogout.Name = "BLogout";
             this.BLogout.Size = new System.Drawing.Size(158, 67);
             this.BLogout.TabIndex = 4;

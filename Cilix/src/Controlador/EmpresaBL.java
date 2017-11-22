@@ -22,6 +22,10 @@ public class EmpresaBL {
         
     }
     
+    public boolean actualizarEmpresa(Empresa x){
+        return accesoDatos.actualizarEmpresa(x);
+    }
+    
     public boolean eliminarEmpresa(int id){
         return accesoDatos.eliminarEmpresa(id);
     }
@@ -32,6 +36,10 @@ public class EmpresaBL {
     
     public ArrayList<Empresa> devolverEmpresas(String rSocial,String ruc){
         return accesoDatos.devolverEmpresas(rSocial,ruc);
+    }
+    
+    public ArrayList<Empresa> devolverEmpresas(String razonSocial, String ruc, String tipo){
+        return accesoDatos.devolverEmpresas(razonSocial, ruc, tipo);
     }
     
 }
