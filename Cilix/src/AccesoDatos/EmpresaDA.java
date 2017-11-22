@@ -102,4 +102,42 @@ public class EmpresaDA {
         
         return empresas;
     }
+    
+    public ArrayList<Empresa> devolverEmpresas(String rSocial,String ruc, String tipo){
+        ArrayList<Empresa> empresas = new ArrayList<Empresa>();
+        try{
+            
+            //registrar el Driver 
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //establecer la conexión
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
+                    + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
+            
+            String query = "{call dbo.buscarEmpresa(?,?,?,?,?,?)}";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, -1);
+            ps.setString(2, "");
+            ps.setString(3,"");
+            ps.setString(4,"");
+            ps.setString(5,"");
+            ps.setString(6,tipo);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Empresa e = new Empresa();
+                e.setId(rs.getInt("Id"));
+                e.setRazonSocial(rs.getString("RazonSocial"));
+                e.setRuc(rs.getString("RUC"));
+                e.setEmail(rs.getString("Correo"));
+                e.setTelefono(rs.getString("Telefono"));
+                empresas.add(e);
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        
+        return empresas;
+    }
+    
 }

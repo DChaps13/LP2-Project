@@ -38,4 +38,8 @@ public class EmpresaBL {
         return accesoDatos.devolverEmpresas(rSocial,ruc);
     }
     
+    public ArrayList<Empresa> devolverEmpresas(String razonSocial, String ruc, String tipo){
+        return accesoDatos.devolverEmpresas(razonSocial, ruc, tipo);
+    }
+    
 }
