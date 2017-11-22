@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package cilix.Vista;
+import Controlador.ClienteNaturalBL;
 import Modelo.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author alulab14
@@ -21,7 +23,28 @@ public class FrmModificarClienteNatural extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+    
+    public FrmModificarClienteNatural(java.awt.Frame parent, boolean modal, ClienteNatural x) {
+        super(parent, modal);
+        initComponents();
+        cliente = x;
+        txtNombres.setText(x.getNombre());
+        txtApellidos.setText(x.getApellido());
+        txtDNI.setText(x.getDni());
+        txtTelefono.setText(x.getTelefono());
+        txtCorreo.setText(x.getEmail());
+    }
 
+    public ClienteNatural getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(ClienteNatural cliente) {
+        this.cliente = cliente;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,6 +96,11 @@ public class FrmModificarClienteNatural extends javax.swing.JDialog {
 
         btnActualizar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton2.setText("Cancelar");
@@ -141,6 +169,7 @@ public class FrmModificarClienteNatural extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -149,6 +178,48 @@ public class FrmModificarClienteNatural extends javax.swing.JDialog {
         dispose();
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    boolean same(String x, String y){
+        x = x.trim();
+        y = y.trim();
+        return x.equals(y);
+    }
+    
+    boolean sameFields(ClienteNatural x, String nombre, String apellido, String dni, String telefono, String correo){
+        if(!x.getNombre().equals(nombre)) return false;
+        if(!x.getApellido().equals(apellido)) return false;
+        if(!x.getDni().equals(dni)) return false;
+        if(!x.getTelefono().equals(telefono)) return false;
+        if(!x.getEmail().equals(correo)) return false;
+        return true;
+    }
+    
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+        
+        String nombre = txtNombres.getText().trim();
+        String apellido = txtApellidos.getText().trim();
+        String dni = txtDNI.getText().trim();
+        String telefono = txtTelefono.getText().trim();
+        String correo = txtCorreo.getText().trim();
+        if( sameFields(cliente,nombre,apellido,dni,telefono,correo) ){
+            JOptionPane.showMessageDialog(null,"No se han cambiado los datos");
+        }else{
+            ClienteNaturalBL logica = new ClienteNaturalBL();
+            cliente.setNombre(nombre);
+            cliente.setApellido(apellido);
+            cliente.setDni(dni);
+            cliente.setTelefono(telefono);
+            cliente.setEmail(correo);
+            if(logica.actualizarClienteNatural(cliente)){
+                JOptionPane.showMessageDialog(null,"Se actualizo al cliente correctamente!");
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null,"No se actualizo el cliente :( ");
+            }
+        }
+        
+    }//GEN-LAST:event_btnActualizarActionPerformed
 
     /**
      * @param args the command line arguments

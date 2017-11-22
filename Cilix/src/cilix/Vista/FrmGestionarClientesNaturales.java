@@ -6,6 +6,7 @@
 package cilix.Vista;
 
 import Controlador.ClienteBL;
+import Controlador.ClienteNaturalBL;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import Modelo.*;
@@ -32,8 +33,8 @@ public class FrmGestionarClientesNaturales extends javax.swing.JDialog {
     }
 
     void actualizarTabla(){
-        ClienteBL logica = new ClienteBL();
-        //lista = logica.devolverClientesNaturales();
+        ClienteNaturalBL logica = new ClienteNaturalBL();
+        lista = logica.devolverClientesNaturales(-1, "", "", "", "", "");
         DefaultTableModel modelo = (DefaultTableModel) tblClientes.getModel();
         if(lista == null) return;
         modelo.setRowCount(0);
@@ -117,7 +118,7 @@ public class FrmGestionarClientesNaturales extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(101, 101, 101)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnRegistrar)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -134,12 +135,12 @@ public class FrmGestionarClientesNaturales extends javax.swing.JDialog {
                             .addComponent(txtDNI)
                             .addComponent(txtTelefono)
                             .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -161,7 +162,7 @@ public class FrmGestionarClientesNaturales extends javax.swing.JDialog {
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(btnRegistrar)
-                .addGap(90, 90, 90))
+                .addGap(104, 104, 104))
         );
 
         jTabbedPane1.addTab("Registrar Cliente Natural", jPanel1);
@@ -233,7 +234,7 @@ public class FrmGestionarClientesNaturales extends javax.swing.JDialog {
                     .addComponent(btnModificar)
                     .addComponent(btnEliminar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -257,10 +258,21 @@ public class FrmGestionarClientesNaturales extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
+        
+        int idx = tblClientes.getSelectedRow();
+        if(idx == -1){
+            JOptionPane.showMessageDialog(null,"Seleccione un cliente");
+            return;
+        }
+        
+        FrmModificarClienteNatural x = new FrmModificarClienteNatural(null, true,lista.get(idx));
+        x.setVisible(true);
+        actualizarTabla();
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -271,7 +283,12 @@ public class FrmGestionarClientesNaturales extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,"Seleccione algun cliente");
             return;
         }
-        tblClientes.remove(idx);
+        ClienteNaturalBL logica = new ClienteNaturalBL();
+        if(logica.eliminarClienteNatural(lista.get(idx).getId())){
+            JOptionPane.showMessageDialog(null,"Se elimino al usuario correctamente");
+        }else{
+            JOptionPane.showMessageDialog(null,"No se pudo eliminar al cliente :(");
+        }
         actualizarTabla();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -295,13 +312,19 @@ public class FrmGestionarClientesNaturales extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,"Ingrese el correo del cliente");
         }else{
             ClienteNatural x = new ClienteNatural();
-            x.setNombre(txtNombres.getText());
-            x.setApellido(txtApellidos.getText());
-            x.setDni(txtDNI.getText());
-            x.setTelefono(txtTelefono.getText());
-            x.setEmail(txtCorreo.getText());
+            x.setNombre(txtNombres.getText().trim());
+            x.setApellido(txtApellidos.getText().trim());
+            x.setDni(txtDNI.getText().trim());
+            x.setTelefono(txtTelefono.getText().trim());
+            x.setEmail(txtCorreo.getText().trim());
             if(logica.agregarCliente(x)){
                 JOptionPane.showMessageDialog(null, "Cliente agregado correctamente");
+                txtNombres.setText("");
+                txtApellidos.setText("");
+                txtDNI.setText("");
+                txtTelefono.setText("");
+                txtCorreo.setText("");
+                actualizarTabla();
             }else{
                 JOptionPane.showMessageDialog(null,"No se pudo agregar al cliente");
             }
