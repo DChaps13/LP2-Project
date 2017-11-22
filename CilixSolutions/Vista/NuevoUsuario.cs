@@ -92,8 +92,8 @@ namespace Vista
             u.Estado = est;
             try
             {
-                logNegUsu.registrarUsuario(u);
-                MessageBox.Show("El registro del usuario fue exitoso", "Mensaje de éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if(logNegUsu.registrarUsuario(u))
+                    MessageBox.Show("El registro del usuario fue exitoso", "Mensaje de éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
             catch(Exception ex)

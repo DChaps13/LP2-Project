@@ -54,17 +54,27 @@ namespace AccesoDatos
             SqlCommand sentencia = conexion.CreateCommand();
             sentencia.CommandText = query;
 
-
-            conexion.Open();
-            SqlDataReader reader = sentencia.ExecuteReader();
-
-
-            while (reader.Read())
+            try
             {
-                RolUsuario rol = new RolUsuario(Int32.Parse(reader["Id_Rol"].ToString()), reader["Nombre_Rol"].ToString(), Int32.Parse(reader["Privilegio"].ToString()));
-                Estado estado = new Estado(Int32.Parse(reader["Id_Estado"].ToString()), reader["Nombre_Estado"].ToString());
-                Usuario us = new Usuario(reader["Id"].ToString(), reader["Contraseña"].ToString(), DateTime.Parse(reader["fechaCreacion"].ToString()), estado, rol);
-                lstUsuarios.Add(us);
+
+
+                conexion.Open();
+                SqlDataReader reader = sentencia.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    RolUsuario rol = new RolUsuario(Int32.Parse(reader["Id_Rol"].ToString()), reader["Nombre_Rol"].ToString(), Int32.Parse(reader["Privilegio"].ToString()));
+                    Estado estado = new Estado(Int32.Parse(reader["Id_Estado"].ToString()), reader["Nombre_Estado"].ToString());
+                    Usuario us = new Usuario(reader["Id"].ToString(), reader["Contraseña"].ToString(), DateTime.Parse(reader["fechaCreacion"].ToString()), estado, rol);
+                    lstUsuarios.Add(us);
+                }
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Mensaje de error");
+                return lstUsuarios;
             }
 
             conexion.Close();

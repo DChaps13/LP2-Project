@@ -41,7 +41,7 @@ namespace AccesoDatos
             catch(Exception e)
             {
                 MessageBox.Show(e.Message, "Mensaje de error");
-
+                return false;
             }
             conexion.Close();
             return true;
@@ -60,17 +60,28 @@ namespace AccesoDatos
             sentencia.Parameters.Add("@_categoria", SqlDbType.VarChar).Value = categoria;
             sentencia.Parameters.Add("@_proveedor", SqlDbType.VarChar).Value = proveedor;
 
-            conexion.Open();
-            SqlDataReader reader = sentencia.ExecuteReader();
-
-
-            while (reader.Read())
+            try
             {
-                CategoriaProd cat = new CategoriaProd(Int32.Parse(reader["Id_Categoria"].ToString()), reader["Nombre_Categoria"].ToString());
-                PersonaJuridica prov = new PersonaJuridica(Int32.Parse(reader["Id_Proveedor"].ToString()), reader["RazonSocial"].ToString());
-                Producto prod = new Producto(Int32.Parse(reader["Id"].ToString()), reader["Nombre"].ToString(), Int32.Parse(reader["Cantidad"].ToString()), Double.Parse(reader["Precio"].ToString()), reader["Estado"].ToString(),cat,prov);
-                productos.Add(prod);
+                conexion.Open();
+                SqlDataReader reader = sentencia.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    CategoriaProd cat = new CategoriaProd(Int32.Parse(reader["Id_Categoria"].ToString()), reader["Nombre_Categoria"].ToString());
+                    PersonaJuridica prov = new PersonaJuridica(Int32.Parse(reader["Id_Proveedor"].ToString()), reader["RazonSocial"].ToString());
+                    Producto prod = new Producto(Int32.Parse(reader["Id"].ToString()), reader["Nombre"].ToString(), Int32.Parse(reader["Cantidad"].ToString()), Double.Parse(reader["Precio"].ToString()), reader["Estado"].ToString(), cat, prov);
+                    productos.Add(prod);
+                }
+
+
             }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Mensaje de error");
+                return productos;
+            }
+
 
             conexion.Close();
             return productos;

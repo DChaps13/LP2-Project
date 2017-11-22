@@ -123,8 +123,8 @@ namespace Vista
 
             try
             {
-                logNegProd.registrarProducto(cbxProv.Text, p);
-                MessageBox.Show("El registro del producto fue exitoso", "Mensaje de éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if(logNegProd.registrarProducto(cbxProv.Text, p))
+                    MessageBox.Show("El registro del producto fue exitoso", "Mensaje de éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             catch (Exception ex)
