@@ -132,6 +132,7 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
         txtCantidad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         btnPasarProducto.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnPasarProducto.setText("<<");
@@ -340,6 +341,7 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPasarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasarProductoActionPerformed
