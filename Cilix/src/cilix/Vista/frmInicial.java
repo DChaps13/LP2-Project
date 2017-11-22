@@ -53,7 +53,7 @@ public class frmInicial extends javax.swing.JFrame {
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 729, Short.MAX_VALUE)
+            .addGap(0, 763, Short.MAX_VALUE)
         );
 
         jMenu1.setText("File");
@@ -125,9 +125,9 @@ public class frmInicial extends javax.swing.JFrame {
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
         
-        FrmBuscarTransaccion ft = new FrmBuscarTransaccion();
-        Escritorio.add(ft);
-        ft.show();
+//        FrmBuscarTransaccion ft = new FrmBuscarTransaccion();
+//        Escritorio.add(ft);
+//        ft.show();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
