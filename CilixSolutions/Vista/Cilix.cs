@@ -25,7 +25,7 @@ namespace Vista
             label2.Text = "Hola, " + usuarioActual.Id + " (" + usuarioActual.Rol.Descriptor + ")";
             label2.Visible = true;
 
-            BLogin.Visible = true;
+            BLogin.Visible = false;
             BLogin.Enabled = false;
             BLogout.Visible = true;
             BLogout.Enabled = true;
@@ -47,7 +47,7 @@ namespace Vista
             switch (usuarioActual.Rol.Privilegio)
             {
                 case (1): //Administrador
-                    BLogin.Visible = true;
+                    BLogin.Visible = false;
                     BLogin.Enabled = false;
                     BLogout.Visible = true;
                     BLogout.Enabled = true;
@@ -92,11 +92,11 @@ namespace Vista
 
             BLogin.Visible = true;
             BLogin.Enabled = true;
-            BLogout.Visible = true;
+            BLogout.Visible = false;
             BLogout.Enabled = false;
-            BNuevo.Visible = true;
+            BNuevo.Visible = false;
             BNuevo.Enabled = false;
-            BBuscar.Visible = true;
+            BBuscar.Visible = false;
             BBuscar.Enabled = false;
             BCerrar.Visible = true;
             BCerrar.Enabled = true;
