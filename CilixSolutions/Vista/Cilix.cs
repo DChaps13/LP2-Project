@@ -16,6 +16,7 @@ namespace Vista
         private Usuario usuarioActual;
         public Cilix(Usuario usu)
         {
+            this.IsMdiContainer = true;
             this.usuarioActual = usu;
             InitializeComponent();
 
@@ -81,6 +82,7 @@ namespace Vista
         public Cilix()
         {
             InitializeComponent();
+            this.IsMdiContainer = true;
 
             this.Visible = true;
             label2.Font = new Font(label2.Font, FontStyle.Bold);
@@ -144,6 +146,7 @@ namespace Vista
             usuarioActual = childForm.UsuarioActivo;
             childForm.Visible = true;
             this.Visible = false;
+
         }
 
         private void BCerrar_Click(object sender, EventArgs e)
@@ -230,6 +233,10 @@ namespace Vista
             childForm.MdiParent = this;
             childForm.Text = "Nuevo Usuario";
             childForm.Show();
+            PanelNuevo.Visible = false;
+            PanelNuevo.Enabled = false;
+            PanelBuscar.Visible = false;
+            PanelBuscar.Enabled = false;
         }
 
         private void BBuscarUsuario_Click(object sender, EventArgs e)
@@ -238,6 +245,10 @@ namespace Vista
             childForm.MdiParent = this;
             childForm.Text = "Buscar Usuarios";
             childForm.Show();
+            PanelNuevo.Visible = false;
+            PanelNuevo.Enabled = false;
+            PanelBuscar.Visible = false;
+            PanelBuscar.Enabled = false;
         }
 
         private void BNuevoProducto_Click(object sender, EventArgs e)
@@ -252,6 +263,10 @@ namespace Vista
             childForm.MdiParent = this;
             childForm.Text = "Nuevo Producto";
             childForm.Show();
+            PanelNuevo.Visible = false;
+            PanelNuevo.Enabled = false;
+            PanelBuscar.Visible = false;
+            PanelBuscar.Enabled= false;
         }
 
         private void BBuscarProducto_Click(object sender, EventArgs e)
@@ -260,6 +275,10 @@ namespace Vista
             childForm.MdiParent = this;
             childForm.Text = "Buscar Productos";
             childForm.Show();
+            PanelNuevo.Visible = false;
+            PanelNuevo.Enabled = false;
+            PanelBuscar.Visible = false;
+            PanelBuscar.Enabled = false;
         }
 
         private void BNuevoNatural_Click(object sender, EventArgs e)
@@ -268,11 +287,18 @@ namespace Vista
             childForm.MdiParent = this;
             childForm.Text = "Nuevo Cliente";
             childForm.Show();
+            PanelNuevo.Visible = false;
+            PanelNuevo.Enabled = false;
+            PanelBuscar.Visible = false;
+            PanelBuscar.Enabled = false;
         }
 
         private void BBuscarNatural_Click(object sender, EventArgs e)
         {
-
+            PanelNuevo.Visible = false;
+            PanelNuevo.Enabled = false;
+            PanelBuscar.Visible = false;
+            PanelBuscar.Enabled = false;
         }
 
         private void BNuevoJuridico_Click(object sender, EventArgs e)
@@ -281,6 +307,10 @@ namespace Vista
             childForm.MdiParent = this;
             childForm.Text = "Nuevo Proveedor";
             childForm.Show();
+            PanelNuevo.Visible = false;
+            PanelNuevo.Enabled = false;
+            PanelBuscar.Visible = false;
+            PanelBuscar.Enabled = false;
         }
 
         private void BBuscarJuridico_Click(object sender, EventArgs e)
@@ -289,6 +319,10 @@ namespace Vista
             childForm.MdiParent = this;
             childForm.Text = "Buscar Proveedores";
             childForm.Show();
+            PanelNuevo.Visible = false;
+            PanelNuevo.Enabled = false;
+            PanelBuscar.Visible = false;
+            PanelBuscar.Enabled = false;
         }
 
         private void BNuevoTrans_Click(object sender, EventArgs e)
@@ -298,6 +332,10 @@ namespace Vista
             childForm.Text = "Nueva Transaccion";
             childForm.WindowState = FormWindowState.Maximized;
             childForm.Show();
+            PanelNuevo.Visible = false;
+            PanelNuevo.Enabled = false;
+            PanelBuscar.Visible = false;
+            PanelBuscar.Enabled = false;
         }
 
         private void BBuscarTrans_Click(object sender, EventArgs e)
@@ -307,6 +345,10 @@ namespace Vista
             childForm.Text = "Buscar Transaccion";
             childForm.WindowState = FormWindowState.Maximized;
             childForm.Show();
+            PanelNuevo.Visible = false;
+            PanelNuevo.Enabled = false;
+            PanelBuscar.Visible = false;
+            PanelBuscar.Enabled = false;
         }
     }
 }
