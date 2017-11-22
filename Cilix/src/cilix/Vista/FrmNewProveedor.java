@@ -12,16 +12,16 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author User
+ * @author alulab14
  */
-public class FrmNewEmpresa extends javax.swing.JDialog {
+public class FrmNewProveedor extends javax.swing.JDialog {
 
-    ClienteBL logNegCliente;
-    
+        ClienteBL logNegCliente;
+        
     /**
      * Creates new form FrmNewEmpresa
      */
-    public FrmNewEmpresa(java.awt.Frame parent, boolean modal) {
+    public FrmNewProveedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         setLocationRelativeTo(null);
         logNegCliente = new ClienteBL();
@@ -53,7 +53,7 @@ public class FrmNewEmpresa extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nuevo Cliente Empresa"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nuevo Proveedor"));
 
         jLabel1.setText("Direccion");
 
@@ -110,8 +110,9 @@ public class FrmNewEmpresa extends javax.swing.JDialog {
                             .addComponent(txtRuc)
                             .addComponent(txtEmail)
                             .addComponent(txtTelefono)
-                            .addComponent(txtDireccion))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtDireccion))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,9 +149,9 @@ public class FrmNewEmpresa extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(21, 21, 21)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,13 +178,14 @@ public class FrmNewEmpresa extends javax.swing.JDialog {
             String email = txtEmail.getText();
             String ruc = txtRuc.getText();
             String razonSocial = txtRazonSocial.getText();
-            c = new Empresa(telf,email,razonSocial,ruc,"Cliente");
+            c = new Empresa(telf,email,razonSocial,ruc,"Proveedor");
             if(logNegCliente.agregarCliente(c))
-            JOptionPane.showMessageDialog(null, "Cliente agregado correctamente");
+                JOptionPane.showMessageDialog(null, "Cliente agregado correctamente");
             else
-            JOptionPane.showMessageDialog(null, "No se pudo agregar al cliente");
+                JOptionPane.showMessageDialog(null, "No se pudo agregar al cliente");
             dispose();
         }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -208,20 +210,21 @@ public class FrmNewEmpresa extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmNewEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmNewProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmNewEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmNewProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmNewEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmNewProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmNewEmpresa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmNewProveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FrmNewEmpresa dialog = new FrmNewEmpresa(new javax.swing.JFrame(), true);
+                FrmNewProveedor dialog = new FrmNewProveedor(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
