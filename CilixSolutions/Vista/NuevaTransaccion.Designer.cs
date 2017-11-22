@@ -115,7 +115,7 @@
             // 
             this.cboTipo.FormattingEnabled = true;
             this.cboTipo.Location = new System.Drawing.Point(121, 21);
-            this.cboTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboTipo.Margin = new System.Windows.Forms.Padding(2);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(232, 21);
             this.cboTipo.TabIndex = 5;
@@ -123,7 +123,7 @@
             // numCantidad
             // 
             this.numCantidad.Location = new System.Drawing.Point(121, 54);
-            this.numCantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numCantidad.Margin = new System.Windows.Forms.Padding(2);
             this.numCantidad.Name = "numCantidad";
             this.numCantidad.Size = new System.Drawing.Size(90, 20);
             this.numCantidad.TabIndex = 7;
@@ -133,7 +133,7 @@
             // 
             this.txtIDProd.Enabled = false;
             this.txtIDProd.Location = new System.Drawing.Point(105, 40);
-            this.txtIDProd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIDProd.Margin = new System.Windows.Forms.Padding(2);
             this.txtIDProd.Name = "txtIDProd";
             this.txtIDProd.Size = new System.Drawing.Size(209, 20);
             this.txtIDProd.TabIndex = 8;
@@ -163,8 +163,9 @@
             // 
             // btCancelar
             // 
+            this.btCancelar.ForeColor = System.Drawing.Color.Black;
             this.btCancelar.Location = new System.Drawing.Point(309, 388);
-            this.btCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(65, 26);
             this.btCancelar.TabIndex = 13;
@@ -175,7 +176,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(70, 356);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 14;
@@ -184,7 +185,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(34, 289);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(350, 62);
@@ -202,9 +203,9 @@
             this.groupBox1.Controls.Add(this.txtNombContacto);
             this.groupBox1.Controls.Add(this.numCantidad);
             this.groupBox1.Location = new System.Drawing.Point(22, 97);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(362, 168);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
@@ -236,8 +237,9 @@
             // 
             // btNuevoContacto
             // 
+            this.btNuevoContacto.ForeColor = System.Drawing.Color.Black;
             this.btNuevoContacto.Location = new System.Drawing.Point(104, 127);
-            this.btNuevoContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btNuevoContacto.Margin = new System.Windows.Forms.Padding(2);
             this.btNuevoContacto.Name = "btNuevoContacto";
             this.btNuevoContacto.Size = new System.Drawing.Size(65, 24);
             this.btNuevoContacto.TabIndex = 20;
@@ -247,8 +249,9 @@
             // 
             // btBuscarContacto
             // 
+            this.btBuscarContacto.ForeColor = System.Drawing.Color.Black;
             this.btBuscarContacto.Location = new System.Drawing.Point(173, 127);
-            this.btBuscarContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btBuscarContacto.Margin = new System.Windows.Forms.Padding(2);
             this.btBuscarContacto.Name = "btBuscarContacto";
             this.btBuscarContacto.Size = new System.Drawing.Size(65, 24);
             this.btBuscarContacto.TabIndex = 19;
@@ -259,7 +262,7 @@
             // txtNombContacto
             // 
             this.txtNombContacto.Location = new System.Drawing.Point(15, 104);
-            this.txtNombContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombContacto.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombContacto.Name = "txtNombContacto";
             this.txtNombContacto.Size = new System.Drawing.Size(338, 20);
             this.txtNombContacto.TabIndex = 9;
@@ -267,8 +270,9 @@
             // 
             // btAceptar
             // 
+            this.btAceptar.ForeColor = System.Drawing.Color.Black;
             this.btAceptar.Location = new System.Drawing.Point(239, 388);
-            this.btAceptar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btAceptar.Margin = new System.Windows.Forms.Padding(2);
             this.btAceptar.Name = "btAceptar";
             this.btAceptar.Size = new System.Drawing.Size(65, 26);
             this.btAceptar.TabIndex = 17;
@@ -278,8 +282,9 @@
             // 
             // btBuscaProducto
             // 
+            this.btBuscaProducto.ForeColor = System.Drawing.Color.Black;
             this.btBuscaProducto.Location = new System.Drawing.Point(317, 39);
-            this.btBuscaProducto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btBuscaProducto.Margin = new System.Windows.Forms.Padding(2);
             this.btBuscaProducto.Name = "btBuscaProducto";
             this.btBuscaProducto.Size = new System.Drawing.Size(65, 41);
             this.btBuscaProducto.TabIndex = 18;
@@ -291,7 +296,7 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(105, 69);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(74, 20);
             this.textBox1.TabIndex = 19;
@@ -301,6 +306,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(416, 428);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btBuscaProducto);
@@ -316,7 +322,8 @@
             this.Controls.Add(this.txtNombUsuario);
             this.Controls.Add(this.lblNombUsuario);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ForeColor = System.Drawing.Color.White;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NuevaTransaccion";
             this.Text = "Nueva Transaccion";
             this.Load += new System.EventHandler(this.NuevaTransaccion_Load);

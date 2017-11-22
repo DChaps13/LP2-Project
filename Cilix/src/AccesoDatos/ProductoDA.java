@@ -39,7 +39,7 @@ public class ProductoDA {
                 p.setCantidad(rs.getInt("Cantidad"));
                 p.setPrecio(rs.getFloat("Precio"));
                 p.setEstado(rs.getString("Estado"));
-                p.setCategoria(rs.getString("Categoria"));
+//                p.setCategoria(rs.getString("Categoria"));
                 lista.add(p);
             }
             return lista;

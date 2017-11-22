@@ -55,6 +55,7 @@
             // 
             // btnEmpezar
             // 
+            this.btnEmpezar.ForeColor = System.Drawing.Color.Black;
             this.btnEmpezar.Location = new System.Drawing.Point(164, 225);
             this.btnEmpezar.Name = "btnEmpezar";
             this.btnEmpezar.Size = new System.Drawing.Size(75, 23);
@@ -82,15 +83,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(355, 294);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnEmpezar);
             this.Controls.Add(this.lbContraseña);
             this.Controls.Add(this.lbUsuario);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "Logueo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logueo";
+            this.Load += new System.EventHandler(this.Logueo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

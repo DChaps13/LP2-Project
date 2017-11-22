@@ -1,10 +1,11 @@
 
 package AccesoDatos;
 
-import Modelo.Usuario;
+import Modelo.*;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -12,6 +13,35 @@ import java.util.ArrayList;
 public class UsuarioDA {
     
     public UsuarioDA(){}
+    
+    
+    public ArrayList<RolUsuario> listarRoles(){
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //establecer la conexión
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
+                    + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
+            
+            String buscarCNatural = "{call dbo.listarRoles()}";
+            PreparedStatement ps = conn.prepareStatement(buscarCNatural);     
+            
+            ResultSet rs = ps.executeQuery();
+            ArrayList<RolUsuario> lista  = new ArrayList<RolUsuario>();
+            
+            while(rs.next()){
+                RolUsuario r = new RolUsuario();
+                r.setId(rs.getInt("Id"));
+                r.setDescriptor(rs.getString("Descriptor"));
+                r.setPrivilegio(rs.getInt("Privilegio"));
+                lista.add(r);
+            }
+            conn.close();
+            return lista;
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
     
     public ArrayList<Usuario> devolverUsuarios(){
         try {
@@ -41,5 +71,7 @@ public class UsuarioDA {
         }
         return null;
     }
+    
+    
     
 }

@@ -52,6 +52,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(449, 167);
@@ -61,6 +62,7 @@
             // 
             // button3
             // 
+            this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(243, 131);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(136, 23);
@@ -71,6 +73,7 @@
             // 
             // btnCrear
             // 
+            this.btnCrear.ForeColor = System.Drawing.Color.Black;
             this.btnCrear.Location = new System.Drawing.Point(69, 131);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(136, 23);
@@ -147,6 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(474, 192);
             this.Controls.Add(this.groupBox1);
             this.Name = "NuevoUsuario";

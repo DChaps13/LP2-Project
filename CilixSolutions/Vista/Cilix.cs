@@ -47,7 +47,7 @@ namespace Vista
             switch (usuarioActual.Rol.Privilegio)
             {
                 case (1): //Administrador
-                    BLogin.Visible = true;
+                    BLogin.Visible = false;
                     BLogin.Enabled = false;
                     BLogout.Visible = true;
                     BLogout.Enabled = true;
@@ -92,7 +92,7 @@ namespace Vista
 
             BLogin.Visible = true;
             BLogin.Enabled = true;
-            BLogout.Visible = true;
+            BLogout.Visible = false;
             BLogout.Enabled = false;
             BNuevo.Visible = false;
             BNuevo.Enabled = false;

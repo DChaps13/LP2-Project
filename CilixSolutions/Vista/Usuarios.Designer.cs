@@ -37,12 +37,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataUsuarios = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.nuevoUsuario = new System.Windows.Forms.Button();
-            this.btOK = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechadeCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.nuevoUsuario = new System.Windows.Forms.Button();
+            this.btOK = new System.Windows.Forms.Button();
             this.groupBoxBuscarUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataUsuarios)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -57,6 +57,7 @@
             this.groupBoxBuscarUsuario.Controls.Add(this.label2);
             this.groupBoxBuscarUsuario.Controls.Add(this.textBox1);
             this.groupBoxBuscarUsuario.Controls.Add(this.label1);
+            this.groupBoxBuscarUsuario.ForeColor = System.Drawing.Color.White;
             this.groupBoxBuscarUsuario.Location = new System.Drawing.Point(11, 77);
             this.groupBoxBuscarUsuario.Name = "groupBoxBuscarUsuario";
             this.groupBoxBuscarUsuario.Size = new System.Drawing.Size(401, 138);
@@ -85,6 +86,7 @@
             // 
             // Buscar
             // 
+            this.Buscar.ForeColor = System.Drawing.Color.Black;
             this.Buscar.Location = new System.Drawing.Point(310, 65);
             this.Buscar.Name = "Buscar";
             this.Buscar.Size = new System.Drawing.Size(75, 23);
@@ -143,36 +145,6 @@
             this.dataUsuarios.Size = new System.Drawing.Size(401, 137);
             this.dataUsuarios.TabIndex = 1;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.nuevoUsuario);
-            this.groupBox2.Location = new System.Drawing.Point(13, 13);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(401, 58);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Nuevo Usuario";
-            // 
-            // nuevoUsuario
-            // 
-            this.nuevoUsuario.Location = new System.Drawing.Point(114, 19);
-            this.nuevoUsuario.Name = "nuevoUsuario";
-            this.nuevoUsuario.Size = new System.Drawing.Size(170, 23);
-            this.nuevoUsuario.TabIndex = 10;
-            this.nuevoUsuario.Text = "Nuevo Usuario";
-            this.nuevoUsuario.UseVisualStyleBackColor = true;
-            this.nuevoUsuario.Click += new System.EventHandler(this.nuevoUsuario_Click);
-            // 
-            // btOK
-            // 
-            this.btOK.Location = new System.Drawing.Point(162, 381);
-            this.btOK.Name = "btOK";
-            this.btOK.Size = new System.Drawing.Size(90, 31);
-            this.btOK.TabIndex = 8;
-            this.btOK.Text = "OK";
-            this.btOK.UseVisualStyleBackColor = true;
-            this.btOK.Click += new System.EventHandler(this.btOK_Click);
-            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -194,8 +166,41 @@
             this.Rol.ReadOnly = true;
             this.Rol.Width = 130;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.nuevoUsuario);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(13, 13);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(401, 58);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Nuevo Usuario";
+            // 
+            // nuevoUsuario
+            // 
+            this.nuevoUsuario.ForeColor = System.Drawing.Color.Black;
+            this.nuevoUsuario.Location = new System.Drawing.Point(114, 19);
+            this.nuevoUsuario.Name = "nuevoUsuario";
+            this.nuevoUsuario.Size = new System.Drawing.Size(170, 23);
+            this.nuevoUsuario.TabIndex = 10;
+            this.nuevoUsuario.Text = "Nuevo Usuario";
+            this.nuevoUsuario.UseVisualStyleBackColor = true;
+            this.nuevoUsuario.Click += new System.EventHandler(this.nuevoUsuario_Click);
+            // 
+            // btOK
+            // 
+            this.btOK.Location = new System.Drawing.Point(162, 381);
+            this.btOK.Name = "btOK";
+            this.btOK.Size = new System.Drawing.Size(90, 31);
+            this.btOK.TabIndex = 8;
+            this.btOK.Text = "OK";
+            this.btOK.UseVisualStyleBackColor = true;
+            this.btOK.Click += new System.EventHandler(this.btOK_Click);
+            // 
             // Usuarios
             // 
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(426, 434);
             this.Controls.Add(this.btOK);
             this.Controls.Add(this.groupBox2);

@@ -31,6 +31,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.datosContacto = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxBuscarUsuario = new System.Windows.Forms.GroupBox();
             this.rbNo = new System.Windows.Forms.RadioButton();
             this.rbSi = new System.Windows.Forms.RadioButton();
@@ -45,9 +48,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btOK = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.razonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datosContacto)).BeginInit();
             this.groupBoxBuscarUsuario.SuspendLayout();
@@ -56,6 +56,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(10, 9);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(401, 58);
@@ -66,6 +67,7 @@
             // 
             // button3
             // 
+            this.button3.ForeColor = System.Drawing.Color.Black;
             this.button3.Location = new System.Drawing.Point(114, 19);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(170, 23);
@@ -87,6 +89,24 @@
             this.datosContacto.TabIndex = 7;
             this.datosContacto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "_id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            // 
+            // razonSocial
+            // 
+            this.razonSocial.DataPropertyName = "razonSocial";
+            this.razonSocial.HeaderText = "Razon Social";
+            this.razonSocial.Name = "razonSocial";
+            // 
+            // RUC
+            // 
+            this.RUC.DataPropertyName = "ruc";
+            this.RUC.HeaderText = "RUC";
+            this.RUC.Name = "RUC";
+            // 
             // groupBoxBuscarUsuario
             // 
             this.groupBoxBuscarUsuario.Controls.Add(this.rbNo);
@@ -101,6 +121,7 @@
             this.groupBoxBuscarUsuario.Controls.Add(this.label2);
             this.groupBoxBuscarUsuario.Controls.Add(this.textBox1);
             this.groupBoxBuscarUsuario.Controls.Add(this.label1);
+            this.groupBoxBuscarUsuario.ForeColor = System.Drawing.Color.White;
             this.groupBoxBuscarUsuario.Location = new System.Drawing.Point(8, 83);
             this.groupBoxBuscarUsuario.Name = "groupBoxBuscarUsuario";
             this.groupBoxBuscarUsuario.Size = new System.Drawing.Size(401, 202);
@@ -113,7 +134,7 @@
             // 
             this.rbNo.AutoSize = true;
             this.rbNo.Location = new System.Drawing.Point(184, 171);
-            this.rbNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbNo.Margin = new System.Windows.Forms.Padding(2);
             this.rbNo.Name = "rbNo";
             this.rbNo.Size = new System.Drawing.Size(39, 17);
             this.rbNo.TabIndex = 12;
@@ -126,7 +147,7 @@
             // 
             this.rbSi.AutoSize = true;
             this.rbSi.Location = new System.Drawing.Point(97, 171);
-            this.rbSi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbSi.Margin = new System.Windows.Forms.Padding(2);
             this.rbSi.Name = "rbSi";
             this.rbSi.Size = new System.Drawing.Size(34, 17);
             this.rbSi.TabIndex = 12;
@@ -191,6 +212,7 @@
             // 
             // button2
             // 
+            this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(296, 171);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -230,7 +252,7 @@
             // btOK
             // 
             this.btOK.Location = new System.Drawing.Point(174, 385);
-            this.btOK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btOK.Margin = new System.Windows.Forms.Padding(2);
             this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(75, 23);
             this.btOK.TabIndex = 15;
@@ -238,28 +260,11 @@
             this.btOK.UseVisualStyleBackColor = true;
             this.btOK.Click += new System.EventHandler(this.btOK_Click);
             // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "_id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            // 
-            // razonSocial
-            // 
-            this.razonSocial.DataPropertyName = "razonSocial";
-            this.razonSocial.HeaderText = "Razon Social";
-            this.razonSocial.Name = "razonSocial";
-            // 
-            // RUC
-            // 
-            this.RUC.DataPropertyName = "ruc";
-            this.RUC.HeaderText = "RUC";
-            this.RUC.Name = "RUC";
-            // 
             // Proveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(856, 439);
             this.Controls.Add(this.btOK);
             this.Controls.Add(this.groupBox2);
