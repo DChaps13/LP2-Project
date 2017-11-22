@@ -22,6 +22,10 @@ public class EmpresaBL {
         
     }
     
+    public boolean eliminarEmpresa(int id){
+        return accesoDatos.eliminarEmpresa(id);
+    }
+    
     public boolean agregarEmpresa(Empresa e){
         return accesoDatos.agregarEmpresa(e);
     }

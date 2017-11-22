@@ -25,6 +25,24 @@ public class EmpresaDA {
         return true;
     }
     
+    public boolean eliminarEmpresa(int id){
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //establecer la conexión
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
+                    + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
+            String sentence = "{call dbo.eliminarEmpresa(?)}";
+            PreparedStatement ps = conn.prepareStatement(sentence);
+            ps.setInt(1,id);
+            ps.execute();
+            conn.close();
+            return true;
+        }catch(Exception ex){
+            System.out.println("Hubieron problemas con la base de datos");
+        }
+        return false;
+    }
+    
     public ArrayList<Empresa> devolverEmpresas(String rSocial,String ruc){
         ArrayList<Empresa> empresas = new ArrayList<Empresa>();
         try{
