@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CORREOtextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TLFtextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.DNItextBox = new System.Windows.Forms.TextBox();
             this.CANCELARbutton = new System.Windows.Forms.Button();
@@ -39,15 +43,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.NOMBREtextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.CORREOtextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TLFtextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.CORREOtextBox);
             this.groupBox1.Controls.Add(this.label6);
@@ -62,6 +63,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.NOMBREtextBox);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(349, 273);
@@ -69,6 +71,42 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Proveedor";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(48, 199);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Correo";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // CORREOtextBox
+            // 
+            this.CORREOtextBox.Location = new System.Drawing.Point(139, 196);
+            this.CORREOtextBox.Name = "CORREOtextBox";
+            this.CORREOtextBox.Size = new System.Drawing.Size(174, 20);
+            this.CORREOtextBox.TabIndex = 11;
+            this.CORREOtextBox.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(48, 164);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Teléfono";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // TLFtextBox
+            // 
+            this.TLFtextBox.Location = new System.Drawing.Point(139, 161);
+            this.TLFtextBox.Name = "TLFtextBox";
+            this.TLFtextBox.Size = new System.Drawing.Size(174, 20);
+            this.TLFtextBox.TabIndex = 9;
+            this.TLFtextBox.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label4
             // 
@@ -89,6 +127,7 @@
             // 
             // CANCELARbutton
             // 
+            this.CANCELARbutton.ForeColor = System.Drawing.Color.Black;
             this.CANCELARbutton.Location = new System.Drawing.Point(195, 231);
             this.CANCELARbutton.Name = "CANCELARbutton";
             this.CANCELARbutton.Size = new System.Drawing.Size(136, 23);
@@ -99,6 +138,7 @@
             // 
             // CREARbutton
             // 
+            this.CREARbutton.ForeColor = System.Drawing.Color.Black;
             this.CREARbutton.Location = new System.Drawing.Point(21, 231);
             this.CREARbutton.Name = "CREARbutton";
             this.CREARbutton.Size = new System.Drawing.Size(136, 23);
@@ -158,48 +198,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(48, 199);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Correo";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // CORREOtextBox
-            // 
-            this.CORREOtextBox.Location = new System.Drawing.Point(139, 196);
-            this.CORREOtextBox.Name = "CORREOtextBox";
-            this.CORREOtextBox.Size = new System.Drawing.Size(174, 20);
-            this.CORREOtextBox.TabIndex = 11;
-            this.CORREOtextBox.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(48, 164);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Teléfono";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // TLFtextBox
-            // 
-            this.TLFtextBox.Location = new System.Drawing.Point(139, 161);
-            this.TLFtextBox.Name = "TLFtextBox";
-            this.TLFtextBox.Size = new System.Drawing.Size(174, 20);
-            this.TLFtextBox.TabIndex = 9;
-            this.TLFtextBox.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-            // 
             // NuevoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(373, 296);
             this.Controls.Add(this.groupBox1);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "NuevoCliente";
             this.Text = "Nuevo Cliente";
             this.Load += new System.EventHandler(this.NuevoCliente_Load);

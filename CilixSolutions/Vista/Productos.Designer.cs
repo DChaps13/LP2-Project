@@ -54,6 +54,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.nuevoProducto);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(11, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(401, 58);
@@ -63,6 +64,7 @@
             // 
             // nuevoProducto
             // 
+            this.nuevoProducto.ForeColor = System.Drawing.Color.Black;
             this.nuevoProducto.Location = new System.Drawing.Point(114, 19);
             this.nuevoProducto.Name = "nuevoProducto";
             this.nuevoProducto.Size = new System.Drawing.Size(170, 23);
@@ -119,6 +121,7 @@
             this.groupBoxBuscarUsuario.Controls.Add(this.label2);
             this.groupBoxBuscarUsuario.Controls.Add(this.textBox1);
             this.groupBoxBuscarUsuario.Controls.Add(this.label1);
+            this.groupBoxBuscarUsuario.ForeColor = System.Drawing.Color.White;
             this.groupBoxBuscarUsuario.Location = new System.Drawing.Point(11, 76);
             this.groupBoxBuscarUsuario.Name = "groupBoxBuscarUsuario";
             this.groupBoxBuscarUsuario.Size = new System.Drawing.Size(401, 171);
@@ -172,6 +175,7 @@
             // 
             // buscarProd
             // 
+            this.buscarProd.ForeColor = System.Drawing.Color.Black;
             this.buscarProd.Location = new System.Drawing.Point(300, 62);
             this.buscarProd.Name = "buscarProd";
             this.buscarProd.Size = new System.Drawing.Size(75, 23);
@@ -222,6 +226,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(425, 432);
             this.Controls.Add(this.btOK);
             this.Controls.Add(this.groupBox2);

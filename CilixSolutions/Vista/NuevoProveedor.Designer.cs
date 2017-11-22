@@ -60,6 +60,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(349, 271);
@@ -72,7 +73,7 @@
             // 
             this.rbNo.AutoSize = true;
             this.rbNo.Location = new System.Drawing.Point(212, 177);
-            this.rbNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbNo.Margin = new System.Windows.Forms.Padding(2);
             this.rbNo.Name = "rbNo";
             this.rbNo.Size = new System.Drawing.Size(39, 17);
             this.rbNo.TabIndex = 15;
@@ -85,7 +86,7 @@
             // 
             this.rbSi.AutoSize = true;
             this.rbSi.Location = new System.Drawing.Point(124, 177);
-            this.rbSi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbSi.Margin = new System.Windows.Forms.Padding(2);
             this.rbSi.Name = "rbSi";
             this.rbSi.Size = new System.Drawing.Size(34, 17);
             this.rbSi.TabIndex = 14;
@@ -124,6 +125,7 @@
             // 
             // button5
             // 
+            this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Location = new System.Drawing.Point(195, 222);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(136, 23);
@@ -134,6 +136,7 @@
             // 
             // button4
             // 
+            this.button4.ForeColor = System.Drawing.Color.Black;
             this.button4.Location = new System.Drawing.Point(21, 222);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(136, 23);
@@ -200,6 +203,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(369, 294);
             this.Controls.Add(this.groupBox1);
             this.Name = "NuevoProveedor";

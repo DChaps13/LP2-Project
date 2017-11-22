@@ -58,6 +58,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtNombreProd);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(474, 258);
@@ -120,6 +121,7 @@
             // 
             // button5
             // 
+            this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Location = new System.Drawing.Point(246, 219);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(136, 23);
@@ -130,6 +132,7 @@
             // 
             // crearProd
             // 
+            this.crearProd.ForeColor = System.Drawing.Color.Black;
             this.crearProd.Location = new System.Drawing.Point(72, 219);
             this.crearProd.Name = "crearProd";
             this.crearProd.Size = new System.Drawing.Size(136, 23);
@@ -179,8 +182,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(511, 296);
             this.Controls.Add(this.groupBox1);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "NuevoProducto";
             this.Text = "Nuevo Producto";
             this.groupBox1.ResumeLayout(false);

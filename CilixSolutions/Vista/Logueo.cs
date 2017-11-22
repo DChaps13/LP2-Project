@@ -89,5 +89,10 @@ namespace Vista
             }
 
         }
+
+        private void Logueo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
