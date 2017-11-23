@@ -70,6 +70,7 @@
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEditar
             // 
@@ -80,10 +81,10 @@
             this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // cbxRol
             // 
-            this.cbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxRol.FormattingEnabled = true;
             this.cbxRol.Location = new System.Drawing.Point(99, 93);
             this.cbxRol.Name = "cbxRol";
@@ -92,12 +93,15 @@
             // 
             // verifyID
             // 
+            this.verifyID.Enabled = false;
             this.verifyID.Location = new System.Drawing.Point(296, 22);
             this.verifyID.Name = "verifyID";
             this.verifyID.Size = new System.Drawing.Size(136, 23);
             this.verifyID.TabIndex = 2;
             this.verifyID.Text = "Verificar Disponibilidad";
             this.verifyID.UseVisualStyleBackColor = true;
+            this.verifyID.Visible = false;
+            this.verifyID.Click += new System.EventHandler(this.verifyID_Click);
             // 
             // label3
             // 
@@ -112,7 +116,6 @@
             // 
             this.txtContra.Location = new System.Drawing.Point(99, 58);
             this.txtContra.Name = "txtContra";
-            this.txtContra.PasswordChar = '*';
             this.txtContra.Size = new System.Drawing.Size(174, 20);
             this.txtContra.TabIndex = 1;
             // 
@@ -127,6 +130,7 @@
             // 
             // txtID
             // 
+            this.txtID.Enabled = false;
             this.txtID.Location = new System.Drawing.Point(99, 24);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(174, 20);

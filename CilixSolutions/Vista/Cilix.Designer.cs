@@ -121,7 +121,7 @@
             this.BNuevo.Name = "BNuevo";
             this.BNuevo.Size = new System.Drawing.Size(158, 67);
             this.BNuevo.TabIndex = 4;
-            this.BNuevo.Text = "Nuevo   ";
+            this.BNuevo.Text = "Gestionar";
             this.BNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BNuevo.UseVisualStyleBackColor = true;
             this.BNuevo.Click += new System.EventHandler(this.BNuevo_Click);
