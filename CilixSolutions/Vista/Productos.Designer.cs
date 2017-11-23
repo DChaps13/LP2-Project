@@ -133,7 +133,7 @@
             // 
             this.cbxProv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxProv.FormattingEnabled = true;
-            this.cbxProv.Location = new System.Drawing.Point(97, 139);
+            this.cbxProv.Location = new System.Drawing.Point(97, 126);
             this.cbxProv.Name = "cbxProv";
             this.cbxProv.Size = new System.Drawing.Size(169, 21);
             this.cbxProv.TabIndex = 13;
@@ -141,7 +141,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 142);
+            this.label4.Location = new System.Drawing.Point(20, 129);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 12;
@@ -151,14 +151,14 @@
             // 
             this.cbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategoria.FormattingEnabled = true;
-            this.cbxCategoria.Location = new System.Drawing.Point(97, 101);
+            this.cbxCategoria.Location = new System.Drawing.Point(97, 88);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(169, 21);
             this.cbxCategoria.TabIndex = 11;
             // 
             // txtNombreProd
             // 
-            this.txtNombreProd.Location = new System.Drawing.Point(97, 64);
+            this.txtNombreProd.Location = new System.Drawing.Point(97, 51);
             this.txtNombreProd.Name = "txtNombreProd";
             this.txtNombreProd.Size = new System.Drawing.Size(169, 20);
             this.txtNombreProd.TabIndex = 10;
@@ -167,7 +167,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 104);
+            this.label3.Location = new System.Drawing.Point(20, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 8;
@@ -187,7 +187,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 67);
+            this.label2.Location = new System.Drawing.Point(20, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 2;
@@ -201,6 +201,7 @@
             this.textBox1.Size = new System.Drawing.Size(169, 20);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Todos";
+            this.textBox1.Visible = false;
             // 
             // label1
             // 
@@ -210,6 +211,7 @@
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID Producto";
+            this.label1.Visible = false;
             // 
             // btOK
             // 
