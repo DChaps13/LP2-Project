@@ -43,14 +43,14 @@ public class Reportes {
         
     }
     
-    public void mejoresProveedores(){
+    public void clientesFrecuentes(){
         try{
             //registrar el Driver 
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             //establecer la conexión
             Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
                     + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
-            JasperReport reporte = (JasperReport)JRLoader.loadObjectFromFile(Reportes.class.getResource("/Reportes/reporteProveedores.jasper").getFile());
+            JasperReport reporte = (JasperReport)JRLoader.loadObjectFromFile(Reportes.class.getResource("/Reportes/reporteClientes.jasper").getFile());
             JasperPrint print  = JasperFillManager.fillReport(reporte,null,conn);
             JasperViewer v = new JasperViewer(print);
             v.setTitle("Clientes");

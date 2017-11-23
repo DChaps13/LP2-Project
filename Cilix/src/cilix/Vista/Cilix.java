@@ -6,6 +6,7 @@
 package cilix.Vista;
 
 import Modelo.Usuario;
+import Reportes.Reportes;
 
 /**
  *
@@ -22,10 +23,13 @@ public class Cilix extends javax.swing.JFrame {
         initComponents();
         
         BLogout.setVisible(false);
+        
         PanelBus.setVisible(false);
         PanelGes.setVisible(false);
-        BReportes.setVisible(false);
+        BMasVendidos.setVisible(false);
         jPanel1.setVisible(true);
+        BReportes.setVisible(false);
+        BMasVendidos.setVisible(false);
         
     }
     public Cilix(Usuario u) {
@@ -33,7 +37,7 @@ public class Cilix extends javax.swing.JFrame {
         BLogout.setVisible(true);
         PanelBus.setVisible(true);
         PanelGes.setVisible(true);
-        BReportes.setVisible(true);
+        BMasVendidos.setVisible(true);
         BLogin.setVisible(false);
         BGEmpresa1.setVisible(false);
         BGesPro2.setVisible(false);
@@ -43,6 +47,7 @@ public class Cilix extends javax.swing.JFrame {
         BBusNat.setVisible(false);
         BBusPro.setVisible(false);
         BBusTrans.setVisible(false);
+        BMasVendidos.setVisible(false);
         this.u = u;
         
         
@@ -64,7 +69,7 @@ public class Cilix extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         BLogout = new javax.swing.JButton();
         BLogin = new javax.swing.JButton();
-        BReportes = new javax.swing.JButton();
+        BMasVendidos = new javax.swing.JButton();
         PanelBus = new javax.swing.JPanel();
         BBusNat = new javax.swing.JButton();
         BBusEmp = new javax.swing.JButton();
@@ -77,11 +82,18 @@ public class Cilix extends javax.swing.JFrame {
         BGesPro2 = new javax.swing.JButton();
         BGes = new javax.swing.JButton();
         BGesTrans = new javax.swing.JButton();
+        BReportes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(41, 44, 51));
+        setMaximumSize(new java.awt.Dimension(1203, 500));
+        setPreferredSize(new java.awt.Dimension(1203, 500));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(41, 44, 51));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1203, 500));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1203, 500));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1203, 500));
 
         BCerrar.setBackground(new java.awt.Color(41, 44, 51));
         BCerrar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -133,18 +145,18 @@ public class Cilix extends javax.swing.JFrame {
             }
         });
 
-        BReportes.setBackground(new java.awt.Color(41, 44, 51));
-        BReportes.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        BReportes.setForeground(new java.awt.Color(255, 255, 255));
-        BReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/rsz_1addressbook-grey-icon.png"))); // NOI18N
-        BReportes.setText("  Reportes");
-        BReportes.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        BReportes.setBorderPainted(false);
-        BReportes.setContentAreaFilled(false);
-        BReportes.setFocusPainted(false);
-        BReportes.addActionListener(new java.awt.event.ActionListener() {
+        BMasVendidos.setBackground(new java.awt.Color(41, 44, 51));
+        BMasVendidos.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BMasVendidos.setForeground(new java.awt.Color(255, 255, 255));
+        BMasVendidos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/rsz_1addressbook-grey-icon.png"))); // NOI18N
+        BMasVendidos.setText("Más Vendidos");
+        BMasVendidos.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BMasVendidos.setBorderPainted(false);
+        BMasVendidos.setContentAreaFilled(false);
+        BMasVendidos.setFocusPainted(false);
+        BMasVendidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BReportesActionPerformed(evt);
+                BMasVendidosActionPerformed(evt);
             }
         });
 
@@ -354,6 +366,21 @@ public class Cilix extends javax.swing.JFrame {
                 .addComponent(BGesTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        BReportes.setBackground(new java.awt.Color(41, 44, 51));
+        BReportes.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BReportes.setForeground(new java.awt.Color(255, 255, 255));
+        BReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/rsz_1addressbook-grey-icon.png"))); // NOI18N
+        BReportes.setText("  Reportes");
+        BReportes.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BReportes.setBorderPainted(false);
+        BReportes.setContentAreaFilled(false);
+        BReportes.setFocusPainted(false);
+        BReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BReportesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -367,13 +394,17 @@ public class Cilix extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PanelGes, javax.swing.GroupLayout.PREFERRED_SIZE, 1111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PanelBus, javax.swing.GroupLayout.PREFERRED_SIZE, 1111, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(68, Short.MAX_VALUE))
+                            .addComponent(PanelBus, javax.swing.GroupLayout.PREFERRED_SIZE, 1111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(BReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BMasVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,9 +415,11 @@ public class Cilix extends javax.swing.JFrame {
                 .addComponent(BLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(BLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BMasVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelGes, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PanelBus, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -395,26 +428,17 @@ public class Cilix extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1203, 510));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BReportesActionPerformed
+    private void BMasVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BMasVendidosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BReportesActionPerformed
+        Reportes r = new Reportes();
+        
+    }//GEN-LAST:event_BMasVendidosActionPerformed
 
     private void BLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BLoginActionPerformed
         // TODO add your handling code here:
@@ -468,6 +492,7 @@ public class Cilix extends javax.swing.JFrame {
         BBusNat.setVisible(true);
         BBusPro.setVisible(true);
         BBusTrans.setVisible(true);
+        BMasVendidos.setVisible(false);
     }//GEN-LAST:event_BBusActionPerformed
 
     private void BGestNatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGestNatActionPerformed
@@ -495,6 +520,7 @@ public class Cilix extends javax.swing.JFrame {
         BBusNat.setVisible(false);
         BBusPro.setVisible(false);
         BBusTrans.setVisible(false);
+        BMasVendidos.setVisible(false);
         if (this.u.getRol().getPrivilegio() == 3) 
         {
             BGEmpresa1.setVisible(true);
@@ -546,6 +572,21 @@ public class Cilix extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BGesTransActionPerformed
 
+    private void BReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BReportesActionPerformed
+        // TODO add your handling code here:
+        BBusEmp.setVisible(false);
+        BBusNat.setVisible(false);
+        BBusPro.setVisible(false);
+        BBusTrans.setVisible(false);
+        BGEmpresa1.setVisible(false);
+        BGesPro2.setVisible(false);
+        BGesTrans.setVisible(false);
+        BGestNat.setVisible(false);
+        
+        BMasVendidos.setVisible(true);
+        
+    }//GEN-LAST:event_BReportesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -595,6 +636,7 @@ public class Cilix extends javax.swing.JFrame {
     private javax.swing.JButton BGestNat;
     private javax.swing.JButton BLogin;
     private javax.swing.JButton BLogout;
+    private javax.swing.JButton BMasVendidos;
     private javax.swing.JButton BReportes;
     private javax.swing.JPanel PanelBus;
     private javax.swing.JPanel PanelGes;
