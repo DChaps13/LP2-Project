@@ -14,11 +14,13 @@ namespace Vista
 {
     public partial class Logueo : Form
     {
-        
+
+        bool seLogro;
+
         public Logueo()
         {
             InitializeComponent();
-         
+            seLogro = false;
 
         }
 
@@ -75,6 +77,7 @@ namespace Vista
             usuarioActivo = getUser(txtUsuario.Text, txtContraseña.Text);
             if (usuarioActivo != null)
             {
+                seLogro = true;
                 DialogResult = DialogResult.OK;
                 Cilix form = new Cilix(UsuarioActivo);
                 this.Visible = false;
@@ -93,6 +96,20 @@ namespace Vista
         private void Logueo_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Logueo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void Logueo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!seLogro) {
+                Cilix f = new Cilix();
+                f.Visible = true;
+            }
+            
         }
     }
 }

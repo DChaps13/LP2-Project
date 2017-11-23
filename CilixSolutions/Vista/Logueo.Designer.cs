@@ -94,6 +94,8 @@
             this.Name = "Logueo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logueo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Logueo_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Logueo_FormClosed);
             this.Load += new System.EventHandler(this.Logueo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
