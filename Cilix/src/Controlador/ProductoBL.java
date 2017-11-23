@@ -24,4 +24,7 @@ public class ProductoBL {
         return accesoDatos.devolverProductos();
     }
     
+    public ArrayList<Producto> devolverProductos(String s1, String s2){
+        return accesoDatos.devolverProductos(s1, s2);
+    }
 }
