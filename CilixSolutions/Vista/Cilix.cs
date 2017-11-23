@@ -211,8 +211,8 @@ namespace Vista
 
         private void BNuevoUsuario_Click(object sender, EventArgs e)
         {
-            //NuevoUsuario childForm = new NuevoUsuario();
-            GestionarUsuario childForm = new GestionarUsuario();
+            NuevoUsuario childForm = new NuevoUsuario();
+            //GestionarUsuario childForm = new GestionarUsuario();
             childForm.MdiParent = this;
             childForm.Text = "Nuevo Usuario";
             childForm.Show();
