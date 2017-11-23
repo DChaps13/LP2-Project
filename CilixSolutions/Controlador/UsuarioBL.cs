@@ -32,5 +32,11 @@ namespace Controlador
         {
             return usuarioDA.buscarUsuario(id,rol,estado);
         }
+
+        public bool modificarUsuario(string contrNuevo, string rolNuevo, string idAntiguo)
+        {
+            return usuarioDA.modificarUsuario(contrNuevo, rolNuevo,idAntiguo);
+        }
+
     }
 }
