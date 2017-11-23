@@ -15,6 +15,7 @@ import Modelo.Empresa;
 import Modelo.Producto;
 import Modelo.Transaccion;
 import Modelo.Usuario;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
@@ -37,6 +38,8 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
     ArrayList<Producto> listaProductosActivos;
     ArrayList<Cliente> listaClientesActivos;
     ArrayList<Usuario> listaUsuariosActivos;
+    
+    ArrayList<Transaccion> listaTransacciones;
     
     public FrmBuscarTransaccion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -180,7 +183,7 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Tipo", "Cliente", "Producto", "Cantidad", "Usuario"
+                "Producto", "Cantidad", "Cliente", "Usuario", "Fecha"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -496,7 +499,7 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(radEsCliente)
                         .addGap(18, 18, 18)
                         .addComponent(radEsProveedor)
@@ -676,38 +679,35 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-        //Esto lo hizo Chapi
-//        TransaccionBL logica = new TransaccionBL();
-//
-//        ArrayList<Transaccion> lista = new ArrayList<Transaccion>();
-//
-//        lista = logica.devolverTransacciones(listaClientes, listaProductos, listaUsuarios);
-//        DefaultTableModel modelo = (DefaultTableModel)tblTransacciones.getModel();
-//        modelo.setRowCount(0);
-//        Object[] fila = new Object[5];
-//        for(int i=0; i<lista.size();i++){
-//            Transaccion t = lista.get(i);
-//            fila[0] = t.getId();
-//            fila[1] = t.getCantidad();
-//            int j = 0;
-//            for (j=0;j<listaProductos.size();j++){
-//                if(listaProductos.get(j).getId() == t.getIdProducto()) break;
-//            }
-//            fila[2] = t.getIdUsuario();
-//            fila[3] = listaProductos.get(j).getNombre();
-//            int k = 0;
-//            for (k=0;k<listaProductos.size();k++){
-//                if(listaProductos.get(k).getId() == t.getIdContacto()) break;
-//            }
-//            Cliente c= listaClientes.get(k);
-//            if(c instanceof ClienteNatural){
-//                fila[4] = ((ClienteNatural) c).getNombre() + " " + ((ClienteNatural) c).getApellido();
-//            }else if(c instanceof Empresa){
-//                fila[4] = ((Empresa) c).getRazonSocial();
-//            }
-//
-//            modelo.addRow(fila);
-//        }
+        TransaccionBL logica = new TransaccionBL();
+
+        listaTransacciones = new ArrayList<Transaccion>();
+
+        listaTransacciones = logica.devolverTransacciones(listaClientesActivos, listaProductosActivos, listaUsuariosActivos);
+        DefaultTableModel modelo = (DefaultTableModel)tblTransacciones.getModel();
+        modelo.setRowCount(0);
+        Object[] fila = new Object[5];
+        for(int i=0; i<listaTransacciones.size();i++){
+            Transaccion t = listaTransacciones.get(i);
+            fila[0] = t.getProducto();
+            
+            fila[1] = t.getTipoTransaccion().getSigno()+Integer.toString(t.getCantidad());
+            
+            Cliente c;
+            if(t.getClienteNatural()!=null)
+                c = t.getClienteNatural();
+            else
+                c = t.getEmpresa();
+            fila[2] = c;
+            
+            fila[3] = t.getUsuario().getId();
+            
+            SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String date = dFormat.format(t.getFecha());
+            fila[4] = date;
+            
+            modelo.addRow(fila);
+        }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void tblProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductosMouseClicked
