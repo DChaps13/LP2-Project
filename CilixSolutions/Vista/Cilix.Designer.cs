@@ -39,15 +39,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelNuevo = new System.Windows.Forms.Panel();
-            this.BNuevoTrans = new System.Windows.Forms.Button();
-            this.BNuevoJuridico = new System.Windows.Forms.Button();
-            this.BNuevoNatural = new System.Windows.Forms.Button();
             this.BNuevoProducto = new System.Windows.Forms.Button();
             this.BNuevoUsuario = new System.Windows.Forms.Button();
             this.PanelBuscar = new System.Windows.Forms.Panel();
-            this.BBuscarTrans = new System.Windows.Forms.Button();
-            this.BBuscarJuridico = new System.Windows.Forms.Button();
-            this.BBuscarNatural = new System.Windows.Forms.Button();
             this.BBuscarProducto = new System.Windows.Forms.Button();
             this.BBuscarUsuario = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -66,18 +60,20 @@
             this.panel1.Controls.Add(this.BLogin);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(158, 643);
+            this.panel1.Size = new System.Drawing.Size(158, 629);
             this.panel1.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(47, 15);
             this.label2.TabIndex = 5;
             this.label2.Text = "Usuario";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -186,9 +182,6 @@
             // 
             // PanelNuevo
             // 
-            this.PanelNuevo.Controls.Add(this.BNuevoTrans);
-            this.PanelNuevo.Controls.Add(this.BNuevoJuridico);
-            this.PanelNuevo.Controls.Add(this.BNuevoNatural);
             this.PanelNuevo.Controls.Add(this.BNuevoProducto);
             this.PanelNuevo.Controls.Add(this.BNuevoUsuario);
             this.PanelNuevo.Location = new System.Drawing.Point(161, 248);
@@ -196,54 +189,6 @@
             this.PanelNuevo.Size = new System.Drawing.Size(597, 131);
             this.PanelNuevo.TabIndex = 1;
             this.PanelNuevo.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // BNuevoTrans
-            // 
-            this.BNuevoTrans.FlatAppearance.BorderSize = 0;
-            this.BNuevoTrans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BNuevoTrans.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BNuevoTrans.ForeColor = System.Drawing.Color.White;
-            this.BNuevoTrans.Image = ((System.Drawing.Image)(resources.GetObject("BNuevoTrans.Image")));
-            this.BNuevoTrans.Location = new System.Drawing.Point(439, 0);
-            this.BNuevoTrans.Name = "BNuevoTrans";
-            this.BNuevoTrans.Size = new System.Drawing.Size(113, 131);
-            this.BNuevoTrans.TabIndex = 9;
-            this.BNuevoTrans.Text = "Transacción";
-            this.BNuevoTrans.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BNuevoTrans.UseVisualStyleBackColor = true;
-            this.BNuevoTrans.Click += new System.EventHandler(this.BNuevoTrans_Click);
-            // 
-            // BNuevoJuridico
-            // 
-            this.BNuevoJuridico.FlatAppearance.BorderSize = 0;
-            this.BNuevoJuridico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BNuevoJuridico.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BNuevoJuridico.ForeColor = System.Drawing.Color.White;
-            this.BNuevoJuridico.Image = ((System.Drawing.Image)(resources.GetObject("BNuevoJuridico.Image")));
-            this.BNuevoJuridico.Location = new System.Drawing.Point(329, 5);
-            this.BNuevoJuridico.Name = "BNuevoJuridico";
-            this.BNuevoJuridico.Size = new System.Drawing.Size(113, 131);
-            this.BNuevoJuridico.TabIndex = 8;
-            this.BNuevoJuridico.Text = "Cliente jurídico";
-            this.BNuevoJuridico.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BNuevoJuridico.UseVisualStyleBackColor = true;
-            this.BNuevoJuridico.Click += new System.EventHandler(this.BNuevoJuridico_Click);
-            // 
-            // BNuevoNatural
-            // 
-            this.BNuevoNatural.FlatAppearance.BorderSize = 0;
-            this.BNuevoNatural.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BNuevoNatural.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BNuevoNatural.ForeColor = System.Drawing.Color.White;
-            this.BNuevoNatural.Image = ((System.Drawing.Image)(resources.GetObject("BNuevoNatural.Image")));
-            this.BNuevoNatural.Location = new System.Drawing.Point(219, 5);
-            this.BNuevoNatural.Name = "BNuevoNatural";
-            this.BNuevoNatural.Size = new System.Drawing.Size(113, 131);
-            this.BNuevoNatural.TabIndex = 7;
-            this.BNuevoNatural.Text = "Cliente Natual";
-            this.BNuevoNatural.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BNuevoNatural.UseVisualStyleBackColor = true;
-            this.BNuevoNatural.Click += new System.EventHandler(this.BNuevoNatural_Click);
             // 
             // BNuevoProducto
             // 
@@ -279,63 +224,12 @@
             // 
             // PanelBuscar
             // 
-            this.PanelBuscar.Controls.Add(this.BBuscarTrans);
-            this.PanelBuscar.Controls.Add(this.BBuscarJuridico);
-            this.PanelBuscar.Controls.Add(this.BBuscarNatural);
             this.PanelBuscar.Controls.Add(this.BBuscarProducto);
             this.PanelBuscar.Controls.Add(this.BBuscarUsuario);
             this.PanelBuscar.Location = new System.Drawing.Point(164, 321);
             this.PanelBuscar.Name = "PanelBuscar";
             this.PanelBuscar.Size = new System.Drawing.Size(597, 116);
             this.PanelBuscar.TabIndex = 2;
-            // 
-            // BBuscarTrans
-            // 
-            this.BBuscarTrans.FlatAppearance.BorderSize = 0;
-            this.BBuscarTrans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscarTrans.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BBuscarTrans.ForeColor = System.Drawing.Color.White;
-            this.BBuscarTrans.Image = ((System.Drawing.Image)(resources.GetObject("BBuscarTrans.Image")));
-            this.BBuscarTrans.Location = new System.Drawing.Point(439, 0);
-            this.BBuscarTrans.Name = "BBuscarTrans";
-            this.BBuscarTrans.Size = new System.Drawing.Size(113, 131);
-            this.BBuscarTrans.TabIndex = 9;
-            this.BBuscarTrans.Text = "Transacción";
-            this.BBuscarTrans.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BBuscarTrans.UseVisualStyleBackColor = true;
-            this.BBuscarTrans.Click += new System.EventHandler(this.BBuscarTrans_Click);
-            // 
-            // BBuscarJuridico
-            // 
-            this.BBuscarJuridico.FlatAppearance.BorderSize = 0;
-            this.BBuscarJuridico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscarJuridico.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BBuscarJuridico.ForeColor = System.Drawing.Color.White;
-            this.BBuscarJuridico.Image = ((System.Drawing.Image)(resources.GetObject("BBuscarJuridico.Image")));
-            this.BBuscarJuridico.Location = new System.Drawing.Point(329, 5);
-            this.BBuscarJuridico.Name = "BBuscarJuridico";
-            this.BBuscarJuridico.Size = new System.Drawing.Size(113, 131);
-            this.BBuscarJuridico.TabIndex = 8;
-            this.BBuscarJuridico.Text = "Cliente jurídico";
-            this.BBuscarJuridico.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BBuscarJuridico.UseVisualStyleBackColor = true;
-            this.BBuscarJuridico.Click += new System.EventHandler(this.BBuscarJuridico_Click);
-            // 
-            // BBuscarNatural
-            // 
-            this.BBuscarNatural.FlatAppearance.BorderSize = 0;
-            this.BBuscarNatural.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BBuscarNatural.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BBuscarNatural.ForeColor = System.Drawing.Color.White;
-            this.BBuscarNatural.Image = ((System.Drawing.Image)(resources.GetObject("BBuscarNatural.Image")));
-            this.BBuscarNatural.Location = new System.Drawing.Point(219, 5);
-            this.BBuscarNatural.Name = "BBuscarNatural";
-            this.BBuscarNatural.Size = new System.Drawing.Size(113, 131);
-            this.BBuscarNatural.TabIndex = 7;
-            this.BBuscarNatural.Text = "Cliente Natual";
-            this.BBuscarNatural.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.BBuscarNatural.UseVisualStyleBackColor = true;
-            this.BBuscarNatural.Click += new System.EventHandler(this.BBuscarNatural_Click);
             // 
             // BBuscarProducto
             // 
@@ -373,13 +267,14 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1083, 643);
+            this.ClientSize = new System.Drawing.Size(1103, 629);
             this.Controls.Add(this.PanelBuscar);
             this.Controls.Add(this.PanelNuevo);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Cilix";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Z";
             this.Load += new System.EventHandler(this.Cilix_Load);
             this.panel1.ResumeLayout(false);
@@ -404,15 +299,9 @@
         private System.Windows.Forms.Button BBuscar;
         private System.Windows.Forms.Button BCerrar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button BNuevoTrans;
-        private System.Windows.Forms.Button BNuevoJuridico;
-        private System.Windows.Forms.Button BNuevoNatural;
         private System.Windows.Forms.Button BNuevoProducto;
         private System.Windows.Forms.Button BNuevoUsuario;
         private System.Windows.Forms.Panel PanelBuscar;
-        private System.Windows.Forms.Button BBuscarTrans;
-        private System.Windows.Forms.Button BBuscarJuridico;
-        private System.Windows.Forms.Button BBuscarNatural;
         private System.Windows.Forms.Button BBuscarProducto;
         private System.Windows.Forms.Button BBuscarUsuario;
     }

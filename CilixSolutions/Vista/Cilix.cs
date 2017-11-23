@@ -171,45 +171,27 @@ namespace Vista
                 case (1): //Administrador
 
                     //Nuevo
-                    BNuevoTrans.Enabled = true;
                     BNuevoUsuario.Enabled = true;
-                    BNuevoNatural.Enabled = true;
-                    BNuevoJuridico.Enabled = true;
                     BNuevoProducto.Enabled = true;
                     //Buscar
-                    BBuscarTrans.Enabled = true;
                     BBuscarUsuario.Enabled = true;
-                    BBuscarNatural.Enabled = true; //natural
-                    BBuscarJuridico.Enabled = true; //juridico
                     BBuscarProducto.Enabled = true;
 
                     break;
                 case (2): //Registrador
                           //Nuevo
-                    BNuevoTrans.Enabled = true;
                     BNuevoUsuario.Enabled = false;
-                    BNuevoNatural.Enabled = true;
-                    BNuevoJuridico.Enabled = true;
                     BNuevoProducto.Enabled = true;
                     //Buscar
-                    BBuscarTrans.Enabled = true;
                     BBuscarUsuario.Enabled = true;
-                    BBuscarNatural.Enabled = true; //natural
-                    BBuscarJuridico.Enabled = true; //juridico
                     BBuscarProducto.Enabled = true;
                     break;
                 case (3): //Trabajador
                           //Nuevo
-                    BNuevoTrans.Enabled = true;
                     BNuevoUsuario.Enabled = false;
-                    BNuevoNatural.Enabled = true;
-                    BNuevoJuridico.Enabled = true;
                     BNuevoProducto.Enabled = false;
                     //Buscar
-                    BBuscarTrans.Enabled = true;
                     BBuscarUsuario.Enabled = true;
-                    BBuscarNatural.Enabled = true; //natural
-                    BBuscarJuridico.Enabled = true; //juridico
                     BBuscarProducto.Enabled = true;
                     break;
             }
@@ -230,6 +212,7 @@ namespace Vista
         private void BNuevoUsuario_Click(object sender, EventArgs e)
         {
             NuevoUsuario childForm = new NuevoUsuario();
+            //GestionarUsuario childForm = new GestionarUsuario();
             childForm.MdiParent = this;
             childForm.Text = "Nuevo Usuario";
             childForm.Show();

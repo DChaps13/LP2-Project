@@ -57,10 +57,11 @@
             this.groupBoxBuscarUsuario.Controls.Add(this.label2);
             this.groupBoxBuscarUsuario.Controls.Add(this.textBox1);
             this.groupBoxBuscarUsuario.Controls.Add(this.label1);
+            this.groupBoxBuscarUsuario.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxBuscarUsuario.ForeColor = System.Drawing.Color.White;
             this.groupBoxBuscarUsuario.Location = new System.Drawing.Point(11, 77);
             this.groupBoxBuscarUsuario.Name = "groupBoxBuscarUsuario";
-            this.groupBoxBuscarUsuario.Size = new System.Drawing.Size(401, 138);
+            this.groupBoxBuscarUsuario.Size = new System.Drawing.Size(477, 173);
             this.groupBoxBuscarUsuario.TabIndex = 0;
             this.groupBoxBuscarUsuario.TabStop = false;
             this.groupBoxBuscarUsuario.Text = "Buscar Usuario";
@@ -69,27 +70,30 @@
             // cbxEstado
             // 
             this.cbxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxEstado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEstado.FormattingEnabled = true;
-            this.cbxEstado.Location = new System.Drawing.Point(97, 104);
+            this.cbxEstado.Location = new System.Drawing.Point(104, 104);
             this.cbxEstado.Name = "cbxEstado";
-            this.cbxEstado.Size = new System.Drawing.Size(169, 21);
+            this.cbxEstado.Size = new System.Drawing.Size(228, 28);
             this.cbxEstado.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(20, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.Size = new System.Drawing.Size(54, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Estado";
             // 
             // Buscar
             // 
+            this.Buscar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Buscar.ForeColor = System.Drawing.Color.Black;
-            this.Buscar.Location = new System.Drawing.Point(310, 65);
+            this.Buscar.Location = new System.Drawing.Point(370, 29);
             this.Buscar.Name = "Buscar";
-            this.Buscar.Size = new System.Drawing.Size(75, 23);
+            this.Buscar.Size = new System.Drawing.Size(75, 28);
             this.Buscar.TabIndex = 7;
             this.Buscar.Text = "Buscar";
             this.Buscar.UseVisualStyleBackColor = true;
@@ -98,27 +102,30 @@
             // cbxRol
             // 
             this.cbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRol.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxRol.FormattingEnabled = true;
-            this.cbxRol.Location = new System.Drawing.Point(97, 65);
+            this.cbxRol.Location = new System.Drawing.Point(104, 65);
             this.cbxRol.Name = "cbxRol";
-            this.cbxRol.Size = new System.Drawing.Size(169, 21);
+            this.cbxRol.Size = new System.Drawing.Size(228, 28);
             this.cbxRol.TabIndex = 6;
             this.cbxRol.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(20, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.Size = new System.Drawing.Size(31, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Rol";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 26);
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(104, 26);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(169, 20);
+            this.textBox1.Size = new System.Drawing.Size(228, 27);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Todos";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -126,23 +133,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(20, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(78, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID Usuario";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataUsuarios
             // 
+            this.dataUsuarios.AllowUserToAddRows = false;
+            this.dataUsuarios.AllowUserToDeleteRows = false;
             this.dataUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.FechadeCreacion,
             this.Rol});
-            this.dataUsuarios.Location = new System.Drawing.Point(11, 229);
+            this.dataUsuarios.Location = new System.Drawing.Point(11, 256);
             this.dataUsuarios.Name = "dataUsuarios";
-            this.dataUsuarios.Size = new System.Drawing.Size(401, 137);
+            this.dataUsuarios.ReadOnly = true;
+            this.dataUsuarios.Size = new System.Drawing.Size(477, 174);
             this.dataUsuarios.TabIndex = 1;
             // 
             // Id
@@ -157,6 +168,7 @@
             this.FechadeCreacion.DataPropertyName = "fechaCreacion";
             this.FechadeCreacion.HeaderText = "FechaCreacion";
             this.FechadeCreacion.Name = "FechadeCreacion";
+            this.FechadeCreacion.ReadOnly = true;
             // 
             // Rol
             // 
@@ -169,20 +181,22 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.nuevoUsuario);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(13, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(401, 58);
+            this.groupBox2.Size = new System.Drawing.Size(475, 58);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nuevo Usuario";
             // 
             // nuevoUsuario
             // 
+            this.nuevoUsuario.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nuevoUsuario.ForeColor = System.Drawing.Color.Black;
-            this.nuevoUsuario.Location = new System.Drawing.Point(114, 19);
+            this.nuevoUsuario.Location = new System.Drawing.Point(160, 23);
             this.nuevoUsuario.Name = "nuevoUsuario";
-            this.nuevoUsuario.Size = new System.Drawing.Size(170, 23);
+            this.nuevoUsuario.Size = new System.Drawing.Size(170, 24);
             this.nuevoUsuario.TabIndex = 10;
             this.nuevoUsuario.Text = "Nuevo Usuario";
             this.nuevoUsuario.UseVisualStyleBackColor = true;
@@ -190,18 +204,20 @@
             // 
             // btOK
             // 
-            this.btOK.Location = new System.Drawing.Point(162, 381);
+            this.btOK.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btOK.Location = new System.Drawing.Point(187, 451);
             this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(90, 31);
             this.btOK.TabIndex = 8;
             this.btOK.Text = "OK";
             this.btOK.UseVisualStyleBackColor = true;
+            this.btOK.Visible = false;
             this.btOK.Click += new System.EventHandler(this.btOK_Click);
             // 
             // Usuarios
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(426, 434);
+            this.ClientSize = new System.Drawing.Size(520, 505);
             this.Controls.Add(this.btOK);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataUsuarios);

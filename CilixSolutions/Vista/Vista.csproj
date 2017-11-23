@@ -52,6 +52,18 @@
     <Compile Include="Cilix.Designer.cs">
       <DependentUpon>Cilix.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionarUsuario.Designer.cs">
+      <DependentUpon>GestionarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarUsuario.Designer.cs">
+      <DependentUpon>ModificarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="NuevoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,8 +140,14 @@
     <EmbeddedResource Include="Cilix.resx">
       <DependentUpon>Cilix.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GestionarUsuario.resx">
+      <DependentUpon>GestionarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Logueo.resx">
       <DependentUpon>Logueo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarUsuario.resx">
+      <DependentUpon>ModificarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevoCliente.resx">
       <DependentUpon>NuevoCliente.cs</DependentUpon>

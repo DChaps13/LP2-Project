@@ -19,13 +19,16 @@ import javax.swing.JOptionPane;
  */
 public class frmLogueo extends javax.swing.JDialog {
 
+    Usuario usuario;
     UsuarioBL logNegUsuario;
+    boolean logueado;
     
     public frmLogueo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         setLocationRelativeTo(null);
         initComponents();
         logNegUsuario = new UsuarioBL();
+        logueado = false;
     }
 
     /**
@@ -45,6 +48,11 @@ public class frmLogueo extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Usuario");
@@ -116,9 +124,7 @@ public class frmLogueo extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
-        
+    void funcionMagica(){
         Usuario currentUser = new Usuario();
         String usuario = txtUsuario.getText();
         String password = txtPassword.getText();
@@ -129,7 +135,7 @@ public class frmLogueo extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos. ");
             return;
         }
-
+        
         for(Usuario u : lista){
             if( u.getId().equals(usuario) && u.getPassword().equals(password) ){ 
                 valid = true;
@@ -141,46 +147,37 @@ public class frmLogueo extends javax.swing.JDialog {
         }
         
         if(valid){
-            frmPrincipal fp = new frmPrincipal(null,true,currentUser);
+            logueado = true;
+            //frmPrincipal fp = new frmPrincipal(null,true,currentUser);
+            Cilix fc = new Cilix(currentUser);
             dispose();
-            fp.setVisible(true);
+            fc.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos. ");
         }
+    }
+    
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        funcionMagica();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
         // TODO add your handling code here:
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            Usuario currentUser = new Usuario();
-            String usuario = txtUsuario.getText();
-            String password = txtPassword.getText();
-            boolean valid = false;
-            ArrayList<Usuario> lista = logNegUsuario.devolverUsuarios();
-            if(lista == null) {
-                JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos. ");
-                return;
-            }
-
-            for(Usuario u : lista){
-                if( u.getId().equals(usuario) && u.getPassword().equals(password) ){ 
-                    valid = true;
-                    currentUser = u;
-                    txtUsuario.setText("");
-                    txtPassword.setText("");
-                    break; 
-                }
-            }
-
-            if(valid){
-                frmPrincipal fp = new frmPrincipal(null,true,currentUser);
-                dispose();
-                fp.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos. ");
-            }
+            funcionMagica();
         }
     }//GEN-LAST:event_txtPasswordKeyReleased
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        
+        if(!logueado){
+            Cilix x = new Cilix();
+            x.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

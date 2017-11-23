@@ -5,6 +5,8 @@
  */
 package cilix.Vista;
 
+import Modelo.Usuario;
+
 /**
  *
  * @author alulab14
@@ -14,9 +16,39 @@ public class Cilix extends javax.swing.JFrame {
     /**
      * Creates new form Cilix
      */
+    Usuario u;
+    
     public Cilix() {
         initComponents();
+        
+        BLogout.setVisible(false);
+        PanelBus.setVisible(false);
+        PanelGes.setVisible(false);
+        BReportes.setVisible(false);
+        jPanel1.setVisible(true);
+        
     }
+    public Cilix(Usuario u) {
+        initComponents();
+        BLogout.setVisible(true);
+        PanelBus.setVisible(true);
+        PanelGes.setVisible(true);
+        BReportes.setVisible(true);
+        BLogin.setVisible(false);
+        BGEmpresa1.setVisible(false);
+        BGesPro2.setVisible(false);
+        BGesTrans.setVisible(false);
+        BGestNat.setVisible(false);
+        BBusEmp.setVisible(false);
+        BBusNat.setVisible(false);
+        BBusPro.setVisible(false);
+        BBusTrans.setVisible(false);
+        this.u = u;
+        
+        
+        
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,156 +59,340 @@ public class Cilix extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
+        BCerrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        BLogout = new javax.swing.JButton();
+        BLogin = new javax.swing.JButton();
+        BReportes = new javax.swing.JButton();
+        PanelBus = new javax.swing.JPanel();
+        BBusNat = new javax.swing.JButton();
+        BBusEmp = new javax.swing.JButton();
+        BBusPro = new javax.swing.JButton();
+        BBus = new javax.swing.JButton();
+        BBusTrans = new javax.swing.JButton();
+        PanelGes = new javax.swing.JPanel();
+        BGestNat = new javax.swing.JButton();
+        BGEmpresa1 = new javax.swing.JButton();
+        BGesPro2 = new javax.swing.JButton();
+        BGes = new javax.swing.JButton();
+        BGesTrans = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(41, 44, 51));
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(41, 44, 51));
+
+        BCerrar.setBackground(new java.awt.Color(41, 44, 51));
+        BCerrar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        BCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/close-2-icon.png"))); // NOI18N
+        BCerrar.setText("  Cerrar  ");
+        BCerrar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BCerrar.setBorderPainted(false);
+        BCerrar.setContentAreaFilled(false);
+        BCerrar.setFocusPainted(false);
+        BCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BCerrarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Monotype Corsiva", 3, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText(" Cilix");
 
-        jButton3.setBackground(new java.awt.Color(41, 44, 51));
-        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/rsz_1addressbook-grey-icon.png"))); // NOI18N
-        jButton3.setText("  Reportes");
-        jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setFocusPainted(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        BLogout.setBackground(new java.awt.Color(41, 44, 51));
+        BLogout.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BLogout.setForeground(new java.awt.Color(255, 255, 255));
+        BLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/locked-icon.png"))); // NOI18N
+        BLogout.setText(" Log out   ");
+        BLogout.setToolTipText("");
+        BLogout.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BLogout.setBorderPainted(false);
+        BLogout.setContentAreaFilled(false);
+        BLogout.setFocusPainted(false);
+        BLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                BLogoutActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(41, 44, 51));
-        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/2.png"))); // NOI18N
-        jButton2.setText(" Log in      ");
-        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BLogin.setBackground(new java.awt.Color(41, 44, 51));
+        BLogin.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BLogin.setForeground(new java.awt.Color(255, 255, 255));
+        BLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/2.png"))); // NOI18N
+        BLogin.setText(" Log in      ");
+        BLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BLogin.setBorderPainted(false);
+        BLogin.setContentAreaFilled(false);
+        BLogin.setFocusPainted(false);
+        BLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BLoginActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(41, 44, 51));
-        jButton4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/locked-icon.png"))); // NOI18N
-        jButton4.setText(" Log out   ");
-        jButton4.setToolTipText("");
-        jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setFocusPainted(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        BReportes.setBackground(new java.awt.Color(41, 44, 51));
+        BReportes.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BReportes.setForeground(new java.awt.Color(255, 255, 255));
+        BReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/rsz_1addressbook-grey-icon.png"))); // NOI18N
+        BReportes.setText("  Reportes");
+        BReportes.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BReportes.setBorderPainted(false);
+        BReportes.setContentAreaFilled(false);
+        BReportes.setFocusPainted(false);
+        BReportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                BReportesActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(41, 44, 51));
-        jButton5.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/addition-icon (1) - copia.png"))); // NOI18N
-        jButton5.setText(" Nuevo     ");
-        jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setFocusPainted(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        PanelBus.setBackground(new java.awt.Color(41, 44, 51));
+
+        BBusNat.setBackground(new java.awt.Color(41, 44, 51));
+        BBusNat.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BBusNat.setForeground(new java.awt.Color(255, 255, 255));
+        BBusNat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cliente natural.png"))); // NOI18N
+        BBusNat.setText("  Cliente Natural");
+        BBusNat.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BBusNat.setBorderPainted(false);
+        BBusNat.setContentAreaFilled(false);
+        BBusNat.setFocusPainted(false);
+        BBusNat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                BBusNatActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(41, 44, 51));
-        jButton6.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/close-2-icon.png"))); // NOI18N
-        jButton6.setText("  Cerrar    ");
-        jButton6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
-        jButton6.setFocusPainted(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        BBusEmp.setBackground(new java.awt.Color(41, 44, 51));
+        BBusEmp.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BBusEmp.setForeground(new java.awt.Color(255, 255, 255));
+        BBusEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cliente juridico.png"))); // NOI18N
+        BBusEmp.setText("  Cliente Empresa");
+        BBusEmp.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BBusEmp.setBorderPainted(false);
+        BBusEmp.setContentAreaFilled(false);
+        BBusEmp.setFocusPainted(false);
+        BBusEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                BBusEmpActionPerformed(evt);
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(41, 44, 51));
-        jButton7.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/zoom-search-2-icon (1).png"))); // NOI18N
-        jButton7.setText(" Buscar    ");
-        jButton7.setToolTipText("");
-        jButton7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setFocusPainted(false);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        BBusPro.setBackground(new java.awt.Color(41, 44, 51));
+        BBusPro.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BBusPro.setForeground(new java.awt.Color(255, 255, 255));
+        BBusPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/usuario1.png"))); // NOI18N
+        BBusPro.setText("  Proveedor");
+        BBusPro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BBusPro.setBorderPainted(false);
+        BBusPro.setContentAreaFilled(false);
+        BBusPro.setFocusPainted(false);
+        BBusPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                BBusProActionPerformed(evt);
             }
         });
+
+        BBus.setBackground(new java.awt.Color(41, 44, 51));
+        BBus.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BBus.setForeground(new java.awt.Color(255, 255, 255));
+        BBus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/zoom-search-2-icon (1).png"))); // NOI18N
+        BBus.setText("  Buscar      ");
+        BBus.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BBus.setBorderPainted(false);
+        BBus.setContentAreaFilled(false);
+        BBus.setFocusPainted(false);
+        BBus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BBusActionPerformed(evt);
+            }
+        });
+
+        BBusTrans.setBackground(new java.awt.Color(41, 44, 51));
+        BBusTrans.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BBusTrans.setForeground(new java.awt.Color(255, 255, 255));
+        BBusTrans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/transaccion.png"))); // NOI18N
+        BBusTrans.setText("  Transacción");
+        BBusTrans.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BBusTrans.setBorderPainted(false);
+        BBusTrans.setContentAreaFilled(false);
+        BBusTrans.setFocusPainted(false);
+        BBusTrans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BBusTransActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelBusLayout = new javax.swing.GroupLayout(PanelBus);
+        PanelBus.setLayout(PanelBusLayout);
+        PanelBusLayout.setHorizontalGroup(
+            PanelBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelBusLayout.createSequentialGroup()
+                .addComponent(BBus, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BBusNat, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BBusEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BBusPro, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BBusTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
+        );
+        PanelBusLayout.setVerticalGroup(
+            PanelBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(BBusNat, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BBusEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BBusPro, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BBus, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BBusTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        PanelGes.setBackground(new java.awt.Color(41, 44, 51));
+
+        BGestNat.setBackground(new java.awt.Color(41, 44, 51));
+        BGestNat.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BGestNat.setForeground(new java.awt.Color(255, 255, 255));
+        BGestNat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cliente natural - copia.png"))); // NOI18N
+        BGestNat.setText("  Cliente Natural");
+        BGestNat.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BGestNat.setBorderPainted(false);
+        BGestNat.setContentAreaFilled(false);
+        BGestNat.setFocusPainted(false);
+        BGestNat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BGestNatActionPerformed(evt);
+            }
+        });
+
+        BGEmpresa1.setBackground(new java.awt.Color(41, 44, 51));
+        BGEmpresa1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BGEmpresa1.setForeground(new java.awt.Color(255, 255, 255));
+        BGEmpresa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cliente juridico - copia.png"))); // NOI18N
+        BGEmpresa1.setText("  Cliente Empresa");
+        BGEmpresa1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BGEmpresa1.setBorderPainted(false);
+        BGEmpresa1.setContentAreaFilled(false);
+        BGEmpresa1.setFocusPainted(false);
+        BGEmpresa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BGEmpresa1ActionPerformed(evt);
+            }
+        });
+
+        BGesPro2.setBackground(new java.awt.Color(41, 44, 51));
+        BGesPro2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BGesPro2.setForeground(new java.awt.Color(255, 255, 255));
+        BGesPro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/usuario1 - copia.png"))); // NOI18N
+        BGesPro2.setText("  Proveedor");
+        BGesPro2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BGesPro2.setBorderPainted(false);
+        BGesPro2.setContentAreaFilled(false);
+        BGesPro2.setFocusPainted(false);
+        BGesPro2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BGesPro2ActionPerformed(evt);
+            }
+        });
+
+        BGes.setBackground(new java.awt.Color(41, 44, 51));
+        BGes.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BGes.setForeground(new java.awt.Color(255, 255, 255));
+        BGes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/addition-icon (1) - copia.png"))); // NOI18N
+        BGes.setText("  Gestionar");
+        BGes.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BGes.setBorderPainted(false);
+        BGes.setContentAreaFilled(false);
+        BGes.setFocusPainted(false);
+        BGes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BGesActionPerformed(evt);
+            }
+        });
+
+        BGesTrans.setBackground(new java.awt.Color(41, 44, 51));
+        BGesTrans.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BGesTrans.setForeground(new java.awt.Color(255, 255, 255));
+        BGesTrans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/transaccion - copia.png"))); // NOI18N
+        BGesTrans.setText("  Transacción");
+        BGesTrans.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BGesTrans.setBorderPainted(false);
+        BGesTrans.setContentAreaFilled(false);
+        BGesTrans.setFocusPainted(false);
+        BGesTrans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BGesTransActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelGesLayout = new javax.swing.GroupLayout(PanelGes);
+        PanelGes.setLayout(PanelGesLayout);
+        PanelGesLayout.setHorizontalGroup(
+            PanelGesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelGesLayout.createSequentialGroup()
+                .addComponent(BGes, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BGestNat, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BGEmpresa1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BGesPro2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BGesTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
+        );
+        PanelGesLayout.setVerticalGroup(
+            PanelGesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelGesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(BGestNat, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BGEmpresa1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BGesPro2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BGes, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BGesTrans, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(BCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PanelGes, javax.swing.GroupLayout.PREFERRED_SIZE, 1111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PanelBus, javax.swing.GroupLayout.PREFERRED_SIZE, 1111, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(BLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(PanelGes, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PanelBus, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(BCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -185,7 +401,7 @@ public class Cilix extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 573, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,29 +412,139 @@ public class Cilix extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void BReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BReportesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_BReportesActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        frmLogueo childForm = new frmLogueo(null,true);
+        
+        dispose();
+        childForm.setVisible(true);
+        
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_BLoginActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void BLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BLogoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        Cilix f = new Cilix();
+        
+        dispose();
+        f.setVisible(true);
+    }//GEN-LAST:event_BLogoutActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void BCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCerrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_BCerrarActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void BBusTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusTransActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+        
+    }//GEN-LAST:event_BBusTransActionPerformed
+
+    private void BBusNatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusNatActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_BBusNatActionPerformed
+
+    private void BBusEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusEmpActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_BBusEmpActionPerformed
+
+    private void BBusProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusProActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BBusProActionPerformed
+
+    private void BBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusActionPerformed
+        // TODO add your handling code here:
+        BGEmpresa1.setVisible(false);
+        BGesPro2.setVisible(false);
+        BGesTrans.setVisible(false);
+        BGestNat.setVisible(false);
+        BBusEmp.setVisible(true);
+        BBusNat.setVisible(true);
+        BBusPro.setVisible(true);
+        BBusTrans.setVisible(true);
+    }//GEN-LAST:event_BBusActionPerformed
+
+    private void BGestNatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGestNatActionPerformed
+        // TODO add your handling code here:
+        FrmGestionarClientesNaturales f = new FrmGestionarClientesNaturales(this, true);
+        f.setVisible(true);
+    }//GEN-LAST:event_BGestNatActionPerformed
+
+    private void BGEmpresa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGEmpresa1ActionPerformed
+        // TODO add your handling code here:
+        FrmGestionarEmpresas f = new FrmGestionarEmpresas(this, true);
+        f.setVisible(true);
+    }//GEN-LAST:event_BGEmpresa1ActionPerformed
+
+    private void BGesPro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGesPro2ActionPerformed
+        // TODO add your handling code here:
+        FrmGestionarProveedores f = new FrmGestionarProveedores(this, true);
+        f.setVisible(true);
+    }//GEN-LAST:event_BGesPro2ActionPerformed
+
+    private void BGesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGesActionPerformed
+        // TODO add your handling code here:
+        
+        BBusEmp.setVisible(false);
+        BBusNat.setVisible(false);
+        BBusPro.setVisible(false);
+        BBusTrans.setVisible(false);
+        if (this.u.getRol().getPrivilegio() == 3) 
+        {
+            BGEmpresa1.setVisible(true);
+            BGEmpresa1.setEnabled(false);
+            
+            BGesPro2.setVisible(true);
+            BGesPro2.setEnabled(false);
+            
+            BGesTrans.setVisible(true);
+            BGesTrans.setVisible(true);
+            
+            BGestNat.setVisible(true);
+            BGestNat.setEnabled(false);
+            
+        }
+        if (this.u.getRol().getPrivilegio() == 2) 
+        {
+            BGEmpresa1.setVisible(true);
+            BGEmpresa1.setEnabled(true);
+            
+            BGesPro2.setVisible(true);
+            BGesPro2.setEnabled(true);
+            
+            BGesTrans.setVisible(true);
+            BGesTrans.setVisible(true);
+            
+            BGestNat.setVisible(true);
+            BGestNat.setEnabled(true);
+            
+        }
+        if (this.u.getRol().getPrivilegio() == 1) 
+        {
+            BGEmpresa1.setVisible(true);
+            BGEmpresa1.setEnabled(true);
+            
+            BGesPro2.setVisible(true);
+            BGesPro2.setEnabled(true);
+            
+            BGesTrans.setVisible(true);
+            BGesTrans.setVisible(true);
+            
+            BGestNat.setVisible(true);
+            BGestNat.setEnabled(true);
+            
+        }
+    }//GEN-LAST:event_BGesActionPerformed
+
+    private void BGesTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGesTransActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BGesTransActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,13 +582,22 @@ public class Cilix extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton BBus;
+    private javax.swing.JButton BBusEmp;
+    private javax.swing.JButton BBusNat;
+    private javax.swing.JButton BBusPro;
+    private javax.swing.JButton BBusTrans;
+    private javax.swing.JButton BCerrar;
+    private javax.swing.JButton BGEmpresa1;
+    private javax.swing.JButton BGes;
+    private javax.swing.JButton BGesPro2;
+    private javax.swing.JButton BGesTrans;
+    private javax.swing.JButton BGestNat;
+    private javax.swing.JButton BLogin;
+    private javax.swing.JButton BLogout;
+    private javax.swing.JButton BReportes;
+    private javax.swing.JPanel PanelBus;
+    private javax.swing.JPanel PanelGes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

@@ -9,16 +9,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Security.Cryptography;
 
 namespace Vista
 {
     public partial class Logueo : Form
     {
-        
+
+        bool seLogro;
+
         public Logueo()
         {
             InitializeComponent();
-         
+            seLogro = false;
 
         }
 
@@ -75,6 +79,7 @@ namespace Vista
             usuarioActivo = getUser(txtUsuario.Text, txtContraseña.Text);
             if (usuarioActivo != null)
             {
+                seLogro = true;
                 DialogResult = DialogResult.OK;
                 Cilix form = new Cilix(UsuarioActivo);
                 this.Visible = false;
@@ -93,6 +98,42 @@ namespace Vista
         private void Logueo_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Logueo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void Logueo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!seLogro) {
+                Cilix f = new Cilix();
+                f.Visible = true;
+            }
+            
+        }
+
+        private string Decrypt(string cipherText)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
+                    }
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
+                }
+            }
+            return cipherText;
         }
     }
 }

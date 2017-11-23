@@ -63,10 +63,11 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.NOMBREtextBox);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(349, 273);
+            this.groupBox1.Size = new System.Drawing.Size(402, 320);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Proveedor";
@@ -75,60 +76,67 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(48, 199);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(49, 17);
             this.label5.TabIndex = 10;
             this.label5.Text = "Correo";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // CORREOtextBox
             // 
-            this.CORREOtextBox.Location = new System.Drawing.Point(139, 196);
+            this.CORREOtextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CORREOtextBox.Location = new System.Drawing.Point(166, 196);
             this.CORREOtextBox.Name = "CORREOtextBox";
-            this.CORREOtextBox.Size = new System.Drawing.Size(174, 20);
+            this.CORREOtextBox.Size = new System.Drawing.Size(174, 25);
             this.CORREOtextBox.TabIndex = 11;
             this.CORREOtextBox.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(48, 164);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.Size = new System.Drawing.Size(59, 17);
             this.label6.TabIndex = 8;
             this.label6.Text = "Teléfono";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // TLFtextBox
             // 
-            this.TLFtextBox.Location = new System.Drawing.Point(139, 161);
+            this.TLFtextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TLFtextBox.Location = new System.Drawing.Point(166, 161);
             this.TLFtextBox.Name = "TLFtextBox";
-            this.TLFtextBox.Size = new System.Drawing.Size(174, 20);
+            this.TLFtextBox.Size = new System.Drawing.Size(174, 25);
             this.TLFtextBox.TabIndex = 9;
             this.TLFtextBox.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(48, 132);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.Size = new System.Drawing.Size(30, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "DNI";
             // 
             // DNItextBox
             // 
-            this.DNItextBox.Location = new System.Drawing.Point(139, 129);
+            this.DNItextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DNItextBox.Location = new System.Drawing.Point(166, 129);
             this.DNItextBox.Name = "DNItextBox";
-            this.DNItextBox.Size = new System.Drawing.Size(174, 20);
+            this.DNItextBox.Size = new System.Drawing.Size(174, 25);
             this.DNItextBox.TabIndex = 7;
             this.DNItextBox.TextChanged += new System.EventHandler(this.DNItextBox_TextChanged);
             // 
             // CANCELARbutton
             // 
+            this.CANCELARbutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CANCELARbutton.ForeColor = System.Drawing.Color.Black;
-            this.CANCELARbutton.Location = new System.Drawing.Point(195, 231);
+            this.CANCELARbutton.Location = new System.Drawing.Point(218, 246);
             this.CANCELARbutton.Name = "CANCELARbutton";
             this.CANCELARbutton.Size = new System.Drawing.Size(136, 23);
             this.CANCELARbutton.TabIndex = 5;
@@ -138,8 +146,9 @@
             // 
             // CREARbutton
             // 
+            this.CREARbutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CREARbutton.ForeColor = System.Drawing.Color.Black;
-            this.CREARbutton.Location = new System.Drawing.Point(21, 231);
+            this.CREARbutton.Location = new System.Drawing.Point(51, 246);
             this.CREARbutton.Name = "CREARbutton";
             this.CREARbutton.Size = new System.Drawing.Size(136, 23);
             this.CREARbutton.TabIndex = 4;
@@ -150,51 +159,57 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(48, 97);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 13);
+            this.label3.Size = new System.Drawing.Size(110, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "Apellido Materno";
             // 
             // APEMATtextBox
             // 
-            this.APEMATtextBox.Location = new System.Drawing.Point(139, 94);
+            this.APEMATtextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.APEMATtextBox.Location = new System.Drawing.Point(166, 94);
             this.APEMATtextBox.Name = "APEMATtextBox";
-            this.APEMATtextBox.Size = new System.Drawing.Size(174, 20);
+            this.APEMATtextBox.Size = new System.Drawing.Size(174, 25);
             this.APEMATtextBox.TabIndex = 1;
             this.APEMATtextBox.TextChanged += new System.EventHandler(this.APEMATtextBox_TextChanged);
             // 
             // APEPATtextBox
             // 
-            this.APEPATtextBox.Location = new System.Drawing.Point(139, 59);
+            this.APEPATtextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.APEPATtextBox.Location = new System.Drawing.Point(166, 59);
             this.APEPATtextBox.Name = "APEPATtextBox";
-            this.APEPATtextBox.Size = new System.Drawing.Size(174, 20);
+            this.APEPATtextBox.Size = new System.Drawing.Size(174, 25);
             this.APEPATtextBox.TabIndex = 1;
             this.APEPATtextBox.TextChanged += new System.EventHandler(this.APEPATtextBox_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(48, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 13);
+            this.label2.Size = new System.Drawing.Size(105, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Apellido Paterno";
             // 
             // NOMBREtextBox
             // 
-            this.NOMBREtextBox.Location = new System.Drawing.Point(139, 25);
+            this.NOMBREtextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NOMBREtextBox.Location = new System.Drawing.Point(166, 28);
             this.NOMBREtextBox.Name = "NOMBREtextBox";
-            this.NOMBREtextBox.Size = new System.Drawing.Size(174, 20);
+            this.NOMBREtextBox.Size = new System.Drawing.Size(174, 25);
             this.NOMBREtextBox.TabIndex = 1;
             this.NOMBREtextBox.TextChanged += new System.EventHandler(this.NOMBREtextBox_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(48, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(57, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
@@ -203,7 +218,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(373, 296);
+            this.ClientSize = new System.Drawing.Size(447, 371);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "NuevoCliente";
