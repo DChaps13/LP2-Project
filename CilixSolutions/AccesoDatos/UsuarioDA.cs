@@ -113,5 +113,62 @@ namespace AccesoDatos
             return lstUsuarios;
         }
 
+        public bool modificarUsuario(string contrNuevo, string rolNuevo, string idAntiguo)
+        {
+            ConexionBD cadConexion = new ConexionBD();
+            //string query = "SELECT u.*, r.Nombre as 'Nombre_Rol', r.Privilegio, e.Nombre as 'Nombre_Estado' FROM dbo.Usuario u INNER JOIN dbo.Rol r ON u.Id_Rol = r.Id INNER JOIN dbo.Estado e ON u.Id_Estado = e.Id";
+            SqlConnection conexion = new SqlConnection(cadConexion.CadenaConexion);
+            SqlCommand sentencia = conexion.CreateCommand();
+            sentencia.CommandText = "dbo.ModificarUsuario";
+            sentencia.CommandType = System.Data.CommandType.StoredProcedure;
+            
+            sentencia.Parameters.Add("@_contrasenaNuevo", SqlDbType.VarChar).Value = contrNuevo;
+            sentencia.Parameters.Add("@_rol", SqlDbType.VarChar).Value = rolNuevo;
+            sentencia.Parameters.Add("@_idLlave", SqlDbType.VarChar).Value = idAntiguo;
+
+            try
+            {
+                conexion.Open();
+                sentencia.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Mensaje de error");
+
+            }
+            conexion.Close();
+
+            return true;
+        }
+
+        public bool eliminarUsuario(string id)
+        {
+
+            ConexionBD cadConexion = new ConexionBD();
+            //string query = "SELECT u.*, r.Nombre as 'Nombre_Rol', r.Privilegio, e.Nombre as 'Nombre_Estado' FROM dbo.Usuario u INNER JOIN dbo.Rol r ON u.Id_Rol = r.Id INNER JOIN dbo.Estado e ON u.Id_Estado = e.Id";
+            SqlConnection conexion = new SqlConnection(cadConexion.CadenaConexion);
+            SqlCommand sentencia = conexion.CreateCommand();
+            sentencia.CommandText = "dbo.EliminarUsuario";
+            sentencia.CommandType = System.Data.CommandType.StoredProcedure;
+
+            sentencia.Parameters.Add("@_id", SqlDbType.VarChar).Value = id;
+            
+
+            try
+            {
+                conexion.Open();
+                sentencia.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Mensaje de error");
+
+            }
+            conexion.Close();
+
+            return true;
+
+        }
+
     }
 }

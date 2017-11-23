@@ -9,6 +9,7 @@ import AccesoDatos.TransaccionDA;
 import Modelo.Cliente;
 import Modelo.Producto;
 import Modelo.Transaccion;
+import Modelo.TransaccionTipo;
 import Modelo.Usuario;
 import java.util.ArrayList;
 
@@ -23,10 +24,10 @@ public class TransaccionBL {
         accesoDatos = new TransaccionDA();
     }
     
-    public boolean registrarVenta(Transaccion t){
-        return accesoDatos.registrarVenta(t);
+    public boolean registrarTransaccion(Transaccion t){
+        return accesoDatos.registrarTransaccion(t);
     }
-    public ArrayList<Transaccion> devolverTransacciones( ArrayList<Cliente> clientes, ArrayList<Producto> productos, ArrayList<Usuario> usuarios ){
+    public ArrayList<Transaccion> devolverTransacciones(ArrayList<Cliente> clientes, ArrayList<Producto> productos, ArrayList<Usuario> usuarios ){
         return accesoDatos.devolverTransacciones(clientes, productos, usuarios);
-    }
+   }
 }

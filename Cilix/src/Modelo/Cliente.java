@@ -16,10 +16,13 @@ public class Cliente {
     private String telefono;
     private String email;
     
-    public Cliente(){}
+    public Cliente(){
+        id=-1;
+    }
     
     public Cliente( String telefono, String email){
-        id = cont++;
+        if(telefono.equals("")) id= -1;
+        else  id = cont++;
         this.telefono = telefono;
         this.email = email;
     }
