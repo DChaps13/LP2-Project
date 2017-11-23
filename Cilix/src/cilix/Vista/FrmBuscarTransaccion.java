@@ -677,37 +677,37 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
         //Esto lo hizo Chapi
-        TransaccionBL logica = new TransaccionBL();
-
-        ArrayList<Transaccion> lista = new ArrayList<Transaccion>();
-
-        lista = logica.devolverTransacciones(listaClientes, listaProductos, listaUsuarios);
-        DefaultTableModel modelo = (DefaultTableModel)tblTransacciones.getModel();
-        modelo.setRowCount(0);
-        Object[] fila = new Object[5];
-        for(int i=0; i<lista.size();i++){
-            Transaccion t = lista.get(i);
-            fila[0] = t.getId();
-            fila[1] = t.getCantidad();
-            int j = 0;
-            for (j=0;j<listaProductos.size();j++){
-                if(listaProductos.get(j).getId() == t.getIdProducto()) break;
-            }
-            fila[2] = t.getIdUsuario();
-            fila[3] = listaProductos.get(j).getNombre();
-            int k = 0;
-            for (k=0;k<listaProductos.size();k++){
-                if(listaProductos.get(k).getId() == t.getIdContacto()) break;
-            }
-            Cliente c= listaClientes.get(k);
-            if(c instanceof ClienteNatural){
-                fila[4] = ((ClienteNatural) c).getNombre() + " " + ((ClienteNatural) c).getApellido();
-            }else if(c instanceof Empresa){
-                fila[4] = ((Empresa) c).getRazonSocial();
-            }
-
-            modelo.addRow(fila);
-        }
+//        TransaccionBL logica = new TransaccionBL();
+//
+//        ArrayList<Transaccion> lista = new ArrayList<Transaccion>();
+//
+//        lista = logica.devolverTransacciones(listaClientes, listaProductos, listaUsuarios);
+//        DefaultTableModel modelo = (DefaultTableModel)tblTransacciones.getModel();
+//        modelo.setRowCount(0);
+//        Object[] fila = new Object[5];
+//        for(int i=0; i<lista.size();i++){
+//            Transaccion t = lista.get(i);
+//            fila[0] = t.getId();
+//            fila[1] = t.getCantidad();
+//            int j = 0;
+//            for (j=0;j<listaProductos.size();j++){
+//                if(listaProductos.get(j).getId() == t.getIdProducto()) break;
+//            }
+//            fila[2] = t.getIdUsuario();
+//            fila[3] = listaProductos.get(j).getNombre();
+//            int k = 0;
+//            for (k=0;k<listaProductos.size();k++){
+//                if(listaProductos.get(k).getId() == t.getIdContacto()) break;
+//            }
+//            Cliente c= listaClientes.get(k);
+//            if(c instanceof ClienteNatural){
+//                fila[4] = ((ClienteNatural) c).getNombre() + " " + ((ClienteNatural) c).getApellido();
+//            }else if(c instanceof Empresa){
+//                fila[4] = ((Empresa) c).getRazonSocial();
+//            }
+//
+//            modelo.addRow(fila);
+//        }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void tblProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductosMouseClicked

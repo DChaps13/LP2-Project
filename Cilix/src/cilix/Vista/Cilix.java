@@ -6,7 +6,7 @@
 package cilix.Vista;
 
 import Modelo.Usuario;
-import Reportes.Reportes;
+import Reportes.*;
 
 /**
  *
@@ -425,7 +425,7 @@ public class Cilix extends javax.swing.JFrame {
                 .addComponent(PanelBus, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1203, 510));
@@ -569,7 +569,8 @@ public class Cilix extends javax.swing.JFrame {
     }//GEN-LAST:event_BGesActionPerformed
 
     private void BGesTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGesTransActionPerformed
-        // TODO add your handling code here:
+        FrmTransaccionVenta f = new FrmTransaccionVenta(this, true,u);
+        f.setVisible(true);
     }//GEN-LAST:event_BGesTransActionPerformed
 
     private void BReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BReportesActionPerformed

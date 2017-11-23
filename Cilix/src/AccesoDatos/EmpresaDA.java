@@ -148,6 +148,7 @@ public class EmpresaDA {
                 e.setRuc(rs.getString("RUC"));
                 e.setEmail(rs.getString("Correo"));
                 e.setTelefono(rs.getString("Telefono"));
+                e.setTipo(rs.getString("Tipo"));
                 empresas.add(e);
             }
         }

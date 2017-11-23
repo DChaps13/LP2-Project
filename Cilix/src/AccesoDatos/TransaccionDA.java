@@ -38,6 +38,8 @@ public class TransaccionDA {
             String insertar = "{call dbo.insertarTransaccion(?,?,?,?,?,?,?)}";
             PreparedStatement ps = conn.prepareStatement(insertar);
             
+            
+            
             ps.setInt(1,t.getCantidad());         
             ps.setInt(2, t.getTipoTransaccion().getId());
             ps.setInt(3, t.getEmpresa().getId());
