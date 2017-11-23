@@ -1,0 +1,5 @@
+1. Añadir Plugins en Tools -> Plugins
+2. Crear librería JasperReport en Tools -> Libraries
+3. Tools -> Options -> iReport -> Add JAR -> añadir driver jdbc (reloadable) -> OK
+4. Conectar a la BD SQL
+5. Add Library -> JasperReport

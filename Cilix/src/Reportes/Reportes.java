@@ -7,6 +7,7 @@ package Reportes;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import javax.swing.JFrame;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -32,15 +33,15 @@ public class Reportes {
                     + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
             JasperReport reporte = (JasperReport)JRLoader.loadObjectFromFile(Reportes.class.getResource("/Reportes/reporteProductos.jasper").getFile());
             JasperPrint print  = JasperFillManager.fillReport(reporte,null,conn);
-            JasperViewer v = new JasperViewer(print);
-            v.setTitle("Clientes");
+            JasperViewer v = new JasperViewer(print,false);
+            
+            v.setTitle("Productos más vendidos");
             v.setVisible(true);
             
         }
         catch(Exception e){
             
         }
-        
     }
     
     public void clientesFrecuentes(){
@@ -52,8 +53,8 @@ public class Reportes {
                     + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
             JasperReport reporte = (JasperReport)JRLoader.loadObjectFromFile(Reportes.class.getResource("/Reportes/reporteClientes.jasper").getFile());
             JasperPrint print  = JasperFillManager.fillReport(reporte,null,conn);
-            JasperViewer v = new JasperViewer(print);
-            v.setTitle("Clientes");
+            JasperViewer v = new JasperViewer(print,false);
+            v.setTitle("Clientes frecuentes");
             v.setVisible(true);
         }
         catch(Exception e){

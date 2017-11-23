@@ -30,6 +30,7 @@ public class Cilix extends javax.swing.JFrame {
         jPanel1.setVisible(true);
         BReportes.setVisible(false);
         BMasVendidos.setVisible(false);
+        BCliFrecuentes.setVisible(false);
         
     }
     public Cilix(Usuario u) {
@@ -48,6 +49,7 @@ public class Cilix extends javax.swing.JFrame {
         BBusPro.setVisible(false);
         BBusTrans.setVisible(false);
         BMasVendidos.setVisible(false);
+        BCliFrecuentes.setVisible(false);
         this.u = u;
         
         
@@ -83,6 +85,7 @@ public class Cilix extends javax.swing.JFrame {
         BGes = new javax.swing.JButton();
         BGesTrans = new javax.swing.JButton();
         BReportes = new javax.swing.JButton();
+        BCliFrecuentes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(41, 44, 51));
@@ -381,6 +384,21 @@ public class Cilix extends javax.swing.JFrame {
             }
         });
 
+        BCliFrecuentes.setBackground(new java.awt.Color(41, 44, 51));
+        BCliFrecuentes.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        BCliFrecuentes.setForeground(new java.awt.Color(255, 255, 255));
+        BCliFrecuentes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/rsz_1addressbook-grey-icon.png"))); // NOI18N
+        BCliFrecuentes.setText("Clientes");
+        BCliFrecuentes.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BCliFrecuentes.setBorderPainted(false);
+        BCliFrecuentes.setContentAreaFilled(false);
+        BCliFrecuentes.setFocusPainted(false);
+        BCliFrecuentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BCliFrecuentesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -400,10 +418,11 @@ public class Cilix extends javax.swing.JFrame {
                             .addComponent(PanelGes, javax.swing.GroupLayout.PREFERRED_SIZE, 1111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PanelBus, javax.swing.GroupLayout.PREFERRED_SIZE, 1111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
                         .addComponent(BReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(BMasVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BMasVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BCliFrecuentes, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -418,14 +437,15 @@ public class Cilix extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BMasVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BCliFrecuentes, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelGes, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PanelBus, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1203, 510));
@@ -437,7 +457,7 @@ public class Cilix extends javax.swing.JFrame {
     private void BMasVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BMasVendidosActionPerformed
         // TODO add your handling code here:
         Reportes r = new Reportes();
-        
+        r.productosMasVendidos();        
     }//GEN-LAST:event_BMasVendidosActionPerformed
 
     private void BLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BLoginActionPerformed
@@ -493,6 +513,7 @@ public class Cilix extends javax.swing.JFrame {
         BBusPro.setVisible(true);
         BBusTrans.setVisible(true);
         BMasVendidos.setVisible(false);
+        BCliFrecuentes.setVisible(false);
     }//GEN-LAST:event_BBusActionPerformed
 
     private void BGestNatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGestNatActionPerformed
@@ -521,6 +542,7 @@ public class Cilix extends javax.swing.JFrame {
         BBusPro.setVisible(false);
         BBusTrans.setVisible(false);
         BMasVendidos.setVisible(false);
+        BCliFrecuentes.setVisible(false);
         if (this.u.getRol().getPrivilegio() == 3) 
         {
             BGEmpresa1.setVisible(true);
@@ -584,8 +606,14 @@ public class Cilix extends javax.swing.JFrame {
         BGestNat.setVisible(false);
         
         BMasVendidos.setVisible(true);
-        
+        BCliFrecuentes.setVisible(true);
     }//GEN-LAST:event_BReportesActionPerformed
+
+    private void BCliFrecuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCliFrecuentesActionPerformed
+        // TODO add your handling code here:
+        Reportes r = new Reportes();
+        r.clientesFrecuentes();
+    }//GEN-LAST:event_BCliFrecuentesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -629,6 +657,7 @@ public class Cilix extends javax.swing.JFrame {
     private javax.swing.JButton BBusPro;
     private javax.swing.JButton BBusTrans;
     private javax.swing.JButton BCerrar;
+    private javax.swing.JButton BCliFrecuentes;
     private javax.swing.JButton BGEmpresa1;
     private javax.swing.JButton BGes;
     private javax.swing.JButton BGesPro2;
