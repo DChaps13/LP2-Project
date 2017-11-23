@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -157,6 +158,34 @@ public class EmpresaDA {
         }
         
         return empresas;
+    }
+    
+    public Empresa getEmpresabyId(int idEmpresa){
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //establecer la conexión
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
+                    + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
+            
+            Statement sentencia=conn.createStatement();
+            ResultSet rsId;
+            Empresa e = new Empresa();
+            String query = "SELECT * FROM dbo.Empresa WHERE Id = ";
+            query += Integer.toString(idEmpresa);
+            rsId=sentencia.executeQuery(query);
+            rsId.next();                    
+            e.setId(rsId.getInt("Id"));
+            e.setRazonSocial(rsId.getString("RazonSocial"));
+            e.setTelefono(rsId.getString("Telefono"));
+            e.setEmail(rsId.getString("Correo"));
+            e.setRuc(rsId.getString("RUC"));
+            e.setTipo(rsId.getString("Tipo"));
+            
+            return e;
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return null;
     }
     
 }

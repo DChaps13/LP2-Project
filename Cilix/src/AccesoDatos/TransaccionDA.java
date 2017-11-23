@@ -62,7 +62,7 @@ public class TransaccionDA {
             
             ps2.execute();           
             
-            
+            conn.close();
             return true;
         }catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -73,80 +73,105 @@ public class TransaccionDA {
     
     public ArrayList<Transaccion> devolverTransacciones(ArrayList<Cliente> clientes, ArrayList<Producto> productos, ArrayList<Usuario> usuarios ){
         ArrayList<Transaccion> lista = new ArrayList<Transaccion>();
-//        try{    
-//            //registrar el Driver 
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            //establecer la conexión
-//            Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
-//                    + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
-//            
-//            Statement sentencia=conn.createStatement();
-//            
-//            // formar query
-//            String query = "SELECT * FROM Transacción ";
-//            String extra = "";
-//            
-//            if(clientes.size() > 0){
-//                extra = extra + " ( ";
-//                for(int i = 0; i < clientes.size(); ++i){
-//                    if(i > 0) extra = extra + " OR ";
-//                    extra = extra + " Id_Usuario =  " + "'" + clientes.get(i).getId() + "' ";
-//                }
-//                extra = extra + " ) ";
-//            }
-//            
-//            if(productos.size() > 0){
-//                if(!extra.equals("")) extra = extra + " AND ";
-//                extra = extra + " ( ";
-//                for(int i = 0; i < productos.size(); ++i){
-//                    if(i > 0) extra = extra + " OR ";
-//                    extra = extra + " Id_Producto = " + "'" + productos.get(i).getId() + "' ";
-//                }
-//                extra = extra + " ) ";
-//            }
-//            
-//            if(usuarios.size() > 0){
-//                if(!extra.equals("")) extra = extra + " AND ";
-//                extra = extra + " ( ";
-//                for(int i = 0; i < usuarios.size(); ++i){
-//                    if(i > 0) extra = extra + " OR ";
-//                    extra = extra + " Id_Usuario = " + "'" + usuarios.get(i).getId() + "' ";
-//                }
-//                extra = extra + " ) ";
-//            }
-//            //Esto lo hizo chapi
-//            if (extra != "") query = query + " WHERE " + extra;
-//            ResultSet rs = sentencia.executeQuery(query);
-//            while(rs.next()){
-//                Transaccion t = new Transaccion();
-//                /* SOLO FALTA EXTRAER DATOS DE TRANSACCION */
-//                //Esto lo hizo chapi
-//                int id = rs.getInt("Id");
-//                int cantidad = rs.getInt("cantidad");
-//                String descp = rs.getString("Descripción");
+        try{    
+            //registrar el Driver 
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //establecer la conexión
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
+                    + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
+            
+            Statement sentencia=conn.createStatement();
+            
+            // formar query
+            String query = "SELECT * FROM Transacción ";
+            String extra = "";
+            
+            if(clientes.size() > 0){
+                extra = extra + " ( ";
+                for(int i = 0; i < clientes.size(); ++i){
+                    if(i > 0) extra = extra + " OR ";
+                    extra = extra + " Id_Usuario =  " + "'" + clientes.get(i).getId() + "' ";
+                }
+                extra = extra + " ) ";
+            }
+            
+            if(productos.size() > 0){
+                if(!extra.equals("")) extra = extra + " AND ";
+                extra = extra + " ( ";
+                for(int i = 0; i < productos.size(); ++i){
+                    if(i > 0) extra = extra + " OR ";
+                    extra = extra + " Id_Producto = " + "'" + productos.get(i).getId() + "' ";
+                }
+                extra = extra + " ) ";
+            }
+            
+            if(usuarios.size() > 0){
+                if(!extra.equals("")) extra = extra + " AND ";
+                extra = extra + " ( ";
+                for(int i = 0; i < usuarios.size(); ++i){
+                    if(i > 0) extra = extra + " OR ";
+                    extra = extra + " Id_Usuario = " + "'" + usuarios.get(i).getId() + "' ";
+                }
+                extra = extra + " ) ";
+            }
+            if (extra != "") query = query + " WHERE " + extra;
+            ResultSet rs = sentencia.executeQuery(query);
+            while(rs.next()){
+                
+                /* SOLO FALTA EXTRAER DATOS DE TRANSACCION */
+                
+                //Datos del query de transaccion
+                int id = rs.getInt("Id");
+                int cantidad = rs.getInt("cantidad");
+                String descripcion = rs.getString("Descripción");
 //                String destino = rs.getString("Destino");
-//                Date fecha = rs.getDate("Fecha");
-//                int idCont = rs.getInt("Id_Contacto");
-//                int idTipo = rs.getInt("Id_Tipo_Transaccion");
-//                int idProd = rs.getInt("Id_Producto");
-//                String idUsu = rs.getString("Id_Usuario");
-//                t.setId(id);
-//                t.setCantidad(cantidad);
-//                t.setDescripcion(descp);
+                Date fecha = rs.getDate("Fecha");
+                int idCliente = rs.getInt("Id_ClienteNatural");
+                int idEmpresa = rs.getInt("Id_Empresa");
+                int idTipo = rs.getInt("Id_Tipo_Transaccion");
+                int idProd = rs.getInt("Id_Producto");
+                String idUsu = rs.getString("Id_Usuario");
+                
+                //Armar una transacción a partir de los IDs
+                Transaccion t = new Transaccion();
+                t.setId(id);
+                t.setCantidad(cantidad);
+                t.setDescripcion(descripcion);
 //                t.setDestino(destino);
-//                t.setFecha(fecha);
-//                t.setIdContacto(idCont);
-//                t.setIdProducto(idProd);
-//                t.setIdTipoTransaccion(idTipo);
-//                t.setIdUsuario(idUsu);
-//                lista.add(t);
-//            }
-//            conn.close();
-//            return lista;
-//        }catch (Exception e){
-//            // do something appropriate with the exception, *at least*:
-//            System.out.println(e.getMessage());
-//        }
+                t.setFecha(fecha);
+                
+                //Porque chapi esta manejando la no-existencia de un foreign key con 
+                //una empresa o persona "FANTASMA" de id 9 (porque en una transacción
+                //el destino es o una persona natural o una empresa, nunca ambos y uno debería ser null)
+                ResultSet rsId;
+                if(idCliente!=9){
+                    ClienteNaturalDA cnDA = new ClienteNaturalDA();
+                    t.setClienteNatural(cnDA.getClientbyID(idCliente));
+                    t.setEmpresa(null);
+                }
+                else{
+                    EmpresaDA eDA = new EmpresaDA();
+                    t.setClienteNatural(null);
+                    t.setEmpresa(eDA.getEmpresabyId(idEmpresa));
+                }
+                
+                ProductoDA pDA = new ProductoDA();
+                t.setProducto(pDA.getProductobyId(idProd));
+                
+                TransaccionTipoDA ttDA = new TransaccionTipoDA();
+                t.setTipoTransaccion(ttDA.getTransaccionTipobyId(idTipo));
+                
+                UsuarioDA uDA = new UsuarioDA();
+                t.setUsuario(uDA.getUsuariobyId(idUsu));
+
+                lista.add(t);
+            }
+            conn.close();
+            return lista;
+        }catch (Exception e){
+            // do something appropriate with the exception, *at least*:
+            System.out.println(e.getMessage());
+        }
         
         return null; 
     }

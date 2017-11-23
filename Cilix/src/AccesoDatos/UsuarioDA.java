@@ -75,6 +75,33 @@ public class UsuarioDA {
         return null;
     }
     
-    
+    public Usuario getUsuariobyId(String idUsu){
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //establecer la conexión
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
+                    + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
+            
+            Statement sentencia=conn.createStatement();
+            ResultSet rsId;
+            
+            Usuario u = new Usuario();
+            String query = "SELECT * FROM dbo.Usuario WHERE Id = '";
+            query += idUsu + "'";
+            rsId=sentencia.executeQuery(query);
+            rsId.next();
+            u.setId(rsId.getString("Id"));
+            u.setPassword(rsId.getString("Contraseña"));
+            u.setFechaCreacion(rsId.getDate("fechaCreacion"));
+            u.setFechaModificacion(rsId.getDate("fechaModificacion"));
+//            u.setRol();
+//            u.setEstado();
+            
+            return u;
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
     
 }

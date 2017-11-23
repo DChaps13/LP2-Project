@@ -97,4 +97,32 @@ public class ClienteNaturalDA {
         return null;
     }
     
+    public ClienteNatural getClientbyID(int idCliente){
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //establecer la conexión
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
+                    + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
+            
+            Statement sentencia=conn.createStatement();
+            ResultSet rsId;
+            ClienteNatural cn = new ClienteNatural();
+            String query = "SELECT * FROM dbo.ClienteNatural WHERE Id = ";
+            query += Integer.toString(idCliente);                    
+            rsId=sentencia.executeQuery(query);
+            rsId.next();                    
+            cn.setId(rsId.getInt("Id"));
+            cn.setNombre(rsId.getString("Nombre"));
+            cn.setApellido(rsId.getString("Apellido"));
+            cn.setDni(rsId.getString("DNI"));
+            cn.setTelefono(rsId.getString("Telefono"));
+            cn.setEmail(rsId.getString("Correo"));
+            
+            return cn;
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
+    
 }

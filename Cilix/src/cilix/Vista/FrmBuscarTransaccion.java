@@ -689,16 +689,16 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         Object[] fila = new Object[5];
         for(int i=0; i<listaTransacciones.size();i++){
             Transaccion t = listaTransacciones.get(i);
-            fila[0] = t.getProducto();
+            fila[0] = t.getProducto().getNombre();
             
             fila[1] = t.getTipoTransaccion().getSigno()+Integer.toString(t.getCantidad());
             
-            Cliente c;
+            String cliente;
             if(t.getClienteNatural()!=null)
-                c = t.getClienteNatural();
+                cliente = t.getClienteNatural().getNombre() + " " + t.getClienteNatural().getApellido();
             else
-                c = t.getEmpresa();
-            fila[2] = c;
+                cliente = t.getEmpresa().getRazonSocial();
+            fila[2] = cliente;
             
             fila[3] = t.getUsuario().getId();
             

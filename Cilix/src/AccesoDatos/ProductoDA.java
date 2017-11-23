@@ -88,4 +88,36 @@ public class ProductoDA {
         return null;
     }
     
+    public Producto getProductobyId(int idProd){
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //establecer la conexión
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
+                    + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
+            
+            Statement sentencia=conn.createStatement();
+            ResultSet rsId;
+            Producto p = new Producto();
+            String query = "SELECT * FROM dbo.Producto WHERE Id = ";
+            query += Integer.toString(idProd);
+            rsId=sentencia.executeQuery(query);
+            rsId.next();
+            p.setId(rsId.getInt("Id"));
+            p.setNombre(rsId.getString("Nombre"));
+            p.setCantidad(rsId.getInt("Cantidad"));
+            p.setPrecio(rsId.getFloat("Precio"));
+            p.setEstado(rsId.getString("Estado"));
+            p.setFechaLanzamiento(rsId.getDate("fechaLanzamiento"));
+            p.setFechaUltMod(rsId.getDate("fechaUltModif"));
+            p.setStockMinimo(rsId.getInt("stock_minimo"));
+            p.setIdProveedor(rsId.getInt("Id_Proveedor"));
+//                p.setCategoria("");
+            
+            return p;
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
+    
 }
