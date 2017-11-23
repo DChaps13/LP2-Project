@@ -30,14 +30,14 @@ public class frmInicial extends javax.swing.JFrame {
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -59,23 +59,15 @@ public class frmInicial extends javax.swing.JFrame {
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
-        jMenu3.setText("Nuevo");
-
-        jMenuItem1.setText("Cliente");
-        jMenu3.add(jMenuItem1);
-
-        jMenuItem8.setText("Empresa");
-        jMenu3.add(jMenuItem8);
-
-        jMenuItem9.setText("Transacción");
-        jMenu3.add(jMenuItem9);
-
-        jMenuBar1.add(jMenu3);
-
         jMenu4.setText("Buscar");
 
         jMenuItem5.setText("Cliente");
         jMenuItem5.setToolTipText("");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem5);
 
         jMenuItem6.setText("Empresa");
@@ -89,7 +81,18 @@ public class frmInicial extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem7);
 
-        jMenuBar1.add(jMenu4);
+        jMenu3.setText("Nuevo");
+
+        jMenuItem1.setText("Cliente");
+        jMenu3.add(jMenuItem1);
+
+        jMenuItem8.setText("Empresa");
+        jMenu3.add(jMenuItem8);
+
+        jMenuItem9.setText("Transacción");
+        jMenu3.add(jMenuItem9);
+
+        jMenu4.add(jMenu3);
 
         jMenu2.setText("Admin");
 
@@ -102,7 +105,9 @@ public class frmInicial extends javax.swing.JFrame {
         jMenuItem4.setText("Eliminar Usuario");
         jMenu2.add(jMenuItem4);
 
-        jMenuBar1.add(jMenu2);
+        jMenu4.add(jMenu2);
+
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -129,6 +134,10 @@ public class frmInicial extends javax.swing.JFrame {
 //        Escritorio.add(ft);
 //        ft.show();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
