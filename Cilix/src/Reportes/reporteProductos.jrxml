@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d9129971-d815-4007-a779-5b39faddde84">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT t.Id_Producto, sum(t.cantidad) as suma, p.Nombre
+FROM Transacción t, Producto p
+WHERE (p.Id = t.Id_Producto) AND (p.fechaLanzamiento < SYSDATETIME()) AND (t.Id_Tipo_Transaccion = 2)
+GROUP BY t.Id_Producto, p.Nombre]]>
+	</queryString>
+	<field name="Id_Producto" class="java.lang.Integer"/>
+	<field name="suma" class="java.lang.Integer"/>
+	<field name="Nombre" class="java.lang.String"/>
+	<variable name="Producto_Id_SUM" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<staticText>
+				<reportElement x="141" y="27" width="274" height="42" uuid="9bb86f57-3155-4fe5-9574-08256d09059b"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Productos más vendidos]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="13" y="7" width="100" height="20" uuid="70b6e5b7-4806-448f-b38b-c687890d5342"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="437" y="27" width="40" height="39" uuid="7658ba82-b796-403e-876e-9ae3cd91e400"/>
+				<imageExpression><![CDATA["C:\\temp\\TALP2\\CilixSolutions\\producto.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="25" y="83" width="496" height="1" forecolor="#6666FF" uuid="d31a7a15-aab3-46aa-907b-66094a4fa6c7"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30"/>
+	</pageHeader>
+	<detail>
+		<band height="44"/>
+	</detail>
+	<pageFooter>
+		<band height="21" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="216">
+			<barChart>
+				<chart>
+					<reportElement x="25" y="12" width="508" height="191" uuid="f6f34008-5033-4563-96ea-f07e24a6e45b"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{Nombre}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{Nombre}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{suma}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>
