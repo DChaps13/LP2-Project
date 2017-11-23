@@ -16,6 +16,8 @@ public class Cilix extends javax.swing.JFrame {
     /**
      * Creates new form Cilix
      */
+    Usuario u;
+    
     public Cilix() {
         initComponents();
         
@@ -41,6 +43,7 @@ public class Cilix extends javax.swing.JFrame {
         BBusNat.setVisible(false);
         BBusPro.setVisible(false);
         BBusTrans.setVisible(false);
+        this.u = u;
         
         
         
@@ -457,7 +460,7 @@ public class Cilix extends javax.swing.JFrame {
 
     private void BBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusActionPerformed
         // TODO add your handling code here:
-       BGEmpresa1.setVisible(false);
+        BGEmpresa1.setVisible(false);
         BGesPro2.setVisible(false);
         BGesTrans.setVisible(false);
         BGestNat.setVisible(false);
@@ -487,14 +490,56 @@ public class Cilix extends javax.swing.JFrame {
 
     private void BGesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGesActionPerformed
         // TODO add your handling code here:
-        BGEmpresa1.setVisible(true);
-        BGesPro2.setVisible(true);
-        BGesTrans.setVisible(true);
-        BGestNat.setVisible(true);
+        
         BBusEmp.setVisible(false);
         BBusNat.setVisible(false);
         BBusPro.setVisible(false);
         BBusTrans.setVisible(false);
+        if (this.u.getRol().getPrivilegio() == 3) 
+        {
+            BGEmpresa1.setVisible(true);
+            BGEmpresa1.setEnabled(false);
+            
+            BGesPro2.setVisible(true);
+            BGesPro2.setEnabled(false);
+            
+            BGesTrans.setVisible(true);
+            BGesTrans.setVisible(true);
+            
+            BGestNat.setVisible(true);
+            BGestNat.setEnabled(false);
+            
+        }
+        if (this.u.getRol().getPrivilegio() == 2) 
+        {
+            BGEmpresa1.setVisible(true);
+            BGEmpresa1.setEnabled(true);
+            
+            BGesPro2.setVisible(true);
+            BGesPro2.setEnabled(true);
+            
+            BGesTrans.setVisible(true);
+            BGesTrans.setVisible(true);
+            
+            BGestNat.setVisible(true);
+            BGestNat.setEnabled(true);
+            
+        }
+        if (this.u.getRol().getPrivilegio() == 1) 
+        {
+            BGEmpresa1.setVisible(true);
+            BGEmpresa1.setEnabled(true);
+            
+            BGesPro2.setVisible(true);
+            BGesPro2.setEnabled(true);
+            
+            BGesTrans.setVisible(true);
+            BGesTrans.setVisible(true);
+            
+            BGestNat.setVisible(true);
+            BGestNat.setEnabled(true);
+            
+        }
     }//GEN-LAST:event_BGesActionPerformed
 
     private void BGesTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGesTransActionPerformed

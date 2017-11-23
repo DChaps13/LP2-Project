@@ -58,7 +58,10 @@ public class UsuarioDA {
                 String pass = rs.getString("Contraseña");
                 Date fechaCreacion = rs.getDate("fechaCreacion");
                 Date fechaMod = rs.getDate("fechaModificacion");
+                RolUsuario r = new RolUsuario();
+                r.setPrivilegio(rs.getInt("Id_Rol"));
                 Usuario u = new Usuario();
+                u.setRol(r);
                 u.setId(id);
                 u.setPassword(pass);
                 u.setFechaCreacion(fechaCreacion);
