@@ -173,6 +173,7 @@ public class frmLogueo extends javax.swing.JDialog {
             }
 
             if(valid){
+                JOptionPane.showMessageDialog(null, "Pene. Sí Paz, Pene ");
                 frmPrincipal fp = new frmPrincipal(null,true,currentUser);
                 dispose();
                 fp.setVisible(true);
