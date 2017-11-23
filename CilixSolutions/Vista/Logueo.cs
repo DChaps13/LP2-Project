@@ -51,6 +51,11 @@ namespace Vista
                         {
                             return x;
                         }
+                        if (x.Id == usuario && x.Contraseña == contrasena && x.Estado.Nombre== "Eliminado")
+                        {
+                            MessageBox.Show("USUARIO INACTIVO", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return null;
+                        }
                     }
                     return null;
                 }
@@ -90,7 +95,7 @@ namespace Vista
                 
             }
             else {
-                MessageBox.Show("Acceso DENEGADO. Contraseña incorrecta", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Acceso DENEGADO. Usuario y/o Contraseña incorrecta", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }

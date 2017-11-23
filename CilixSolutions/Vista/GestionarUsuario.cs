@@ -181,7 +181,17 @@ namespace Vista
 
         private void btnElim_Click(object sender, EventArgs e)
         {
+            usuarioSelecionado = (Usuario)dataUsuarios.CurrentRow.DataBoundItem;
+            try
+            {
+                if (logNegUsu.eliminarUsuario(usuarioSelecionado.Id))
+                    MessageBox.Show("El usuario " + usuarioSelecionado.Id + " fue inactivado", "Mensaje de éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo inactivar el usuario", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
