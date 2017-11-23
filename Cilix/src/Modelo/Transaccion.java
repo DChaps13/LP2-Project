@@ -12,21 +12,80 @@ import java.sql.Date;
  * @author Emanuel
  */
 public class Transaccion {
+
+    /**
+     * @return the clienteNatural
+     */
+    public ClienteNatural getClienteNatural() {
+        return clienteNatural;
+    }
+
+    /**
+     * @param clienteNatural the clienteNatural to set
+     */
+    public void setClienteNatural(ClienteNatural clienteNatural) {
+        this.clienteNatural = clienteNatural;
+    }
+
+    /**
+     * @return the empresa
+     */
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    /**
+     * @param empresa the empresa to set
+     */
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    /**
+     * @return the tipoTransaccion
+     */
+    public TransaccionTipo getTipoTransaccion() {
+        return tipoTransaccion;
+    }
+
+    /**
+     * @param tipoTransaccion the tipoTransaccion to set
+     */
+    public void setTipoTransaccion(TransaccionTipo tipoTransaccion) {
+        this.tipoTransaccion = tipoTransaccion;
+    }
+
+    /**
+     * @return the producto
+     */
+    public Producto getProducto() {
+        return producto;
+    }
+
+    /**
+     * @param producto the producto to set
+     */
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
     
     private int id;
     private int cantidad;
     private String descripcion;
-    private String destino;
+    private ClienteNatural clienteNatural;
+    private Empresa empresa;
     private Date fecha;
-    private int idContacto;
-    private int idTipoTransaccion;
-    private int idProducto;
-    private String idUsuario; //se cambio el id de int  A  STRING
-    private Usuario usuario;
+    private TransaccionTipo tipoTransaccion;
+    private Producto producto;
+    private Usuario usuario; 
     
     public Transaccion(){
         this.descripcion = "No c dice";
-        this.destino = "No c dice";
+        this.clienteNatural = new ClienteNatural();
+        this.empresa = new Empresa();
+        this.tipoTransaccion  = new TransaccionTipo();
+        this.producto = new Producto();
+        this.usuario = new Usuario();
     }
 
     public Usuario getUsuario() {
@@ -63,13 +122,6 @@ public class Transaccion {
         this.descripcion = descripcion;
     }
 
-    public String getDestino() {
-        return destino;
-    }
-
-    public void setDestino(String destino) {
-        this.destino = destino;
-    }
 
     public Date getFecha() {
         return fecha;
@@ -79,37 +131,6 @@ public class Transaccion {
         this.fecha = fecha;
     }
 
-    public int getIdContacto() {
-        return idContacto;
-    }
-
-    public void setIdContacto(int idContacto) {
-        this.idContacto = idContacto;
-    }
-
-    public int getIdTipoTransaccion() {
-        return idTipoTransaccion;
-    }
-
-    public void setIdTipoTransaccion(int idTipoTransaccion) {
-        this.idTipoTransaccion = idTipoTransaccion;
-    }
-
-    public int getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public String getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
-    }
     
     
     
