@@ -83,38 +83,63 @@ public class TransaccionDA {
             Statement sentencia=conn.createStatement();
             
             // formar query
-            String query = "SELECT * FROM Transacción ";
-            String extra = "";
+            String query = "SELECT * FROM Transacción";
+            String extra1 = "";
+            String extra2 = "";
+            String extra3 = "";
             
             if(clientes.size() > 0){
-                extra = extra + " ( ";
+                extra1 = extra1 + " ( ";
                 for(int i = 0; i < clientes.size(); ++i){
-                    if(i > 0) extra = extra + " OR ";
-                    extra = extra + " Id_Usuario =  " + "'" + clientes.get(i).getId() + "' ";
+                    if(i > 0) extra1 = extra1 + " OR ";
+                    Cliente c=clientes.get(i);
+                    if(c instanceof ClienteNatural)
+                        extra1 = extra1 + " Id_ClienteNatural =  " + "'" + c.getId() + "' ";
+                    else
+                        extra1 = extra1 + " Id_Empresa =  " + "'" + c.getId() + "' ";
                 }
-                extra = extra + " ) ";
+                extra1 = extra1 + " ) ";
             }
             
             if(productos.size() > 0){
-                if(!extra.equals("")) extra = extra + " AND ";
-                extra = extra + " ( ";
+                extra2 = extra2 + " ( ";
                 for(int i = 0; i < productos.size(); ++i){
-                    if(i > 0) extra = extra + " OR ";
-                    extra = extra + " Id_Producto = " + "'" + productos.get(i).getId() + "' ";
+                    if(i > 0) extra2 = extra2 + " OR ";
+                    extra2 = extra2 + " Id_Producto = " + "'" + productos.get(i).getId() + "' ";
                 }
-                extra = extra + " ) ";
+                extra2 = extra2 + " ) ";
             }
             
             if(usuarios.size() > 0){
-                if(!extra.equals("")) extra = extra + " AND ";
-                extra = extra + " ( ";
+                extra3 = extra3 + " ( ";
                 for(int i = 0; i < usuarios.size(); ++i){
-                    if(i > 0) extra = extra + " OR ";
-                    extra = extra + " Id_Usuario = " + "'" + usuarios.get(i).getId() + "' ";
+                    if(i > 0) extra3 = extra3 + " OR ";
+                    extra3 = extra3 + " Id_Usuario = " + "'" + usuarios.get(i).getId() + "' ";
                 }
-                extra = extra + " ) ";
+                extra3 = extra3 + " ) ";
             }
-            if (extra != "") query = query + " WHERE " + extra;
+            if (extra1 != "") {
+                query += " WHERE " + extra1;
+                if(extra2 != ""){
+                    query += " INTERSECT " + "SELECT * FROM Transacción" + " WHERE " + extra2;                    
+                }
+                if(extra3 != ""){
+                    query += " INTERSECT " + "SELECT * FROM Transacción" + " WHERE " + extra3;
+                }
+            }
+            else{
+                if(extra2 != ""){
+                    query += " WHERE " + extra2;
+                    if(extra3 != ""){
+                        query += " INTERSECT " + "SELECT * FROM Transacción" + " WHERE " + extra3;
+                    }
+                }
+                else{
+                    if(extra3 != ""){
+                        query += " WHERE " + extra3;
+                    }
+                }
+            }
             ResultSet rs = sentencia.executeQuery(query);
             while(rs.next()){
                 
