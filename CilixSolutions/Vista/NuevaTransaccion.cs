@@ -141,5 +141,10 @@ namespace Vista
         {
 
         }
+
+        private void cboTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
