@@ -29,6 +29,7 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
      * Creates new form FrmBuscarTransaccion
      */
     static Usuario user;
+    
     ArrayList<Producto> listaProductos;
     ArrayList<Cliente> listaClientes;
     ArrayList<Usuario> listaUsuarios;
@@ -92,6 +93,15 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
             filaUsuario[2] = x.getRol().getDescriptor();
             modelo.addRow(filaUsuario);
         }
+        
+        // Enables
+        txtDniCli.setEnabled(true);
+        txtNombCli.setEnabled(true);
+        txtApCli.setEnabled(true);
+        txtRuc.setEnabled(false);
+        txtRazonSocial.setEnabled(false);
+        radEsCliente.setEnabled(false);
+        radEsProveedor.setEnabled(false);
     }
 
     /**
@@ -201,6 +211,11 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtrar"));
 
         btRedProd.setText("Reducir Lista de Productos");
+        btRedProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRedProdActionPerformed(evt);
+            }
+        });
 
         tblProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -257,25 +272,22 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addComponent(txtCodProd, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(169, 169, 169))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtCodProd, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel9)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel9)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNombProd, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btRedProd, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cboProd, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNombProd, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btRedProd, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboProd, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -460,6 +472,11 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         jLabel20.setText("Cliente/Proveedor:");
 
         cboClienteProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente Natural", "Empresa" }));
+        cboClienteProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboClienteProveedorActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("Tipo:");
 
@@ -696,12 +713,14 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
     private void tblProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductosMouseClicked
         // TODO add your handling code here:
         int idx = tblProductos.getSelectedRow();
-        if((Boolean)tblProductos.getModel().getValueAt(idx, 0)){
-            listaProductosActivos.add(listaProductos.get(idx));
+        Producto p = listaProductos.get(idx);
+        if((Boolean)tblProductos.getModel().getValueAt(idx, 0)
+                && !listaProductosActivos.contains(p)){
+            listaProductosActivos.add(p);
         }
         else{
             if((String)cboProd.getSelectedItem()=="Todo")
-                listaProductosActivos.remove(listaProductos.get(idx));
+                listaProductosActivos.remove(p);
             else
                 listaProductosActivos.remove(listaProductosActivos.get(idx));
         }
@@ -774,12 +793,14 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
     private void tblUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsuariosMouseClicked
         // TODO add your handling code here:
         int idx = tblUsuarios.getSelectedRow();
-        if((Boolean)tblUsuarios.getModel().getValueAt(idx, 0)){
-            listaUsuariosActivos.add(listaUsuarios.get(idx));
+        Usuario u = listaUsuarios.get(idx);
+        if((Boolean)tblUsuarios.getModel().getValueAt(idx, 0) 
+                && !listaUsuariosActivos.contains(u)){
+            listaUsuariosActivos.add(u);
         }
         else{
             if((String)cboUsuario.getSelectedItem()=="Todo")
-                listaUsuariosActivos.remove(listaUsuarios.get(idx));
+                listaUsuariosActivos.remove(u);
             else
                 listaUsuariosActivos.remove(listaUsuariosActivos.get(idx));
         }
@@ -788,12 +809,14 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
     private void tblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseClicked
         // TODO add your handling code here:
         int idx = tblClientes.getSelectedRow();
-        if((Boolean)tblClientes.getModel().getValueAt(idx, 0)){
-            listaClientesActivos.add(listaClientes.get(idx));
+        Cliente c = listaClientes.get(idx);
+        if((Boolean)tblClientes.getModel().getValueAt(idx, 0)
+                && !listaClientesActivos.contains(c)){
+            listaClientesActivos.add(c);
         }
         else{
             if((String)cboCliente.getSelectedItem()=="Todo")
-                listaClientesActivos.remove(listaClientes.get(idx));
+                listaClientesActivos.remove(c);
             else
                 listaClientesActivos.remove(listaClientesActivos.get(idx));
         }
@@ -835,15 +858,48 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_cboClienteActionPerformed
+
+    private void btRedProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRedProdActionPerformed
+        // TODO add your handling code here:
+        actualizarTablaProductos();
+    }//GEN-LAST:event_btRedProdActionPerformed
+
+    private void cboClienteProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboClienteProveedorActionPerformed
+        // TODO add your handling code here:
+        
+        int idx = cboClienteProveedor.getSelectedIndex();
+        if(idx == 0){
+            txtDniCli.setEnabled(true);
+            txtNombCli.setEnabled(true);
+            txtApCli.setEnabled(true);
+            txtRuc.setEnabled(false);
+            txtRazonSocial.setEnabled(false);
+            radEsCliente.setEnabled(false);
+            radEsProveedor.setEnabled(false);
+        }else{
+            txtDniCli.setEnabled(false);
+            txtNombCli.setEnabled(false);
+            txtApCli.setEnabled(false);
+            txtRuc.setEnabled(true);
+            txtRazonSocial.setEnabled(true);
+            radEsCliente.setEnabled(true);
+            radEsProveedor.setEnabled(true);
+        }
+        
+    }//GEN-LAST:event_cboClienteProveedorActionPerformed
     void actualizarTablaProductos(){
         ProductoBL logNegProducto = new ProductoBL();
-        ArrayList<Producto> lista = listaProductos;
-        if(lista == null) return;
+        listaProductos = logNegProducto.devolverProductos(txtCodProd.getText(), txtNombProd.getText());
+        if(listaProductos == null) return;
         DefaultTableModel modeloProducto = (DefaultTableModel)tblProductos.getModel();
         modeloProducto.setRowCount(0);
         Object[] fila = new Object[5];
         for(int i=0; i<listaProductos.size();i++){
             Producto p = listaProductos.get(i);
+            if(listaProductosActivos.contains(p))
+                fila[0]=true;
+            else
+                fila[0]=false;
             fila[1] = p.getId();
             fila[2] = p.getNombre();
             fila[3] = p.getCantidad();
