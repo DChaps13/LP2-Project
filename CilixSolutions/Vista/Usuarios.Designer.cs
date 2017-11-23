@@ -196,6 +196,7 @@
             this.btOK.TabIndex = 8;
             this.btOK.Text = "OK";
             this.btOK.UseVisualStyleBackColor = true;
+            this.btOK.Visible = false;
             this.btOK.Click += new System.EventHandler(this.btOK_Click);
             // 
             // Usuarios

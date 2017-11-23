@@ -115,6 +115,7 @@
             // 
             this.txtContra.Location = new System.Drawing.Point(99, 58);
             this.txtContra.Name = "txtContra";
+            this.txtContra.PasswordChar = '*';
             this.txtContra.Size = new System.Drawing.Size(174, 20);
             this.txtContra.TabIndex = 1;
             this.txtContra.TextChanged += new System.EventHandler(this.textBox2_TextChanged);

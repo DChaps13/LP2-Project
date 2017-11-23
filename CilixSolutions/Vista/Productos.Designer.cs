@@ -220,6 +220,7 @@
             this.btOK.TabIndex = 14;
             this.btOK.Text = "OK";
             this.btOK.UseVisualStyleBackColor = true;
+            this.btOK.Visible = false;
             this.btOK.Click += new System.EventHandler(this.button1_Click);
             // 
             // Productos
