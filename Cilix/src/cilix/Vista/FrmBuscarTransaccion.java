@@ -93,6 +93,15 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
             filaUsuario[2] = x.getRol().getDescriptor();
             modelo.addRow(filaUsuario);
         }
+        
+        // Enables
+        txtDniCli.setEnabled(true);
+        txtNombCli.setEnabled(true);
+        txtApCli.setEnabled(true);
+        txtRuc.setEnabled(false);
+        txtRazonSocial.setEnabled(false);
+        radEsCliente.setEnabled(false);
+        radEsProveedor.setEnabled(false);
     }
 
     /**
@@ -463,6 +472,11 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         jLabel20.setText("Cliente/Proveedor:");
 
         cboClienteProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente Natural", "Empresa" }));
+        cboClienteProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboClienteProveedorActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("Tipo:");
 
@@ -849,6 +863,30 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         // TODO add your handling code here:
         actualizarTablaProductos();
     }//GEN-LAST:event_btRedProdActionPerformed
+
+    private void cboClienteProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboClienteProveedorActionPerformed
+        // TODO add your handling code here:
+        
+        int idx = cboClienteProveedor.getSelectedIndex();
+        if(idx == 0){
+            txtDniCli.setEnabled(true);
+            txtNombCli.setEnabled(true);
+            txtApCli.setEnabled(true);
+            txtRuc.setEnabled(false);
+            txtRazonSocial.setEnabled(false);
+            radEsCliente.setEnabled(false);
+            radEsProveedor.setEnabled(false);
+        }else{
+            txtDniCli.setEnabled(false);
+            txtNombCli.setEnabled(false);
+            txtApCli.setEnabled(false);
+            txtRuc.setEnabled(true);
+            txtRazonSocial.setEnabled(true);
+            radEsCliente.setEnabled(true);
+            radEsProveedor.setEnabled(true);
+        }
+        
+    }//GEN-LAST:event_cboClienteProveedorActionPerformed
     void actualizarTablaProductos(){
         ProductoBL logNegProducto = new ProductoBL();
         listaProductos = logNegProducto.devolverProductos(txtCodProd.getText(), txtNombProd.getText());
