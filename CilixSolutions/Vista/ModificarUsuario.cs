@@ -62,12 +62,12 @@ namespace Vista
             try
             {
                 if (logNegUsu.modificarUsuario(contras,cbxRol.Text,us.Id))
-                    MessageBox.Show("El registro del usuario fue exitoso", "Mensaje de éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("La modificacion del usuario fue exitoso", "Mensaje de éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo crear el usuario", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No se pudo modificar el usuario", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             this.DialogResult = DialogResult.OK;

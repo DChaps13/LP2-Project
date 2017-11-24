@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controlador;
+using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,22 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Modelo;
-using Controlador;
 
 namespace Vista
 {
-    public partial class GestionarProducto : Form
+    public partial class ModificarProducto : Form
     {
+
         ProductoBL logNegProd;
         PerJuridicaBL logNegPJ;
         CategoriaBL logNegCat;
-        private BindingList<Producto> productos;
-        private Producto proSelecionado;
 
-        public Producto ProSelecionado { get => proSelecionado; set => proSelecionado = value; }
-
-        public GestionarProducto()
+        public ModificarProducto(Producto prod)
         {
             InitializeComponent();
             logNegProd = new ProductoBL();
@@ -46,36 +43,9 @@ namespace Vista
             {
                 cbxCat.Items.Add(c);
             }
-            //cbxCat.Items.Add("Electronicos");
-            //cbxCat.Items.Add("Software");
-
-            //Tab Modificar/Eliminar
-            productos = new BindingList<Producto>();
-            //dataProductos.AutoGenerateColumns = false;
-            //dataProductos.Refresh();
-            //dataProductos.AllowUserToAddRows = false;
-
-            //productos = logNegProd.listaProductos("Todos", "Todas", "Todos");
-
-            //dataProductos.DataSource = productos;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCrear_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void verifyID_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void crearProd_Click(object sender, EventArgs e)
+        private void btnModif_Click(object sender, EventArgs e)
         {
             Producto p = new Producto();
 
@@ -106,15 +76,7 @@ namespace Vista
                     return;
                 }
 
-                int cantidad;
-                bool verificaTipoStock = Int32.TryParse(txtStock.Text, out cantidad);
-
-                if (!verificaTipoStock)
-                {
-                    txtStock.Text = "";
-                    MessageBox.Show("El stock debe ser un número mayor o igual a 0", "Mensaje de error");
-                    return;
-                }
+                int cantidad = Int32.Parse(txtStock.Text);
 
                 if (cantidad < 0)
                 {
@@ -138,15 +100,7 @@ namespace Vista
 
                     return;
                 }
-                Double precio;
-                bool verificaTipoPrecio = Double.TryParse(txtPrecio.Text,out precio);
-
-                if (!verificaTipoPrecio)
-                {
-                    txtPrecio.Text = "";
-                    MessageBox.Show("El precio debe ser un número mayor o igual a 0", "Mensaje de error");
-                    return;
-                }
+                Double precio = Double.Parse(txtPrecio.Text);
 
                 if (precio < 0)
                 {
@@ -166,14 +120,16 @@ namespace Vista
             try
             {
                 if (logNegProd.registrarProducto(cbxProv.Text, p))
-                    MessageBox.Show("El registro del producto fue exitoso", "Mensaje de éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("La modificacion del producto fue exitoso", "Mensaje de éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo registrar el producto", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No se pudo modificar el producto", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+
 
 
 
@@ -181,16 +137,9 @@ namespace Vista
             this.Close();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnModif_Click(object sender, EventArgs e)
-        {
-            //proSelecionado = (Producto)dataProductos.CurrentRow.DataBoundItem;
-            //ModificarProducto frmModificar = new ModificarProducto(proSelecionado);
-            //frmModificar.Show();
         }
     }
 }

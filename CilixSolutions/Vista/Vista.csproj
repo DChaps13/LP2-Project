@@ -64,6 +64,12 @@
     <Compile Include="GestionarUsuario.Designer.cs">
       <DependentUpon>GestionarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarProducto.Designer.cs">
+      <DependentUpon>ModificarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModificarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Logueo.resx">
       <DependentUpon>Logueo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarProducto.resx">
+      <DependentUpon>ModificarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarUsuario.resx">
       <DependentUpon>ModificarUsuario.cs</DependentUpon>

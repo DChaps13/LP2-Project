@@ -27,5 +27,11 @@ namespace Controlador
         {
             return prodDA.devolverLista(nombre, categoria, proveedor);
         }
+
+        public bool modificarProducto(String proveedor, Producto p)
+        {
+            return prodDA.modificarProducto(proveedor, p);
+        }
+
     }
 }

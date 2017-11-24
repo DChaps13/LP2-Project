@@ -17,6 +17,7 @@ namespace Vista
         ProductoBL logNegProd;
         PerJuridicaBL logNegPJ;
         CategoriaBL logNegCat;
+
         public NuevoProducto()
         {
             InitializeComponent();
