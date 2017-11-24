@@ -47,15 +47,17 @@ namespace Vista
                     bool valid = false;
                     for (int i = 0; i < lstUsuarios.Count && !valid; ++i) {
                         Usuario x = lstUsuarios.ElementAt(i);
-                        if (x.Id == usuario && x.Contraseña == contrasena)
-                        {
-                            return x;
-                        }
-                        if (x.Id == usuario && x.Contraseña == contrasena && x.Estado.Nombre== "Eliminado")
+                        if (x.Id == usuario && x.Contraseña == contrasena && x.Estado.Nombre == "Eliminado")
                         {
                             MessageBox.Show("USUARIO INACTIVO", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return null;
                         }
+
+                        if (x.Id == usuario && x.Contraseña == contrasena && x.Estado.Nombre == "Creado")
+                        {
+                            return x;
+                        }
+
                     }
                     return null;
                 }

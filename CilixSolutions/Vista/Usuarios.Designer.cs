@@ -37,15 +37,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataUsuarios = new System.Windows.Forms.DataGridView();
+            this.btOK = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechadeCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.nuevoUsuario = new System.Windows.Forms.Button();
-            this.btOK = new System.Windows.Forms.Button();
             this.groupBoxBuscarUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataUsuarios)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxBuscarUsuario
@@ -59,9 +56,9 @@
             this.groupBoxBuscarUsuario.Controls.Add(this.label1);
             this.groupBoxBuscarUsuario.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxBuscarUsuario.ForeColor = System.Drawing.Color.White;
-            this.groupBoxBuscarUsuario.Location = new System.Drawing.Point(11, 77);
+            this.groupBoxBuscarUsuario.Location = new System.Drawing.Point(18, 17);
             this.groupBoxBuscarUsuario.Name = "groupBoxBuscarUsuario";
-            this.groupBoxBuscarUsuario.Size = new System.Drawing.Size(477, 173);
+            this.groupBoxBuscarUsuario.Size = new System.Drawing.Size(477, 162);
             this.groupBoxBuscarUsuario.TabIndex = 0;
             this.groupBoxBuscarUsuario.TabStop = false;
             this.groupBoxBuscarUsuario.Text = "Buscar Usuario";
@@ -150,62 +147,16 @@
             this.Id,
             this.FechadeCreacion,
             this.Rol});
-            this.dataUsuarios.Location = new System.Drawing.Point(11, 256);
+            this.dataUsuarios.Location = new System.Drawing.Point(18, 185);
             this.dataUsuarios.Name = "dataUsuarios";
             this.dataUsuarios.ReadOnly = true;
             this.dataUsuarios.Size = new System.Drawing.Size(477, 174);
             this.dataUsuarios.TabIndex = 1;
             // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // FechadeCreacion
-            // 
-            this.FechadeCreacion.DataPropertyName = "fechaCreacion";
-            this.FechadeCreacion.HeaderText = "FechaCreacion";
-            this.FechadeCreacion.Name = "FechadeCreacion";
-            this.FechadeCreacion.ReadOnly = true;
-            // 
-            // Rol
-            // 
-            this.Rol.DataPropertyName = "Rol";
-            this.Rol.HeaderText = "Rol";
-            this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
-            this.Rol.Width = 130;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.nuevoUsuario);
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(13, 13);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(475, 58);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Nuevo Usuario";
-            // 
-            // nuevoUsuario
-            // 
-            this.nuevoUsuario.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nuevoUsuario.ForeColor = System.Drawing.Color.Black;
-            this.nuevoUsuario.Location = new System.Drawing.Point(160, 23);
-            this.nuevoUsuario.Name = "nuevoUsuario";
-            this.nuevoUsuario.Size = new System.Drawing.Size(170, 24);
-            this.nuevoUsuario.TabIndex = 10;
-            this.nuevoUsuario.Text = "Nuevo Usuario";
-            this.nuevoUsuario.UseVisualStyleBackColor = true;
-            this.nuevoUsuario.Click += new System.EventHandler(this.nuevoUsuario_Click);
-            // 
             // btOK
             // 
             this.btOK.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btOK.Location = new System.Drawing.Point(187, 451);
+            this.btOK.Location = new System.Drawing.Point(187, 376);
             this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(90, 31);
             this.btOK.TabIndex = 8;
@@ -214,12 +165,35 @@
             this.btOK.Visible = false;
             this.btOK.Click += new System.EventHandler(this.btOK_Click);
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 120;
+            // 
+            // FechadeCreacion
+            // 
+            this.FechadeCreacion.DataPropertyName = "fechaCreacion";
+            this.FechadeCreacion.HeaderText = "FechaCreacion";
+            this.FechadeCreacion.Name = "FechadeCreacion";
+            this.FechadeCreacion.ReadOnly = true;
+            this.FechadeCreacion.Width = 120;
+            // 
+            // Rol
+            // 
+            this.Rol.DataPropertyName = "Rol";
+            this.Rol.HeaderText = "Rol";
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            this.Rol.Width = 150;
+            // 
             // Usuarios
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(520, 505);
+            this.ClientSize = new System.Drawing.Size(520, 377);
             this.Controls.Add(this.btOK);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataUsuarios);
             this.Controls.Add(this.groupBoxBuscarUsuario);
             this.Name = "Usuarios";
@@ -227,7 +201,6 @@
             this.groupBoxBuscarUsuario.ResumeLayout(false);
             this.groupBoxBuscarUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataUsuarios)).EndInit();
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -245,8 +218,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Buscar;
         private System.Windows.Forms.DataGridView dataUsuarios;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button nuevoUsuario;
         private System.Windows.Forms.Button btOK;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechadeCreacion;
