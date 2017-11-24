@@ -1026,6 +1026,10 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         Object[] fila = new Object[4];
         for(int i=0; i<lista.size();i++){
             Cliente c = lista.get(i);
+            if(listaClientesActivos.contains(c))
+                fila[0]=true;
+            else
+                fila[0]=false;
             fila[1] = c.getId();
             if(c instanceof Empresa)
                 fila[2] = ((Empresa) c).getRazonSocial();
