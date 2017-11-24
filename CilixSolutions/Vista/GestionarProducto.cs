@@ -92,7 +92,15 @@ namespace Vista
                     return;
                 }
 
-                int cantidad = Int32.Parse(txtStock.Text);
+                int cantidad;
+                bool verificaTipoStock = Int32.TryParse(txtStock.Text, out cantidad);
+
+                if (!verificaTipoStock)
+                {
+                    txtStock.Text = "";
+                    MessageBox.Show("El stock debe ser un número mayor o igual a 0", "Mensaje de error");
+                    return;
+                }
 
                 if (cantidad < 0)
                 {
@@ -116,7 +124,15 @@ namespace Vista
 
                     return;
                 }
-                Double precio = Double.Parse(txtPrecio.Text);
+                Double precio;
+                bool verificaTipoPrecio = Double.TryParse(txtPrecio.Text,out precio);
+
+                if (!verificaTipoPrecio)
+                {
+                    txtPrecio.Text = "";
+                    MessageBox.Show("El precio debe ser un número mayor o igual a 0", "Mensaje de error");
+                    return;
+                }
 
                 if (precio < 0)
                 {
