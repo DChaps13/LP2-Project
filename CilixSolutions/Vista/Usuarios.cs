@@ -77,8 +77,25 @@ namespace Vista
         private void Buscar_Click(object sender, EventArgs e)
         {
 
+            if (txtID.Text == "")
+            {
+                MessageBox.Show("Ingrese el ID del usuario o 'Todos'", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cbxRol.Text == "")
+            {
+                MessageBox.Show("Seleccione un rol o 'Todos'", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cbxEstado.Text == "")
+            {
+                MessageBox.Show("Seleccione un eatado o 'Todos'", "Mensaje de error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            usuarios = logNegUsu.buscarUsuarios(textBox1.Text, cbxRol.Text, cbxEstado.Text);
+
+
+            usuarios = logNegUsu.buscarUsuarios(txtID.Text, cbxRol.Text, cbxEstado.Text);
 
             dataUsuarios.DataSource = usuarios;
 

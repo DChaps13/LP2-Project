@@ -34,7 +34,7 @@
             this.Buscar = new System.Windows.Forms.Button();
             this.cbxRol = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataUsuarios = new System.Windows.Forms.DataGridView();
             this.btOK = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             this.groupBoxBuscarUsuario.Controls.Add(this.Buscar);
             this.groupBoxBuscarUsuario.Controls.Add(this.cbxRol);
             this.groupBoxBuscarUsuario.Controls.Add(this.label2);
-            this.groupBoxBuscarUsuario.Controls.Add(this.textBox1);
+            this.groupBoxBuscarUsuario.Controls.Add(this.txtID);
             this.groupBoxBuscarUsuario.Controls.Add(this.label1);
             this.groupBoxBuscarUsuario.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxBuscarUsuario.ForeColor = System.Drawing.Color.White;
@@ -117,15 +117,15 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Rol";
             // 
-            // textBox1
+            // txtID
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(104, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 27);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Todos";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtID.Location = new System.Drawing.Point(104, 26);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(228, 27);
+            this.txtID.TabIndex = 1;
+            this.txtID.Text = "Todos";
+            this.txtID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -213,7 +213,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxRol;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.ComboBox cbxEstado;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Buscar;
