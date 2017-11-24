@@ -242,7 +242,7 @@ namespace Vista
             PanelBuscar.Enabled = false;
             
 
-            NuevoProducto childForm = new NuevoProducto();
+            GestionarProducto childForm = new GestionarProducto();
             childForm.MdiParent = this;
             childForm.Text = "Nuevo Producto";
             childForm.Show();

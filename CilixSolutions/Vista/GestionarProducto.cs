@@ -12,12 +12,13 @@ using Controlador;
 
 namespace Vista
 {
-    public partial class NuevoProducto : Form
+    public partial class GestionarProducto : Form
     {
         ProductoBL logNegProd;
         PerJuridicaBL logNegPJ;
         CategoriaBL logNegCat;
-        public NuevoProducto()
+
+        public GestionarProducto()
         {
             InitializeComponent();
             logNegProd = new ProductoBL();
@@ -37,7 +38,7 @@ namespace Vista
             }
 
             cbxCat.ValueMember = "Nombre";
-            foreach(CategoriaProd c in listaCat)
+            foreach (CategoriaProd c in listaCat)
             {
                 cbxCat.Items.Add(c);
             }
@@ -45,9 +46,19 @@ namespace Vista
             //cbxCat.Items.Add("Software");
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void verifyID_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void crearProd_Click(object sender, EventArgs e)
@@ -82,7 +93,7 @@ namespace Vista
                 }
 
                 int cantidad = Int32.Parse(txtStock.Text);
-               
+
                 if (cantidad < 0)
                 {
                     MessageBox.Show("El stock inicial debe ser mayor o igual a 0", "Mensaje de error");
@@ -105,8 +116,8 @@ namespace Vista
 
                     return;
                 }
-                Double precio= Double.Parse(txtPrecio.Text);
-                
+                Double precio = Double.Parse(txtPrecio.Text);
+
                 if (precio < 0)
                 {
                     MessageBox.Show("El precio debe ser mayor o igual a 0", "Mensaje de error");
@@ -114,7 +125,8 @@ namespace Vista
                     return;
                 }
                 p.Precio = precio;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Mensaje de error");
                 return;
@@ -123,7 +135,7 @@ namespace Vista
 
             try
             {
-                if(logNegProd.registrarProducto(cbxProv.Text, p))
+                if (logNegProd.registrarProducto(cbxProv.Text, p))
                     MessageBox.Show("El registro del producto fue exitoso", "Mensaje de éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
@@ -135,65 +147,13 @@ namespace Vista
 
 
 
-
-
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNombreProd_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtStock_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPrecio_TextChanged(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
     }
 }

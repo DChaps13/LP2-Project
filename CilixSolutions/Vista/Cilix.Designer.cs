@@ -63,7 +63,7 @@
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(158, 629);
+            this.panel1.Size = new System.Drawing.Size(164, 629);
             this.panel1.TabIndex = 0;
             // 
             // label2
@@ -164,7 +164,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(158, 72);
+            this.panel3.Size = new System.Drawing.Size(164, 72);
             this.panel3.TabIndex = 0;
             // 
             // label1

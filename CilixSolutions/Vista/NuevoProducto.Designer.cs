@@ -75,6 +75,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(234, 27);
             this.txtPrecio.TabIndex = 11;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
             // label5
             // 
@@ -85,6 +86,7 @@
             this.label5.Size = new System.Drawing.Size(50, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Precio";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtStock
             // 
@@ -93,6 +95,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(234, 27);
             this.txtStock.TabIndex = 9;
+            this.txtStock.TextChanged += new System.EventHandler(this.txtStock_TextChanged);
             // 
             // label4
             // 
@@ -103,6 +106,7 @@
             this.label4.Size = new System.Drawing.Size(88, 20);
             this.label4.TabIndex = 8;
             this.label4.Text = "Stock Inicial";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // cbxCat
             // 
@@ -179,6 +183,7 @@
             this.txtNombreProd.Name = "txtNombreProd";
             this.txtNombreProd.Size = new System.Drawing.Size(234, 27);
             this.txtNombreProd.TabIndex = 1;
+            this.txtNombreProd.TextChanged += new System.EventHandler(this.txtNombreProd_TextChanged);
             // 
             // label1
             // 

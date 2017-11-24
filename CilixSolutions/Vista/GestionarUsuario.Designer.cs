@@ -143,6 +143,7 @@
             // 
             this.txtContra.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContra.Location = new System.Drawing.Point(117, 56);
+            this.txtContra.MaxLength = 200;
             this.txtContra.Name = "txtContra";
             this.txtContra.PasswordChar = '*';
             this.txtContra.Size = new System.Drawing.Size(238, 27);
@@ -162,6 +163,7 @@
             // 
             this.txtID.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(117, 22);
+            this.txtID.MaxLength = 20;
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(238, 27);
             this.txtID.TabIndex = 10;

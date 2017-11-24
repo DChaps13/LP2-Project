@@ -52,6 +52,12 @@
     <Compile Include="Cilix.Designer.cs">
       <DependentUpon>Cilix.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionarProducto.Designer.cs">
+      <DependentUpon>GestionarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </Compile>
     <EmbeddedResource Include="Cilix.resx">
       <DependentUpon>Cilix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionarProducto.resx">
+      <DependentUpon>GestionarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionarUsuario.resx">
       <DependentUpon>GestionarUsuario.cs</DependentUpon>
