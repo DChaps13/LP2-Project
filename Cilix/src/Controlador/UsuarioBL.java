@@ -21,5 +21,9 @@ public class UsuarioBL {
     public ArrayList<RolUsuario> listarRoles(){
         return accesoDatosUsuario.listarRoles();
     }
+
+    public ArrayList<Usuario> devolverUsuarios(String s1, String s2) {
+        return accesoDatosUsuario.devolverUsuarios(s1,s2);
+    }
    
 }

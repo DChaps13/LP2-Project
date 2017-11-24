@@ -359,6 +359,11 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         jLabel8.setText("ID del Usuario:");
 
         btRedUsr.setText("Reducir Lista de Usuarios");
+        btRedUsr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRedUsrActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Campos para reducir Usuarios mostrados en la tabla superior (Opcionales):");
 
@@ -952,6 +957,31 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         actualizarTablaClientes();
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btRedUsrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRedUsrActionPerformed
+        // TODO add your handling code here:
+        actualizarTablaUsuarios();
+    }//GEN-LAST:event_btRedUsrActionPerformed
+    
+    void actualizarTablaUsuarios(){
+        UsuarioBL logNegUsuario = new UsuarioBL();
+        listaUsuarios = logNegUsuario.devolverUsuarios(txtIdUsr.getText(), cboRolUsr.getSelectedItem().toString());
+        
+        if(listaUsuarios == null) return;
+        DefaultTableModel modeloUsuario = (DefaultTableModel)tblUsuarios.getModel();
+        modeloUsuario.setRowCount(0);
+        Object[] fila = new Object[3];
+        for(int i=0; i<listaUsuarios.size();i++){
+            Usuario u = listaUsuarios.get(i);
+            if(listaUsuariosActivos.contains(u))
+                fila[0]=true;
+            else
+                fila[0]=false;
+            fila[1] = u.getId();
+            fila[2] = u.getRol().getDescriptor();
+            modeloUsuario.addRow(fila);
+        }
+    }
     void actualizarTablaProductos(){
         ProductoBL logNegProducto = new ProductoBL();
         listaProductos = logNegProducto.devolverProductos(txtCodProd.getText(), txtNombProd.getText());
@@ -1006,20 +1036,7 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         }
     }
     
-    void actualizarTablaUsuarios(){
-        UsuarioBL logica = new UsuarioBL();
-        ArrayList<Usuario> lista = listaUsuarios;
-        if(lista == null) return;
-        DefaultTableModel modelo = (DefaultTableModel)tblUsuarios.getModel();
-        modelo.setRowCount(0);
-        Object[] fila = new Object[2];
-        for(int i = 0; i < lista.size(); ++i){
-            Usuario x = lista.get(i);
-            fila[0] = x.getId();
-            fila[1] = x.getRol().getDescriptor();
-            modelo.addRow(fila);
-        }
-    }
+    
     
     void actualizarTablaTransacciones(){
         DefaultTableModel modelo = (DefaultTableModel)tblTransacciones.getModel();

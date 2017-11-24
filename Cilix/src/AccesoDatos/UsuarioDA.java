@@ -103,5 +103,52 @@ public class UsuarioDA {
         }
         return null;
     }
+
+    public ArrayList<Usuario> devolverUsuarios(String id, String rol) {
+         try {
+            //registrar el Driver
+            ArrayList<Usuario> lista = new ArrayList<Usuario>();
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //establecer la conexión
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140;databaseName=inf282g4;"
+                    + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");
+            Statement st = conn.createStatement();
+            String s = "{call dbo.buscarUsuarioConParam(?,?)}";
+            PreparedStatement ps = conn.prepareStatement(s);       
+            
+            ps.setString(1,id );
+            ps.setString(2, rol);
+            ResultSet rs = ps.executeQuery();
+            
+            ArrayList<RolUsuario> listaRoles = new ArrayList<RolUsuario>();
+            listaRoles = listarRoles();
+            while(rs.next()){
+                String idUsr = rs.getString("Id");
+                String pass = rs.getString("Contraseña");
+                Date fechaCreacion = rs.getDate("fechaCreacion");
+                Date fechaMod = rs.getDate("fechaModificacion");
+                RolUsuario r = new RolUsuario();
+                
+                for(int j=0;j<listaRoles.size();j++){
+                    if(listaRoles.get(j).getId() == rs.getInt("Id_Rol")){
+                        r = listaRoles.get(j);
+                        break;
+                    };
+                }
+                    
+                Usuario u = new Usuario();
+                u.setRol(r);
+                u.setId(id);
+                u.setPassword(pass);
+                u.setFechaCreacion(fechaCreacion);
+                u.setFechaModificacion(fechaMod);
+                lista.add(u);
+            }
+            return lista;
+        }catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
     
 }
