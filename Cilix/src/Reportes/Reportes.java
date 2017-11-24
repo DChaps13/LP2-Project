@@ -15,10 +15,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author alulab14
- */
+
 public class Reportes {
     
     public Reportes(){
@@ -63,3 +60,4 @@ public class Reportes {
         }        
     }    
 }
+

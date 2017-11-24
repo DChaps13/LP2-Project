@@ -101,9 +101,9 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         }
         
         // Enables
-        txtDniCli.setEnabled(true);
-        txtNombCli.setEnabled(true);
-        txtApCli.setEnabled(true);
+        txtDniCli.setEnabled(false);
+        txtNombCli.setEnabled(false);
+        txtApCli.setEnabled(false);
         txtRuc.setEnabled(false);
         txtRazonSocial.setEnabled(false);
         radEsCliente.setEnabled(false);
@@ -289,11 +289,10 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
                         .addComponent(txtNombProd, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btRedProd, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cboProd, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboProd, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btRedProd, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,7 +315,7 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtNombProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Por Productos", jPanel2);
@@ -465,7 +464,12 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
 
         jLabel17.setText("DNI:");
 
-        jButton4.setText("Reducir Lista de Productos");
+        jButton4.setText("Reducir Lista de Clientes");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         radEsCliente.setText("Cliente");
 
@@ -477,7 +481,7 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
 
         jLabel20.setText("Cliente/Proveedor:");
 
-        cboClienteProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente Natural", "Empresa" }));
+        cboClienteProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Cliente Natural", "Empresa" }));
         cboClienteProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboClienteProveedorActionPerformed(evt);
@@ -500,49 +504,40 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(radEsCliente)
-                        .addGap(18, 18, 18)
-                        .addComponent(radEsProveedor)
-                        .addGap(283, 283, 283))
+                    .addComponent(jLabel17)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel6)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cboCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel15)
+                                .addComponent(jLabel16)
+                                .addComponent(jLabel14))
+                            .addGap(81, 81, 81)
+                            .addComponent(cboClienteProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel17)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel20))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtNombCli, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtApCli, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(radEsCliente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cboClienteProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDniCli, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel16)
-                                    .addComponent(jLabel14))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNombCli, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-                                    .addComponent(txtApCli))))
-                        .addGap(41, 41, 41))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cboCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel19))
-                                .addGap(53, 53, 53)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtRazonSocial, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
-                                    .addComponent(txtRuc))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(radEsProveedor)
+                                .addGap(198, 198, 198))
+                            .addComponent(txtRazonSocial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
+                            .addComponent(txtRuc, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDniCli, javax.swing.GroupLayout.Alignment.LEADING))))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -895,6 +890,14 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         
         int idx = cboClienteProveedor.getSelectedIndex();
         if(idx == 0){
+            txtDniCli.setEnabled(false);
+            txtNombCli.setEnabled(false);
+            txtApCli.setEnabled(false);
+            txtRuc.setEnabled(false);
+            txtRazonSocial.setEnabled(false);
+            radEsCliente.setEnabled(false);
+            radEsProveedor.setEnabled(false);
+        }else if(idx == 1){
             txtDniCli.setEnabled(true);
             txtNombCli.setEnabled(true);
             txtApCli.setEnabled(true);
@@ -902,7 +905,7 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
             txtRazonSocial.setEnabled(false);
             radEsCliente.setEnabled(false);
             radEsProveedor.setEnabled(false);
-        }else{
+        }else if(idx == 2){
             txtDniCli.setEnabled(false);
             txtNombCli.setEnabled(false);
             txtApCli.setEnabled(false);
@@ -942,6 +945,13 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         // TODO add your handling code here:
         listaTransacciones.sort((o1, o2) -> o1.getFecha().compareTo(o2.getFecha()));
     }//GEN-LAST:event_jMenuFechaActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+        actualizarTablaClientes();
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
     void actualizarTablaProductos(){
         ProductoBL logNegProducto = new ProductoBL();
         listaProductos = logNegProducto.devolverProductos(txtCodProd.getText(), txtNombProd.getText());
@@ -965,19 +975,33 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
     
     void actualizarTablaClientes(){
         ClienteBL logica = new ClienteBL();
-        ArrayList<Cliente> lista = listaClientes;
-        if(lista == null) return;
+        ArrayList<Cliente> lista;
+        String tipo;
+        if(cboClienteProveedor.getSelectedIndex() == 0) tipo = "";
+        else if(cboClienteProveedor.getSelectedIndex() == 1) tipo = "Cliente Natural";
+        else tipo = "Empresa";
+        String dni = txtDniCli.getText();
+        String nombre = txtNombCli.getText();
+        String apellido = txtApCli.getText();
+        String ruc = txtRuc.getText();
+        String razonSocial = txtRazonSocial.getText();
+        String tipoEmpresa = "";
+        boolean uno = radEsCliente.isSelected(), dos = radEsProveedor.isSelected();
+        if(uno && dos) tipoEmpresa = "";
+        else if(uno) tipoEmpresa = "Cliente";
+        else if(dos) tipoEmpresa = "Proveedor";
+        lista = logica.devolverClientes(tipo,dni,nombre,apellido,ruc,razonSocial,tipoEmpresa);
         DefaultTableModel modelo = (DefaultTableModel)tblClientes.getModel();
         modelo.setRowCount(0);
-        Object[] fila = new Object[3];
-        for(int i = 0; i < lista.size(); ++i){
+        Object[] fila = new Object[4];
+        for(int i=0; i<lista.size();i++){
             Cliente c = lista.get(i);
-            fila[0] = c.getId();
+            fila[1] = c.getId();
             if(c instanceof Empresa)
-                fila[1] = ((Empresa) c).getRazonSocial();
-            else if(c instanceof ClienteNatural)
-                fila[1] = ((ClienteNatural) c).getNombre() +  " " + ((ClienteNatural) c).getApellido();
-            fila[2] = c.getEmail();
+                fila[2] = ((Empresa) c).getRazonSocial();
+            else if( c instanceof ClienteNatural )
+                fila[2] = ((ClienteNatural) c).getNombre() + " " + ((ClienteNatural) c).getApellido();
+            fila[3] = c.getEmail();
             modelo.addRow(fila);
         }
     }

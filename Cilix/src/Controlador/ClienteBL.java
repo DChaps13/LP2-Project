@@ -26,4 +26,9 @@ public class ClienteBL {
     public ArrayList<Cliente> devolverClientes(String id,String nombres, String apellidos, String dni, String telefono, String email, String razon, String ruc){
         return accesoDatos.devolverClientes(id,nombres,apellidos,dni,telefono,email,razon,ruc);
     }
+    
+    public ArrayList<Cliente> devolverClientes(String tipo, String dni, String nombre, String apellido, String ruc, String razonSocial, String tipoEmpresa){
+        return accesoDatos.devolverClientes(tipo,dni,nombre,apellido,ruc,razonSocial,tipoEmpresa);
+    }
+    
 }

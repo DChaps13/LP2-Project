@@ -15,7 +15,6 @@ import Modelo.Empresa;
 import Modelo.Producto;
 import Modelo.Transaccion;
 import Modelo.Usuario;
-import Reportes.Reportes;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -396,10 +395,12 @@ public class FrmTransaccionVenta extends javax.swing.JDialog {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
+        /*
         frmPrincipal fp = new frmPrincipal(null,true);
         dispose();
         fp.setUser(user);
         fp.setVisible(true);
+        */
     }//GEN-LAST:event_formWindowClosing
 
     void actualizarTablaProductos(){

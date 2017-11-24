@@ -6,12 +6,9 @@
 package cilix.Vista;
 
 import Modelo.Usuario;
-import Reportes.*;
+//import Reportes.*;
 
-/**
- *
- * @author alulab14
- */
+
 public class Cilix extends javax.swing.JFrame {
 
     /**
@@ -457,7 +454,7 @@ public class Cilix extends javax.swing.JFrame {
     private void BMasVendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BMasVendidosActionPerformed
         // TODO add your handling code here:
         Reportes r = new Reportes();
-        r.productosMasVendidos();        
+        r.productosMasVendidos();     
     }//GEN-LAST:event_BMasVendidosActionPerformed
 
     private void BLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BLoginActionPerformed
@@ -485,7 +482,8 @@ public class Cilix extends javax.swing.JFrame {
 
     private void BBusTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusTransActionPerformed
         // TODO add your handling code here:
-        
+        FrmBuscarTransaccion x = new FrmBuscarTransaccion(null, true);
+        x.setVisible(true);
     }//GEN-LAST:event_BBusTransActionPerformed
 
     private void BBusNatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusNatActionPerformed

@@ -150,4 +150,58 @@ public class ClienteDA {
         return lista;
     }
     
+    public ArrayList<Cliente> devolverClientes(String tipo, String dni, String nombre, String apellido, String ruc, String razonSocial, String tipoEmpresa){
+        ArrayList<Cliente> lista = new ArrayList<Cliente>();
+        try{    
+            //registrar el Driver 
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            //establecer la conexión
+            Connection conn = DriverManager.getConnection("jdbc:sqlserver://200.16.7.140; databaseName=inf282g4;"
+                    + "integratedSecurity=false;username=inf282g4; password=LnyBcOhGWyvFVtBp;");            
+            if(tipo.equals("") || tipo.equals("Cliente Natural")){
+                String buscarCNatural = "{call dbo.buscarClienteNatural2(?,?,?)}";
+                PreparedStatement ps = conn.prepareStatement(buscarCNatural);
+                ps.setString(1,dni);
+                ps.setString(2,nombre);
+                ps.setString(3,apellido);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()){
+                    ClienteNatural cl = new ClienteNatural();
+                    cl.setId(rs.getInt("Id"));
+                    cl.setNombre(rs.getString("Nombre"));
+                    cl.setApellido(rs.getString("Apellido"));
+                    cl.setDni(rs.getString("DNI"));
+                    cl.setTelefono(rs.getString("Telefono"));
+                    cl.setEmail(rs.getString("Correo"));
+                    lista.add(cl);
+                }
+            }
+           
+            if(tipo.equals("") || tipo.equals("Empresa")){
+                String buscarEmpresa = "{call dbo.buscarEmpresa2(?,?,?)}";
+                PreparedStatement ps = conn.prepareStatement(buscarEmpresa);
+                ps.setString(1,ruc);
+                ps.setString(2,razonSocial);
+                ps.setString(3, tipoEmpresa);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()){
+                    Empresa e = new Empresa();
+                    e.setId(rs.getInt("Id"));
+                    e.setRazonSocial(rs.getString("RazonSocial"));
+                    e.setRuc(rs.getString("RUC"));
+                    e.setTelefono(rs.getString("Telefono"));
+                    e.setEmail(rs.getString("Correo"));
+                    e.setTipo(rs.getString("Tipo"));
+                    lista.add(e);
+                }
+            }
+            conn.close();
+        }
+        catch (Exception e){
+            // do something appropriate with the exception, *at least*:
+            System.out.println(e.getMessage());
+        }
+        return lista;
+    }
+    
 }

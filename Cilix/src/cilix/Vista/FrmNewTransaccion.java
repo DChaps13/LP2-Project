@@ -147,7 +147,6 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
         });
 
         jCboProd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jCboProd.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jCboProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCboProdActionPerformed(evt);
@@ -155,7 +154,6 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
         });
 
         jCboTipo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jCboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jCboTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCboTipoActionPerformed(evt);
@@ -166,7 +164,6 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
         jLabel4.setText("Tipo de transacción");
 
         jCboCliPro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jCboCliPro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,8 +182,7 @@ public class FrmNewTransaccion extends javax.swing.JDialog {
                                 .addComponent(jLabel8)
                                 .addComponent(jLabel7))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jCboCliPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(128, 128, 128)))
+                            .addComponent(jCboCliPro, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(btnAceptar)
