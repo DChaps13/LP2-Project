@@ -17,6 +17,7 @@ import Modelo.Transaccion;
 import Modelo.Usuario;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 
@@ -51,6 +52,8 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         listaProductosActivos = new ArrayList<Producto>();
         listaClientesActivos = new ArrayList<Cliente>();
         listaUsuariosActivos = new ArrayList<Usuario>();
+        
+        listaTransacciones = new ArrayList<Transaccion>();
         
         //tabla de productos
         ProductoBL logica = new ProductoBL();
@@ -171,12 +174,12 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         jButton12 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuFecha = new javax.swing.JMenuItem();
+        jMenuCantidad = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuNProd = new javax.swing.JMenuItem();
+        jMenuNUsr = new javax.swing.JMenuItem();
+        jMenuNCli = new javax.swing.JMenuItem();
 
         tblTransacciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -598,22 +601,47 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
 
         jMenu1.setText("Ordenar por...");
 
-        jMenuItem1.setText("Fecha de realización");
-        jMenu1.add(jMenuItem1);
+        jMenuFecha.setText("Fecha de realización");
+        jMenuFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuFechaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuFecha);
 
-        jMenuItem2.setText("Cantidad");
-        jMenu1.add(jMenuItem2);
+        jMenuCantidad.setText("Cantidad");
+        jMenuCantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCantidadActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuCantidad);
 
         jMenu2.setText("Alfabéticamente...");
 
-        jMenuItem4.setText("Nombre del Producto");
-        jMenu2.add(jMenuItem4);
+        jMenuNProd.setText("Nombre del Producto");
+        jMenuNProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuNProdActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuNProd);
 
-        jMenuItem3.setText("Nombre de Usuario");
-        jMenu2.add(jMenuItem3);
+        jMenuNUsr.setText("Nombre de Usuario");
+        jMenuNUsr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuNUsrActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuNUsr);
 
-        jMenuItem5.setText("Nombre del Proveedor");
-        jMenu2.add(jMenuItem5);
+        jMenuNCli.setText("Nombre del Cliente");
+        jMenuNCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuNCliActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuNCli);
 
         jMenu1.add(jMenu2);
 
@@ -680,8 +708,6 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
         TransaccionBL logica = new TransaccionBL();
-
-        listaTransacciones = new ArrayList<Transaccion>();
 
         listaTransacciones = logica.devolverTransacciones(listaClientesActivos, listaProductosActivos, listaUsuariosActivos);
         DefaultTableModel modelo = (DefaultTableModel)tblTransacciones.getModel();
@@ -887,6 +913,35 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
         }
         
     }//GEN-LAST:event_cboClienteProveedorActionPerformed
+
+    private void jMenuCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCantidadActionPerformed
+        // TODO add your handling code here:
+        listaTransacciones.sort(Comparator.comparingInt(Transaccion::getCantidad));
+        actualizarTablaTransacciones();
+    }//GEN-LAST:event_jMenuCantidadActionPerformed
+
+    private void jMenuNUsrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuNUsrActionPerformed
+        // TODO add your handling code here:
+        listaTransacciones.sort((o1, o2) -> o1.getUsuario().getId().compareTo(o2.getUsuario().getId()));
+        actualizarTablaTransacciones();
+    }//GEN-LAST:event_jMenuNUsrActionPerformed
+
+    private void jMenuNCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuNCliActionPerformed
+        // TODO add your handling code here:
+        listaTransacciones.sort((o1, o2) -> o1.getClienteNatural().getNombre().compareTo(o2.getClienteNatural().getNombre()));
+        actualizarTablaTransacciones();
+    }//GEN-LAST:event_jMenuNCliActionPerformed
+
+    private void jMenuNProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuNProdActionPerformed
+        // TODO add your handling code here:
+        listaTransacciones.sort((o1, o2) -> o1.getProducto().getNombre().compareTo(o2.getProducto().getNombre()));
+        actualizarTablaTransacciones();
+    }//GEN-LAST:event_jMenuNProdActionPerformed
+
+    private void jMenuFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuFechaActionPerformed
+        // TODO add your handling code here:
+        listaTransacciones.sort((o1, o2) -> o1.getFecha().compareTo(o2.getFecha()));
+    }//GEN-LAST:event_jMenuFechaActionPerformed
     void actualizarTablaProductos(){
         ProductoBL logNegProducto = new ProductoBL();
         listaProductos = logNegProducto.devolverProductos(txtCodProd.getText(), txtNombProd.getText());
@@ -938,6 +993,33 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
             Usuario x = lista.get(i);
             fila[0] = x.getId();
             fila[1] = x.getRol().getDescriptor();
+            modelo.addRow(fila);
+        }
+    }
+    
+    void actualizarTablaTransacciones(){
+        DefaultTableModel modelo = (DefaultTableModel)tblTransacciones.getModel();
+        modelo.setRowCount(0);
+        Object[] fila = new Object[5];
+        for(int i=0; i<listaTransacciones.size();i++){
+            Transaccion t = listaTransacciones.get(i);
+            fila[0] = t.getProducto().getNombre();
+            
+            fila[1] = t.getTipoTransaccion().getSigno()+Integer.toString(t.getCantidad());
+            
+            String cliente;
+            if(t.getClienteNatural()!=null)
+                cliente = t.getClienteNatural().getNombre() + " " + t.getClienteNatural().getApellido();
+            else
+                cliente = t.getEmpresa().getRazonSocial();
+            fila[2] = cliente;
+            
+            fila[3] = t.getUsuario().getId();
+            
+            SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String date = dFormat.format(t.getFecha());
+            fila[4] = date;
+            
             modelo.addRow(fila);
         }
     }
@@ -1016,11 +1098,11 @@ public class FrmBuscarTransaccion extends javax.swing.JDialog {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuCantidad;
+    private javax.swing.JMenuItem jMenuFecha;
+    private javax.swing.JMenuItem jMenuNCli;
+    private javax.swing.JMenuItem jMenuNProd;
+    private javax.swing.JMenuItem jMenuNUsr;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
