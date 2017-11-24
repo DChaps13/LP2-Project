@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,7 +7,7 @@
 package cilix.Vista;
 
 import Modelo.Usuario;
-//import Reportes.*;
+import Reportes.*;
 
 
 public class Cilix extends javax.swing.JFrame {
@@ -488,16 +489,22 @@ public class Cilix extends javax.swing.JFrame {
 
     private void BBusNatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusNatActionPerformed
         // TODO add your handling code here:
+        FrmBuscarCliente f = new FrmBuscarCliente(null, true);
+        f.setVisible(true);
         
     }//GEN-LAST:event_BBusNatActionPerformed
 
     private void BBusEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusEmpActionPerformed
         // TODO add your handling code here:
+        FrmBuscarCliente f = new FrmBuscarCliente(null, true);
+        f.setVisible(true);
         
     }//GEN-LAST:event_BBusEmpActionPerformed
 
     private void BBusProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusProActionPerformed
         // TODO add your handling code here:
+        FrmBuscarCliente f = new FrmBuscarCliente(null, true);
+        f.setVisible(true);
     }//GEN-LAST:event_BBusProActionPerformed
 
     private void BBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBusActionPerformed
@@ -589,7 +596,7 @@ public class Cilix extends javax.swing.JFrame {
     }//GEN-LAST:event_BGesActionPerformed
 
     private void BGesTransActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGesTransActionPerformed
-        FrmTransaccionVenta f = new FrmTransaccionVenta(this, true,u);
+        FrmNewTransaccion f = new FrmNewTransaccion(this, true,u);
         f.setVisible(true);
     }//GEN-LAST:event_BGesTransActionPerformed
 

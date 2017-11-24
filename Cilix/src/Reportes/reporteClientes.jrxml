@@ -9,7 +9,7 @@
 FROM ClienteNatural cn, Transacción t
 WHERE t.Id_ClienteNatural = cn.Id
 GROUP BY cn.Nombre,cn.Apellido
-ORDER BY conteo]]>
+ORDER BY conteo desc]]>
 	</queryString>
 	<field name="Nombre" class="java.lang.String"/>
 	<field name="conteo" class="java.lang.Integer"/>
@@ -27,7 +27,7 @@ ORDER BY conteo]]>
 			<staticText>
 				<reportElement x="167" y="19" width="219" height="39" uuid="dc1ee11b-99fe-427d-81a5-6b6525bfe20b"/>
 				<textElement textAlignment="Justified">
-					<font size="24"/>
+					<font fontName="Maiandra GD" size="24"/>
 				</textElement>
 				<text><![CDATA[Clientes frecuentes]]></text>
 			</staticText>
@@ -35,35 +35,56 @@ ORDER BY conteo]]>
 				<reportElement x="22" y="7" width="100" height="20" uuid="c552a886-ee0b-47b9-bd8a-1179db4f1801"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="430" y="14" width="50" height="50" uuid="860554e9-6fb1-4037-ac67-7cad5e8548f6"/>
-				<imageExpression><![CDATA["C:\\temp\\TALP2\\CilixSolutions\\cliente natural - copia.png"]]></imageExpression>
-			</image>
 			<line>
 				<reportElement x="18" y="73" width="504" height="1" forecolor="#6666FF" uuid="92cff3eb-01bc-4983-aaf8-43f5d1fb2783"/>
 			</line>
+			<image>
+				<reportElement x="426" y="18" width="50" height="50" uuid="dc3cea71-0b0a-4035-9398-7fd9a65fa4e1"/>
+				<imageExpression><![CDATA["D:\\Archivos\\bua\\Cilix\\cliente natural - copia.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="9" splitType="Stretch"/>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="120" y="11" width="100" height="20" uuid="1bc758cb-c2f5-4bae-baf2-8f3c9752c9c4"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="10" width="100" height="20" uuid="a876aaa6-c15f-4e11-8f77-b7fcc89555a7"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Frecuencia]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
-	<columnHeader>
-		<band height="20" splitType="Stretch"/>
-	</columnHeader>
 	<detail>
-		<band height="10" splitType="Stretch"/>
+		<band height="52" splitType="Stretch">
+			<textField>
+				<reportElement x="150" y="16" width="100" height="20" uuid="9092a1c5-6a7b-4a0b-ae31-4b88785a4cdb"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="16" width="100" height="20" uuid="0c20c59d-89bf-4fa0-a927-ee37e40fa227"/>
+				<textElement>
+					<font fontName="Comic Sans MS"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{conteo}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
-	<columnFooter>
-		<band splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="19"/>
-	</pageFooter>
 	<summary>
-		<band height="270" splitType="Stretch">
+		<band height="199" splitType="Stretch">
 			<pieChart>
 				<chart>
-					<reportElement x="41" y="17" width="481" height="142" uuid="493ab6ce-4806-43a8-83aa-0908d3910e8e"/>
+					<reportElement x="41" y="30" width="481" height="142" uuid="493ab6ce-4806-43a8-83aa-0908d3910e8e"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
